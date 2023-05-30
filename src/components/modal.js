@@ -1,15 +1,21 @@
 import { createPortal } from 'react-dom';
 import { IoMdClose } from 'react-icons/io';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
+// using TailwindCSS for Modal
 // import './modal.scss';
 
 function Modal({ isVisible, hideModal, title, content }) {
+    const btnCloseRef = useRef(null);
+
     useEffect(() => {
         function keylogger(e) {
-            if (e.keyCode === 27) {
+            const key = e.keyCode;
+            if (key === 27) {
+                // close on escape
                 hideModal();
-            } else {
-                // document.activeElement && document.activeElement.blur()
+            } else if (key === 9 || key === 13) {
+                // trap and keep focus in modal.
+                btnCloseRef.current.focus()
             }
         }
 
@@ -38,6 +44,7 @@ function Modal({ isVisible, hideModal, title, content }) {
                           <button
                               className="stroke-white hover:bg-slate-600 absolute top-3 right-3 p-1 rounded-md"
                               type="button"
+                              ref={btnCloseRef} 
                               onClick={hideModal}
                           >
                               <IoMdClose
