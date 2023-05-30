@@ -1,0 +1,66 @@
+
+@use '../styles/colors';
+
+#view-about {
+    height: auto;
+    background: black url(../assets/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
+
+
+    header {
+        height: auto;
+        padding: 40px 0;
+        overflow: hidden;
+        text-align: center;
+        //@include box-sizing();
+    }
+
+    h1 {
+        position: relative;
+        width: 100%;
+        height: auto;
+        color: #fff;
+        font-size: 55px;
+        line-height: 0.9;
+        text-shadow: -2px 3px 1px #000;
+        font-family: "BebasNeueRegular", Arial, sans-serif;
+
+    }
+
+    .of {
+        font-family: "Lobster13Regular", Arial, Helvetica;
+        color: #eabb00;
+        font-size: 30px;
+        position: relative;
+        top: 2px;
+        left: -10px;
+        text-shadow: -3px 4px 3px #000;
+        font-weight: normal;
+        font-style: italic;
+    }
+
+    article {
+        width: 690px;
+        height: auto;
+        padding: 40px;
+        margin: 0 auto;
+        position: relative;
+
+        background-color: rgba(#000, 0.3);
+        border-radius: 2px;
+
+        p {
+            color: #ddd;
+            margin: auto;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            text-overflow: ellipsis;
+        }
+        span {
+            color: #00fffb;
+        }
+        strong {
+            color: colors.$gold;
+            font-weight: bold;
+        }
+    }
+}

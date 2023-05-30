@@ -1,0 +1,89 @@
+$gold: #eabb00;
+
+.app__nav {
+    position: fixed;
+    top: 0;
+    left: calc((100vw - 1000px) / 2);
+    width: 1000px;
+    display: flex;
+    z-index: 30;
+    background-color: #000;
+    box-shadow: 0 1px 5px #000;
+    border: 2px solid #333;
+
+    .app-nav__link {
+        width: 25%;
+        text-align: center;
+        display: inline-block;
+        line-height: 65px;
+        height: 65px;
+        color: #665;
+        font-size: 30px;
+        text-decoration: none;
+        background-color: #111;
+        border-left: 1px dotted #333;
+        box-shadow: 0 0 5px rgba(#000, 1) inset;
+        transition: all 150ms;
+        font-family: "BebasNeueRegular", Arial, sans-serif;
+        &:hover {
+            color: #ddd;
+            .nav__glyph {
+                color: $gold;
+            }
+            .cog {
+                transform: rotate(60deg);
+            }
+            .share {
+                transform: rotate(-45deg);
+            }
+            .mail {
+                transform: scale(1.2);
+            }
+            .document_alt_fill {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .app-nav__link.active {
+        color: $gold;
+        cursor: default;
+        background-color: #222;
+        text-shadow: 0 1px 3px #000;
+        box-shadow: -8px 0 18px rgba(0, 0, 0, 0.7) inset, 8px 0 18px rgba(0, 0, 0, 0.7) inset;
+
+        &:hover {
+            color: $gold;
+            .nav__glyph {
+                color: #ddd;
+            }
+        }
+
+        .nav__glyph {
+            color: #ddd;
+        }
+    }
+
+    .nav__glyph {
+        display: inline-block;
+        font-family: "IconicStroke";
+        color: #3a3a3a;
+        margin-right: 15px;
+        font-size: 30px;
+        position: relative;
+        transition: all 150ms;
+    }
+
+    .mail:before {
+        content: "\2709";
+    }
+    .document_alt_fill:before {
+        content: "\e000";
+    }
+    .cog:before {
+        content: "\2699";
+    }
+    .share:before {
+        content: "\e02e";
+    }
+}
