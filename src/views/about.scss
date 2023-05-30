@@ -63,4 +63,9 @@
             font-weight: bold;
         }
     }
+
+    a {
+        color: colors.$linkBlue;
+        text-decoration: underline;
+    }
 }
