@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "./static/css/main.2d99c2d2.css",
+    "main.js": "./static/js/main.169ca9f0.js",
+    "static/media/iconic_stroke.svg": "./static/media/iconic_stroke.a467f613989209a71754.svg",
+    "static/media/jasoncsmith-resume-2023-05-26.pdf": "./static/media/jasoncsmith-resume-2023-05-26.e092ddc19876b75763a4.pdf",
+    "static/media/ui_slider_buttons_sprite.png": "./static/media/ui_slider_buttons_sprite.926eed19410cffcba44e.png",
+    "static/media/bg_contactForm.jpg": "./static/media/bg_contactForm.7e92315c25571875423b.jpg",
+    "static/media/Lobster_1.3-webfont.svg": "./static/media/Lobster_1.3-webfont.e777d0fb406221d05e02.svg",
+    "static/media/Lobster_1.3-webfont.eot": "./static/media/Lobster_1.3-webfont.6668d15d939d7dc5feab.eot",
+    "static/media/Lobster_1.3-webfont.ttf": "./static/media/Lobster_1.3-webfont.286ad8c4a4a952139f1f.ttf",
+    "static/media/bg-slider-responsive-2.jpg": "./static/media/bg-slider-responsive-2.1d4b4720bcc374548669.jpg",
+    "static/media/bg_page_contact.jpg": "./static/media/bg_page_contact.147b5e4a7c9c96441c1a.jpg",
+    "static/media/bg-home-sky-lake.jpg": "./static/media/bg-home-sky-lake.b1e373270e2e58d72d54.jpg",
+    "static/media/iconic_stroke.eot": "./static/media/iconic_stroke.8f1417580145acbe0e93.eot",
+    "static/media/Lobster_1.3-webfont.woff": "./static/media/Lobster_1.3-webfont.11846e6750a33791f855.woff",
+    "static/media/BebasNeue-webfont.ttf": "./static/media/BebasNeue-webfont.e71339b7e265501d4202.ttf",
+    "static/media/iconic_stroke.woff": "./static/media/iconic_stroke.5a749975e528b4be3aed.woff",
+    "static/media/BebasNeue-webfont.svg": "./static/media/BebasNeue-webfont.e26552d74dc2afda7f5e.svg",
+    "static/media/iconic_stroke.ttf": "./static/media/iconic_stroke.6a021521fded41c6bd26.ttf",
+    "static/media/BebasNeue-webfont.woff": "./static/media/BebasNeue-webfont.61c2e6a76d15fb5b8259.woff",
+    "static/media/loader-o-yellow.gif": "./static/media/loader-o-yellow.abe59b1aab08249d4a65.gif",
+    "static/media/BebasNeue-webfont.eot": "./static/media/BebasNeue-webfont.23b4c82415107a88ee01.eot",
+    "index.html": "./index.html",
+    "main.2d99c2d2.css.map": "./static/css/main.2d99c2d2.css.map",
+    "main.169ca9f0.js.map": "./static/js/main.169ca9f0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d99c2d2.css",
+    "static/js/main.169ca9f0.js"
+  ]
+}
