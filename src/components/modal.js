@@ -15,7 +15,7 @@ function Modal({ isVisible, hideModal, title, content }) {
                 hideModal();
             } else if (key === 9 || key === 13) {
                 // trap and keep focus in modal.
-                btnCloseRef.current.focus()
+                btnCloseRef.current.focus();
             }
         }
 
@@ -39,12 +39,14 @@ function Modal({ isVisible, hideModal, title, content }) {
                                   {title}
                               </h3>
                           )}
-                          <div>{content}</div>
+                          <div className="text-slate-500 dark:text-slate-400 mt-2 text-sm leading-5">
+                              {content}
+                          </div>
 
                           <button
                               className="stroke-white hover:bg-slate-600 absolute top-3 right-3 p-1 rounded-md"
                               type="button"
-                              ref={btnCloseRef} 
+                              ref={btnCloseRef}
                               onClick={hideModal}
                           >
                               <IoMdClose

@@ -109,6 +109,8 @@ export default function Contact() {
 
     const reset = () => formik.handleReset();
 
+
+
     return (
         <div
             id="view-contact"
@@ -128,6 +130,7 @@ export default function Contact() {
             >
                 <form
                     // action="/webservices/form.php"
+                    autoFocus
                     method="post"
                     onSubmit={formik.handleSubmit}
                 >
@@ -278,6 +281,7 @@ export default function Contact() {
                         <button
                             className="btn-submit"
                             type="submit"
+                            tabIndex={6}
                         >
                             Transmit
                         </button>
