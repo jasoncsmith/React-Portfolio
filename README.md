@@ -1,6 +1,7 @@
 # Portfolio Site
+Source code for my React powered online portfolio.
 
-Source code for my React powered Portfolio App.
+
 
 # To View
 
