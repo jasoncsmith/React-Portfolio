@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.b248ad82.css",
-    "main.js": "./static/js/main.5f1a9f21.js",
+    "main.css": "./static/css/main.9fe21198.css",
+    "main.js": "./static/js/main.2944192a.js",
     "static/media/iconic_stroke.svg": "./static/media/iconic_stroke.a467f613989209a71754.svg",
     "static/media/jasoncsmith-resume-2023-05-26.pdf": "./static/media/jasoncsmith-resume-2023-05-26.e092ddc19876b75763a4.pdf",
     "static/media/ui_slider_buttons_sprite.png": "./static/media/ui_slider_buttons_sprite.926eed19410cffcba44e.png",
@@ -22,11 +22,11 @@
     "static/media/loader-o-yellow.gif": "./static/media/loader-o-yellow.abe59b1aab08249d4a65.gif",
     "static/media/BebasNeue-webfont.eot": "./static/media/BebasNeue-webfont.23b4c82415107a88ee01.eot",
     "index.html": "./index.html",
-    "main.b248ad82.css.map": "./static/css/main.b248ad82.css.map",
-    "main.5f1a9f21.js.map": "./static/js/main.5f1a9f21.js.map"
+    "main.9fe21198.css.map": "./static/css/main.9fe21198.css.map",
+    "main.2944192a.js.map": "./static/js/main.2944192a.js.map"
   },
   "entrypoints": [
-    "static/css/main.b248ad82.css",
-    "static/js/main.5f1a9f21.js"
+    "static/css/main.9fe21198.css",
+    "static/js/main.2944192a.js"
   ]
 }

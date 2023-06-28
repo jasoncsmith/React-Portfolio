@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import Caption from './caption'
-import MenuItem from './menuItem'
-import data from '../../data/data.js';
+import Caption from './caption';
+import MenuItem from './menuItem';
+import { slides as data } from '../../data/data.js';
 import './slider.scss';
 
 const slideWidth = 495;
@@ -10,18 +10,16 @@ const durationCaption = 450;
 const durationTimeout = 250;
 const timer = 3000;
 
-const Slide = ({ idx }) => {
-    const image = data[idx].image;
-
+const Slide = ({ name, alt }) => {
     return (
         <img
             className="slider__slide"
-            src={`images/${image.name}`}
-            alt={image.alt}
-            title={image.alt}
+            src={`images/${name}`}
+            alt={alt}
+            title={alt}
             height={350}
             width={slideWidth}
-            />
+        />
     );
 };
 
@@ -90,7 +88,7 @@ function Slider() {
 
         setPrevIndex(idx);
         setIndex(idx);
-        
+
         setIsAnimatingLeft(true);
         setTimeout(() => {
             setViewingIndex(idx);
@@ -133,12 +131,16 @@ function Slider() {
 
     const menuItems = data.map((t, idx) => (
         <MenuItem
-            key={`mi-${t.order}`}
+            key={`mi-${t.id}`}
             isActive={index === idx}
             onMenuClick={() => goto(idx)}
             slide={data[idx]}
         />
     ));
+
+    const slidePrev = data[prevIndex].image;
+    const slideCurrent = data[viewingIndex].image;
+    const slideNext = data[nextIndex].image;
 
     return (
         <div
@@ -164,9 +166,9 @@ function Slider() {
                                 : 'viewport__slides'
                         }
                     >
-                        <Slide idx={prevIndex} />
-                        <Slide idx={viewingIndex} />
-                        <Slide idx={nextIndex} />
+                        <Slide {...slidePrev} />
+                        <Slide {...slideCurrent} />
+                        <Slide {...slideNext} />
                     </div>
                 </div>
 

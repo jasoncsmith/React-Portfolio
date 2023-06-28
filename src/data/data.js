@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-anonymous-default-export
-export default [
+const slides = [
     {
-        order: 0,
+        id: 0,
         client: 'Milliman',
         clientId: 'milliman',
         year: 2023,
@@ -21,7 +21,7 @@ export default [
         },
     },
     {
-        order: 1,
+        id: 1,
         client: 'Innovata LLC.',
         clientId: 'innovata',
         year: 2013,
@@ -38,11 +38,11 @@ export default [
             width: '100%',
             height: '360',
             alt: 'oneWorld single page application',
-            name: 'media_oneWorld.jpg',
+            name: 'slide-one-world.jpg',
         },
     },
     {
-        order: 2,
+        id: 2,
         client: 'Pratt Plus',
         clientId: 'prattPlus',
         year: 2012,
@@ -60,11 +60,11 @@ export default [
             width: '100%',
             height: '360',
             alt: 'Pratt Plus ECommerce Site',
-            name: 'media_prattPlus.jpg',
+            name: 'slide-prattPlus.jpg',
         },
     },
     {
-        order: 3,
+        id: 3,
         client: 'Pratt Industries Inc.',
         clientId: 'prattIndustries',
         year: 2012,
@@ -82,11 +82,11 @@ export default [
             width: '100%',
             height: '360',
             alt: 'Pratt Industries Corporate Site',
-            name: 'media_prattIndustries.jpg',
+            name: 'slide-pratt-corporate.jpg',
         },
     },
     {
-        order: 4,
+        id: 4,
         client: 'WebMd',
         clientId: 'webMd',
         year: 2011,
@@ -104,11 +104,32 @@ export default [
             width: '100%',
             height: '360',
             alt: 'Sanford Health, Fit Initiative',
-            name: 'media_webmd.jpg',
+            name: 'slide-webmd.jpg',
         },
     },
     {
-        order: 5,
+        id: 6,
+        client: 'AboveMedia',
+        clientId: 'aboveMedia',
+        year: 2010,
+        url: 'http://www.hiregenics.com',
+        role: 'Front End Web Developer',
+        projectName: 'Rocket Comm Corporate Site',
+        projectDescription: 'Coporate website built on Joomla!',
+        fragment: '#/work/aboveMedia',
+        skills: 'HTML5, CSS3, jQuery, joomla!, UI Design, Phototoshop',
+        software: 'Coda, Photoshop CS3',
+        longDesc:
+            '<p>I was contracted by AboveMedia to assist the interactive team in the design and build of the re-designed Rocket Comm website. Rocket Comm is an established, Workforce management company with offices located throughout the US, and specializes in payrolling, IC classification, and VMS services.</p>',
+        image: {
+            width: '100%',
+            height: '360',
+            alt: 'Rocket Comm Corporate Site',
+            name: 'slide-rocketComm.jpg',
+        },
+    },
+    {
+        id: 5,
         client: 'Holder Properties',
         clientId: 'holderProperties',
         year: 2010,
@@ -128,25 +149,8 @@ export default [
             name: 'media_holderProperties.jpg',
         },
     },
-    {
-        order: 6,
-        client: 'AboveMedia',
-        clientId: 'aboveMedia',
-        year: 2010,
-        url: 'http://www.hiregenics.com',
-        role: 'Front End Web Developer',
-        projectName: 'HireGenics Corporate Site',
-        projectDescription: 'Coporate website built on Joomla!',
-        fragment: '#/work/aboveMedia',
-        skills: 'HTML5, CSS3, jQuery, joomla!, UI Design, Phototoshop',
-        software: 'Coda, Photoshop CS3',
-        longDesc:
-            '<p>I was contracted by AboveMedia to assist the interactive team in the design and build of the re-designed HireGenics website. HireGenics is an established, Workforce management company with offices located throughout the US, and specializes in payrolling, IC classification, and VMS services.</p>',
-        image: {
-            width: '100%',
-            height: '360',
-            alt: 'HireGenics Corporate Site',
-            name: 'media_hireGenics.jpg',
-        },
-    },
 ];
+
+module.exports = {
+    slides,
+};
