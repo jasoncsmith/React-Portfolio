@@ -3,7 +3,15 @@ import { useFormik } from 'formik';
 import useModal from '../hooks/useModal';
 import './contact.scss';
 
-const ContactModel = {
+interface IContactModel {
+    firstName: string;
+    lastName: string;
+    email: string;
+    company?: string;
+    comments: string;
+}
+
+const ContactModel: IContactModel = {
     firstName: '',
     lastName: '',
     email: '',
@@ -11,7 +19,19 @@ const ContactModel = {
     comments: '',
 };
 
-const Message = ({ firstName }) => {
+interface IMessage {
+    title: string;
+    content: JSX.Element;
+}
+
+interface IErrors {
+    firstName: string;
+    lastName: string;
+    email: string;
+    comments: string;
+}
+
+const Message = ({ firstName }: { firstName: string }) => {
     return (
         <>
             <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
@@ -44,16 +64,16 @@ const Message = ({ firstName }) => {
     );
 };
 
-export default function Contact() {
+export default function Contact(): JSX.Element {
     const modal = useModal();
 
-    const [msg, setMessage] = useState({
+    const [msg, setMessage] = useState<IMessage>({
         title: '',
-        content: '',
+        content: <></>,
     });
 
-    const validate = (values) => {
-        const errors = {};
+    const validate = (values: IContactModel): IErrors => {
+        const errors = {} as IErrors;
 
         if (values.firstName.length < 2) {
             errors.firstName = 'Required';
@@ -92,7 +112,7 @@ export default function Contact() {
         },
     });
 
-    const handleSuccess = ({ firstName }) => {
+    const handleSuccess = ({ firstName }: IContactModel): void => {
         setMessage({
             title: 'Thanks for Visiting',
             content: <Message firstName={firstName} />,
@@ -101,15 +121,13 @@ export default function Contact() {
         reset();
     };
 
-    const send = (data) => {
+    const send = (data: IContactModel): void => {
         // send to api when done
         // JSON.stringify(data);
         handleSuccess(data);
     };
 
-    const reset = () => formik.handleReset();
-
-
+    const reset = () => formik.handleReset(null);
 
     return (
         <div
@@ -119,8 +137,8 @@ export default function Contact() {
             <header className="view__header">
                 <h2>.Contact Me.</h2>
                 <h5 className="pt-1 text-slate-400">
-                    Featuring my custom Modal hook with Tailwind CSS (submit the form
-                    to view)
+                    Featuring my custom Modal hook with Tailwind CSS (submit the
+                    form to view)
                 </h5>
             </header>
 
@@ -150,8 +168,8 @@ export default function Contact() {
                                             : ''
                                     }
                                     type="text"
-                                    maxLength="25"
-                                    tabIndex="1"
+                                    maxLength={25}
+                                    tabIndex={1}
                                     placeholder="First name*"
                                     value={formik.values.firstName}
                                     onBlur={formik.handleBlur}
@@ -179,8 +197,8 @@ export default function Contact() {
                                             : ''
                                     }
                                     type="text"
-                                    maxLength="25"
-                                    tabIndex="2"
+                                    maxLength={25}
+                                    tabIndex={2}
                                     placeholder="Last name*"
                                     value={formik.values.lastName}
                                     onBlur={formik.handleBlur}
@@ -206,8 +224,8 @@ export default function Contact() {
                                         : ''
                                 }
                                 type="email"
-                                maxLength="40"
-                                tabIndex="3"
+                                maxLength={40}
+                                tabIndex={3}
                                 placeholder="Email*"
                                 value={formik.values.email}
                                 onBlur={formik.handleBlur}
@@ -226,8 +244,8 @@ export default function Contact() {
                                 id="input-company"
                                 name="company"
                                 type="text"
-                                maxLength="40"
-                                tabIndex="4"
+                                maxLength={40}
+                                tabIndex={4}
                                 placeholder="Company"
                                 value={formik.values.company}
                                 onBlur={formik.handleBlur}
@@ -243,8 +261,8 @@ export default function Contact() {
                                 id="input-confirmEmail"
                                 name="confirmEmail"
                                 type="text"
-                                maxLength="40"
-                                tabIndex="4"
+                                maxLength={40}
+                                tabIndex={4}
                             />
                         </div>
                     </div>
@@ -261,11 +279,11 @@ export default function Contact() {
                                         ? 'input--is-invalid'
                                         : ''
                                 }
-                                rows="7"
-                                cols="37"
+                                rows={7}
+                                cols={37}
                                 placeholder="Greetings, questions, comments... *"
-                                tabIndex="5"
-                                maxLength="275"
+                                tabIndex={5}
+                                maxLength={275}
                                 value={formik.values.comments}
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}

@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-anonymous-default-export
-const slides = [
+const data = [
     {
         id: 0,
         client: 'Milliman',
@@ -151,6 +150,5 @@ const slides = [
     },
 ];
 
-module.exports = {
-    slides,
-};
+export default data;
+// module.exports = data;

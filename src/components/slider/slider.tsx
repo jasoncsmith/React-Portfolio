@@ -1,30 +1,40 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import Caption from './caption';
 import MenuItem from './menuItem';
-import { slides as data } from '../../data/data.js';
+import SlideImage from './SlideImage';
+import db from '../../data/db.json';
 import './slider.scss';
 
-const slideWidth = 495;
+export interface IData {
+    id: number;
+    client: string;
+    clientId: string;
+    year: number;
+    url: string;
+    role: string;
+    projectName: string;
+    projectDescription: string;
+    fragment: string;
+    skills: string;
+    software: string;
+    longDesc: string;
+    image: IImage;
+}
+
+export interface IImage {
+    width: string;
+    height: string;
+    alt: string;
+    name: string;
+}
 const durationSlide = 375;
 const durationCaption = 450;
 const durationTimeout = 250;
 const timer = 3000;
-
-const Slide = ({ name, alt }) => {
-    return (
-        <img
-            className="slider__slide"
-            src={`images/${name}`}
-            alt={alt}
-            title={alt}
-            height={350}
-            width={slideWidth}
-        />
-    );
-};
+const data: IData[] = db;
 
 function Slider() {
-    const intervalRef = useRef();
+    const intervalRef = useRef<number | undefined>();
     const [index, setIndex] = useState(0);
     const [viewingIndex, setViewingIndex] = useState(0);
     const [nextIndex, setNextIndex] = useState(0);
@@ -38,16 +48,16 @@ function Slider() {
     const [isCaptionHidden, setIsCaptionHidden] = useState(false);
     const [isCaptionShowing, setIsCaptionShowing] = useState(false);
 
-    const onMouseOver = () => {
+    const onMouseOver = (): void => {
         setIsHovered(true);
         pause();
     };
 
-    const onMouseLeave = () => {
+    const onMouseLeave = (): void => {
         setIsHovered(false);
     };
 
-    const hideCaptions = () => {
+    const hideCaptions = (): void => {
         setIsCaptionHiding(true);
         setTimeout(() => {
             setIsCaptionHidden(true);
@@ -55,7 +65,7 @@ function Slider() {
         }, durationCaption);
     };
 
-    const showCaptions = () => {
+    const showCaptions = (): void => {
         setIsCaptionShowing(true);
         setIsCaptionHidden(false);
         setTimeout(() => {
@@ -63,28 +73,22 @@ function Slider() {
         }, durationCaption);
     };
 
-    const goto = (idx) => {
+    const goto = (idx: number): void => {
         setIndex(idx);
         setViewingIndex(idx);
     };
 
-    const pause = () => {
+    const pause = (): void => {
         clearInterval(intervalRef.current);
         setIsPlaying(false);
     };
 
-    const previous = () => {
+    const previous = (): void => {
         if (isAnimatingLeft === true) {
             return;
         }
 
-        let idx = null;
-
-        if (index === 0) {
-            idx = data.length - 1;
-        } else {
-            idx = index - 1;
-        }
+        const idx: number = index === 0 ? data.length - 1 : index - 1;
 
         setPrevIndex(idx);
         setIndex(idx);
@@ -96,16 +100,11 @@ function Slider() {
         }, durationSlide);
     };
 
-    const next = useCallback(() => {
+    const next = useCallback((): void => {
         if (isAnimatingRight === true) {
             return;
         }
-        let idx = null;
-        if (index === data.length - 1) {
-            idx = 0;
-        } else {
-            idx = index + 1;
-        }
+        const idx = index === data.length - 1 ? 0 : index + 1;
 
         setNextIndex(idx);
         setIndex(idx);
@@ -119,7 +118,7 @@ function Slider() {
 
     const play = useCallback(() => {
         setIsPlaying(true);
-        intervalRef.current = setTimeout(next, timer);
+        intervalRef.current = window.setTimeout(next, timer);
     }, [next]);
 
     useEffect(() => {
@@ -129,18 +128,22 @@ function Slider() {
         return () => pause();
     }, [play, isHovered]);
 
-    const menuItems = data.map((t, idx) => (
-        <MenuItem
-            key={`mi-${t.id}`}
-            isActive={index === idx}
-            onMenuClick={() => goto(idx)}
-            slide={data[idx]}
-        />
-    ));
+    const menuItems = data.map(
+        (t: IData, idx): JSX.Element => (
+            <MenuItem
+                key={`mi-${t.id}`}
+                isActive={index === idx}
+                onMenuClick={() => goto(idx)}
+                image={data[idx].image}
+                client={data[idx].client}
+            />
+        )
+    );
 
-    const slidePrev = data[prevIndex].image;
-    const slideCurrent = data[viewingIndex].image;
-    const slideNext = data[nextIndex].image;
+    const currentSlide = data[viewingIndex];
+    const slideImagePrev = data[prevIndex].image as IImage;
+    const slideImageCurrent = currentSlide.image as IImage;
+    const slideImageNext = data[nextIndex].image as IImage;
 
     return (
         <div
@@ -166,9 +169,9 @@ function Slider() {
                                 : 'viewport__slides'
                         }
                     >
-                        <Slide {...slidePrev} />
-                        <Slide {...slideCurrent} />
-                        <Slide {...slideNext} />
+                        <SlideImage {...slideImagePrev} />
+                        <SlideImage {...slideImageCurrent} />
+                        <SlideImage {...slideImageNext} />
                     </div>
                 </div>
 
@@ -229,8 +232,8 @@ function Slider() {
                 }
             >
                 <Caption
-                    isUpating={isAnimatingRight | isAnimatingLeft}
-                    slide={data[viewingIndex]}
+                    isUpdating={isAnimatingRight || isAnimatingLeft}
+                    slide={currentSlide}
                 />
 
                 <div className="caption-display__links"></div>

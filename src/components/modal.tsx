@@ -3,19 +3,31 @@ import { IoMdClose } from 'react-icons/io';
 import { useEffect, useRef } from 'react';
 // using TailwindCSS for Modal
 // import './modal.scss';
+export interface IModal {
+    isVisible: boolean;
+    title: string;
+    content: string;
+    hideModal: () => {};
+}
 
-function Modal({ isVisible, hideModal, title, content }) {
-    const btnCloseRef = useRef(null);
+function Modal({
+    isVisible,
+    hideModal,
+    title,
+    content,
+}: IModal): React.ReactPortal | null {
+    const btnCloseRef = useRef<HTMLButtonElement | null>(null);
 
     useEffect(() => {
-        function keylogger(e) {
-            const key = e.keyCode;
-            if (key === 27) {
+        function keylogger(e: KeyboardEvent): void {
+            const key: string = e.key;
+
+            if (key === 'Escape') {
                 // close on escape
                 hideModal();
-            } else if (key === 9 || key === 13) {
+            } else if (key === 'Tab' || key === 'Enter') {
                 // trap and keep focus in modal.
-                btnCloseRef.current.focus();
+                btnCloseRef.current && btnCloseRef.current.focus();
             }
         }
 

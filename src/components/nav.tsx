@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import './nav.scss';
 
-function Nav() {
+function Nav(): JSX.Element {
     return (
         <nav className="app__nav">
             <NavLink

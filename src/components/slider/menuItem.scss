@@ -27,6 +27,7 @@
         background-color: colors.$gold;
     }
 }
+
 .menuItem__thumbnail {
     width: 200px;
     h5 {
@@ -49,12 +50,14 @@
     left: 25px;
     border-radius: 2px;
 }
+
 .menuItem--selected {
     background-color: colors.$gold;
     button {
         cursor: default;
     }
 }
+
 .menuItem--selected:hover {
     background-color: colors.$gold;
 }

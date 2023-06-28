@@ -1,12 +1,12 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './footer.scss';
 
-function Footer() {
-    const urls = {
-        linkedin: 'https://www.linkedin.com/in/jasoncsmithweb/',
-        gitHub: 'https://github.com/jasoncsmith/',
-    };
+const urls = {
+    linkedin: 'https://www.linkedin.com/in/jasoncsmithweb/',
+    gitHub: 'https://github.com/jasoncsmith/',
+};
 
+function Footer() {
     return (
         <footer className="app__footer">
             <p className="footer__author">JASON SMITH</p>
