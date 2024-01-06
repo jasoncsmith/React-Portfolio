@@ -1,5 +1,6 @@
 import { createHashRouter } from 'react-router-dom';
-import App from './App';
+
+import App from './views/App';
 import Work from './views/Work';
 import About from './views/About';
 import Contact from './views/Contact';

@@ -1,0 +1,78 @@
+@import "../../styles/reset";
+
+@font-face {
+    font-family: "BebasNeueRegular";
+    src: url("../../assets/fonts/bebas-neue-fontfacekit/BebasNeue-webfont.eot");
+    src:
+        url("../../assets/fonts/bebas-neue-fontfacekit/BebasNeue-webfont.eot?#iefix") format("embedded-opentype"),
+        url("../../assets/fonts/bebas-neue-fontfacekit/BebasNeue-webfont.woff") format("woff"),
+        url("../../assets/fonts/bebas-neue-fontfacekit/BebasNeue-webfont.ttf") format("truetype"),
+        url("../../assets/fonts/bebas-neue-fontfacekit/BebasNeue-webfont.svg#BebasNeueRegular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lobster13Regular";
+    src: url("../../assets/fonts/Lobster/Lobster_1.3-webfont.eot");
+    src:
+        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.eot?#iefix") format("embedded-opentype"),
+        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.woff") format("woff"),
+        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.ttf") format("truetype"),
+        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.svg#Lobster13Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "IconicStroke";
+    src: url("../../assets/fonts/iconic_stroke/iconic_stroke.eot");
+    src:
+        url("../../assets/fonts/iconic_stroke/iconic_stroke.eot?#iefix") format("embedded-opentype"),
+        url("../../assets/fonts/iconic_stroke/iconic_stroke.woff") format("woff"),
+        url("../../assets/fonts/iconic_stroke/iconic_stroke.ttf") format("truetype"),
+        url("../../assets/fonts/iconic_stroke/iconic_stroke.svg#iconic") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; //  Opera/IE 8+
+}
+
+html {
+    background-color: #000;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-family: Arial;
+}
+
+main {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    position: relative;
+    min-height: calc(100vh - 235px);
+}
+
+.view {
+    z-index: 2;
+    width: 100%;
+    height: auto;
+    padding: 0 0 100px 0;
+}
+
+.loading {
+    position: absolute;
+    right: 111px;
+    bottom: 30px;
+    width: 32px;
+    height: 32px;
+    z-index: 1;
+    // background: url(../../assets/ajax_loader.gif) no-repeat 0 0;
+    display: none;
+}
