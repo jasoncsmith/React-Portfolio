@@ -1,4 +1,4 @@
-import pdf from '../../assets/jasoncsmith-resume-2023-05-26.pdf';
+import pdf from '../../assets/resume-jasonsmith-01_2024.pdf';
 import './index.scss';
 function Resume() {
     return (
