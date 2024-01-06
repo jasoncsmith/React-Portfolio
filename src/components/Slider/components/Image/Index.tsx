@@ -1,4 +1,4 @@
-import { IImage } from './slider';
+import { IImage } from '../..';
 
 const slideWidth = 495;
 

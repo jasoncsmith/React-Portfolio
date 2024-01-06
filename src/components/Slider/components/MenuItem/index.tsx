@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { IImage } from './slider';
-import './menuItem.scss';
+import { IImage } from '../..';
+import './index.scss';
+
 interface IPropsMenuItem {
     isActive: boolean;
     onMenuClick: () => void;

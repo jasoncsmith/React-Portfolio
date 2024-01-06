@@ -1,4 +1,4 @@
-import './about.scss';
+import './index.scss';
 
 function About() {
     return (
@@ -42,7 +42,11 @@ function About() {
 
                 <p>
                     Take a look around and of course view the source code on{' '}
-                    <strong>GitHub</strong>: <a href='https://github.com/jasoncsmith/React-Portfolio/'>Portfolio source code</a>.
+                    <strong>GitHub</strong>:{' '}
+                    <a href="https://github.com/jasoncsmith/React-Portfolio/">
+                        Portfolio source code
+                    </a>
+                    .
                 </p>
             </article>
         </div>

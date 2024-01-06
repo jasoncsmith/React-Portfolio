@@ -1,5 +1,5 @@
-import pdf from '../assets/jasoncsmith-resume-2023-05-26.pdf';
-import './resume.scss';
+import pdf from '../../assets/jasoncsmith-resume-2023-05-26.pdf';
+import './index.scss';
 function Resume() {
     return (
         <div id="view-resume">

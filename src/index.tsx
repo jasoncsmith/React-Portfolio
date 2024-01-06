@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 // import {RouterProvider} from 'react-router-dom'
 import App from './App';
-import Work from './views/work';
-import About from './views/about';
-import Contact from './views/contact';
-import Resume from './views/resume';
+import Work from './views/Work';
+import About from './views/About';
+import Contact from './views/Contact';
+import Resume from './views/Resume';
 import './index.css';
 
 const root = ReactDOM.createRoot(

@@ -1,4 +1,4 @@
-@use "../../styles/colors";
+@use "/src/styles/colors";
 
 .slider__caption-display {
     color: #ffffff;
@@ -9,10 +9,12 @@
     position: relative;
     top: 10px;
     z-index: 5;
-    background: url(../../assets/bg-slider-responsive-2.jpg) no-repeat 100% 0;
+    background: url(../../../../assets/bg-slider-responsive-2.jpg) no-repeat 100% 0;
 
     border-radius: 4px;
-    box-shadow: -20px 28px 20px rgba(0, 0, 0, 0.8), 7px -5px 5px rgba(0, 0, 0, 0.5) inset,
+    box-shadow:
+        -20px 28px 20px rgba(0, 0, 0, 0.8),
+        7px -5px 5px rgba(0, 0, 0, 0.5) inset,
         -5px 5px 4px rgba(255, 255, 211, 0.3) inset;
 
     p {

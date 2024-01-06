@@ -1,9 +1,9 @@
 import { createHashRouter } from 'react-router-dom';
 import App from './App';
-import Work from './views/work';
-import About from './views/about';
-import Contact from './views/contact';
-import Four04 from './views/four04';
+import Work from './views/Work';
+import About from './views/About';
+import Contact from './views/Contact';
+import Four04 from './views/Four04';
 
 const router = createHashRouter([
     {

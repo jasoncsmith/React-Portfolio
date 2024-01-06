@@ -1,6 +1,6 @@
 import { useState, Dispatch } from 'react';
 
-import Modal from '../components/modal';
+import Modal from '../components/Modal';
 
 interface IUseModal {
     isVisible: boolean;

@@ -1,5 +1,5 @@
-import './work.scss';
-import Slider from '../components/slider/slider';
+import './index.scss';
+import Slider from '../../components/Slider';
 
 function Work() {
     return (
@@ -9,7 +9,9 @@ function Work() {
         >
             <header>
                 <h2>.Work.</h2>
-                <h5 className='pt-1 text-slate-400'>Featuring my custom React Carousel</h5>
+                <h5 className="pt-1 text-slate-400">
+                    Featuring my custom React Carousel
+                </h5>
             </header>
 
             <Slider />

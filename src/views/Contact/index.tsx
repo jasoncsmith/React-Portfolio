@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
-import useModal from '../hooks/useModal';
-import './contact.scss';
+import useModal from '../../hooks/useModal';
+import './index.scss';
 
 interface IContactModel {
     firstName: string;

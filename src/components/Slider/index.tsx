@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import Caption from './caption';
-import MenuItem from './menuItem';
-import SlideImage from './SlideImage';
+import Caption from './components/Caption';
+import MenuItem from './components/MenuItem';
+import SlideImage from './components/Image/Index';
 import db from '../../data/db.json';
-import './slider.scss';
+import './index.scss';
 
 export interface IData {
     id: number;

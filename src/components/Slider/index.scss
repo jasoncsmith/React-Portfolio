@@ -1,5 +1,5 @@
-@use "../../styles/mixins";
-@use "../../styles/colors";
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
 
 .slider {
     display: flex;
@@ -15,7 +15,9 @@
 
         transition: transform 0.25s ease-in-out;
         border-radius: 10px;
-        box-shadow: 7px -5px 5px rgba(0, 0, 0, 0.5) inset, -5px 5px 4px rgba(255, 255, 211, 0.3) inset;
+        box-shadow:
+            7px -5px 5px rgba(0, 0, 0, 0.5) inset,
+            -5px 5px 4px rgba(255, 255, 211, 0.3) inset;
     }
     .slider__container--captions-hidden {
         transform: translate(30%, 0);
@@ -28,7 +30,9 @@
         margin: 25px 45px 0 45px;
         border-radius: 9px;
         background: #000 url(../../assets/loader/loader-o-yellow.gif) no-repeat 50% 50%;
-        box-shadow: -3px 4px 1px rgba(255, 255, 211, 0.3), 4px -4px 1px rgba(0, 0, 0, 0.5);
+        box-shadow:
+            -3px 4px 1px rgba(255, 255, 211, 0.3),
+            4px -4px 1px rgba(0, 0, 0, 0.5);
     }
     .viewport__slides {
         position: relative;
@@ -130,7 +134,9 @@
         padding: 0 0 0 10px;
         margin-top: 1px;
         background-color: rgba(#000, 0.4);
-        box-shadow: 1px -2px 2px rgba(255, 255, 211, 0.5) inset, -3px 2px 3px rgba(0, 0, 0, 0.8) inset;
+        box-shadow:
+            1px -2px 2px rgba(255, 255, 211, 0.5) inset,
+            -3px 2px 3px rgba(0, 0, 0, 0.8) inset;
         border-radius: 15px;
     }
 

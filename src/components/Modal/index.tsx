@@ -1,6 +1,8 @@
 import { createPortal } from 'react-dom';
 import { IoMdClose } from 'react-icons/io';
 import { useEffect, useRef } from 'react';
+// import './index.scss';
+
 // using TailwindCSS for Modal
 // import './modal.scss';
 export interface IModal {

@@ -1,5 +1,5 @@
-import { IImage } from './slider';
-import './caption.scss';
+import { IImage } from '../..';
+import './index.scss';
 
 export interface ISlide {
     id: number;

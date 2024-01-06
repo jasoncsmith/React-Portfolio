@@ -1,5 +1,5 @@
 import { useRouteError } from 'react-router-dom';
-import './four04.scss';
+import './index.scss';
 
 const Four04 = () => {
     const error: any = useRouteError();

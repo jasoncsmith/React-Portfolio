@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import './footer.scss';
+import './index.scss';
 
 const urls = {
     linkedin: 'https://www.linkedin.com/in/jasoncsmithweb/',
