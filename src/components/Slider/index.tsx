@@ -1,12 +1,17 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react'
 import db from '../../data/db.json'
-import Caption from './components/Caption'
-import MenuItem from './components/MenuItem'
-import SlideImage, { ImageProps } from './components/Image/Index'
 
-import { DURATION_SLIDE, DURATION_CAPTION, DURATION_TIMEOUT, TIMER } from './constants'
+import Caption from './components/Caption'
+import CaptionContainer from './components/CaptionContainer'
+import ViewPort from './components/ViewPort'
+import Nav from './components/Nav'
+import Menu from './components/Menu'
+
+import { ImageProps } from './components/Image/Index'
+import { DURATION_SLIDE, DURATION_CAPTION, DURATION_JANK_DELAY, SLIDE_INTERVAL } from './constants'
 
 import './index.scss'
+import SliderContainer from './components/SliderContainer'
 
 export interface Project {
   id: number
@@ -67,9 +72,13 @@ function Slider() {
     }, DURATION_CAPTION)
   }
 
-  const goto = (idx: number): void => {
+  const goTo = (idx: number): void => {
     setIndex(idx)
     setViewingIndex(idx)
+  }
+
+  const toggleCaptions = () => {
+    !!isCaptionHidden ? showCaptions() : hideCaptions()
   }
 
   const pause = (): void => {
@@ -88,9 +97,10 @@ function Slider() {
     setIndex(idx)
 
     setIsAnimatingLeft(true)
+
     setTimeout(() => {
       setViewingIndex(idx)
-      setTimeout(setIsAnimatingLeft, DURATION_TIMEOUT, false) // setTimeout fixes jank in Edge
+      setTimeout(setIsAnimatingLeft, DURATION_JANK_DELAY, false) // setTimeout fixes jank in Edge
     }, DURATION_SLIDE)
   }
 
@@ -106,13 +116,13 @@ function Slider() {
     setIsAnimatingRight(true)
     setTimeout(() => {
       setViewingIndex(idx)
-      setTimeout(setIsAnimatingRight, DURATION_TIMEOUT, false) // setTimeout fixes jank in Edge
+      setTimeout(setIsAnimatingRight, DURATION_JANK_DELAY, false) // setTimeout fixes jank in Edge
     }, DURATION_SLIDE)
   }, [index, isAnimatingRight])
 
   const play = useCallback(() => {
     setIsPlaying(true)
-    intervalRef.current = window.setTimeout(next, TIMER)
+    intervalRef.current = window.setTimeout(next, SLIDE_INTERVAL)
   }, [next])
 
   useEffect(() => {
@@ -122,18 +132,6 @@ function Slider() {
     return () => pause()
   }, [play, isHovered])
 
-  const menuItems = data.map(
-    (t: Project, idx): JSX.Element => (
-      <MenuItem
-        key={`mi-${t.id}`}
-        isActive={index === idx}
-        onMenuClick={() => goto(idx)}
-        image={data[idx].image}
-        client={data[idx].client}
-      />
-    )
-  )
-
   const currentSlide = data[viewingIndex]
   const slideImagePrev: ImageProps = data[prevIndex]?.image
   const slideImageCurrent: ImageProps = currentSlide?.image
@@ -141,69 +139,31 @@ function Slider() {
 
   return (
     <div id="slider1" className="slider">
-      <div
-        className={isCaptionHidden ? 'slider__container slider__container--captions-hidden' : 'slider__container'}
-        onMouseOver={onMouseOver}
-        onMouseLeave={onMouseLeave}
-      >
-        <div className="slider__viewport">
-          <div
-            className={
-              isAnimatingRight
-                ? 'viewport__slides viewport__slides--is-animating-right'
-                : isAnimatingLeft
-                ? 'viewport__slides viewport__slides--is-animating-left'
-                : 'viewport__slides'
-            }
-          >
-            <SlideImage {...slideImagePrev} />
-            <SlideImage {...slideImageCurrent} />
-            <SlideImage {...slideImageNext} />
-          </div>
-        </div>
+      <SliderContainer isCaptionHidden={isCaptionHidden} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+        <ViewPort
+          isAnimatingRight={isAnimatingRight}
+          isAnimatingLeft={isAnimatingLeft}
+          slideImagePrev={slideImagePrev}
+          slideImageCurrent={slideImageCurrent}
+          slideImageNext={slideImageNext}
+        />
 
-        <nav>
-          <button type="button" className="nav__btn btn-prev" onClick={previous}>
-            Previous
+        <Nav onPrevious={previous} onNext={next} />
+
+        <Menu items={data} isPlaying={isPlaying} onMenuClick={goTo} index={index}>
+          <button type="button" className="btn btn-toggle-captions" onClick={toggleCaptions}>
+            {!!isCaptionHidden ? 'Show' : 'Hide'} Captions
           </button>
-          <button type="button" className="nav__btn btn-next" onClick={next}>
-            Next
-          </button>
-        </nav>
+        </Menu>
+      </SliderContainer>
 
-        <div className="slider__controls">
-          <div className="controls__slider-menu">
-            {menuItems}
-            <div className="slider-menu__play-state">{isPlaying === true ? 'Playing' : 'Paused'}</div>
-          </div>
-
-          {isCaptionHidden === false ? (
-            <button type="button" className="btn btn-toggle-captions" onClick={hideCaptions}>
-              Hide Captions
-            </button>
-          ) : (
-            <button type="button" className="btn btn-toggle-captions" onClick={showCaptions}>
-              Show Captions
-            </button>
-          )}
-        </div>
-      </div>
-
-      <div
-        className={
-          isCaptionHiding
-            ? 'slider__caption-display slider__caption-display--is-hiding'
-            : isCaptionHidden
-            ? 'slider__caption-display slider__caption-display--is-hidden'
-            : isCaptionShowing
-            ? 'slider__caption-display slider__caption-display--is-showing'
-            : 'slider__caption-display'
-        }
+      <CaptionContainer
+        isCaptionHiding={isCaptionHiding}
+        isCaptionHidden={isCaptionHidden}
+        isCaptionShowing={isCaptionShowing}
       >
         <Caption isUpdating={isAnimatingRight || isAnimatingLeft} slide={currentSlide} />
-
-        <div className="caption-display__links"></div>
-      </div>
+      </CaptionContainer>
     </div>
   )
 }
