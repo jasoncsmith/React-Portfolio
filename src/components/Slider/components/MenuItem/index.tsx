@@ -1,45 +1,39 @@
-import { useState } from 'react';
-import { IImage } from '../..';
-import './index.scss';
+import { useState } from 'react'
+import './index.scss'
+import { ImageProps } from '../Image/Index'
 
-interface IPropsMenuItem {
-    isActive: boolean;
-    onMenuClick: () => void;
-    image: IImage;
-    client: string;
+interface MenuItemProps {
+  isActive: boolean
+  onMenuClick: () => void
+  image: ImageProps
+  client: string
 }
 
-const MenuItem = ({ isActive, onMenuClick, image, client }: IPropsMenuItem) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const { alt, name } = image;
+const MenuItem = ({ isActive, onMenuClick, image, client }: MenuItemProps) => {
+  const [isHovered, setIsHovered] = useState(false)
+  const { alt, name } = image
 
-    return (
-        <div className={isActive ? 'menuItem menuItem--selected' : 'menuItem'}>
-            <button
-                type="button"
-                onClick={onMenuClick}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
-                {alt}
-            </button>
+  return (
+    <div className={isActive ? 'menuItem menuItem--selected' : 'menuItem'}>
+      <button
+        type="button"
+        onClick={onMenuClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {alt}
+      </button>
 
-            {isHovered === true ? (
-                <div className="menuItem__thumbnail">
-                    <h5 dangerouslySetInnerHTML={{ __html: client }}></h5>
-                    <img
-                        className="menuItem__img"
-                        src={`images/${name}`}
-                        alt={alt}
-                        title={alt}
-                        height={100}
-                    />
-                </div>
-            ) : (
-                ''
-            )}
+      {isHovered === true ? (
+        <div className="menuItem__thumbnail">
+          <h5 dangerouslySetInnerHTML={{ __html: client }}></h5>
+          <img className="menuItem__img" src={`images/${name}`} alt={alt} title={alt} height={100} />
         </div>
-    );
-};
+      ) : (
+        ''
+      )}
+    </div>
+  )
+}
 
-export default MenuItem;
+export default MenuItem

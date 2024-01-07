@@ -1,42 +1,42 @@
-import { NavLink } from 'react-router-dom';
-import './index.scss';
+import { NavLink } from 'react-router-dom'
+import './index.scss'
 
-function Nav(): JSX.Element {
-    return (
-        <nav className="app__nav">
-            <NavLink
-                className="app-nav__link about"
-                to="/about"
-                style={{ textAlign: 'center' }}
-            >
-                <span className="nav__glyph share"></span>About
-            </NavLink>
-
-            <NavLink
-                className="app-nav__link work"
-                to="/work"
-                style={{ textAlign: 'center' }}
-            >
-                <span className="nav__glyph cog"></span>Work
-            </NavLink>
-
-            <NavLink
-                className="app-nav__link contact"
-                to="/contact"
-                style={{ textAlign: 'center' }}
-            >
-                <span className="nav__glyph mail"></span>Contact
-            </NavLink>
-
-            <NavLink
-                className="app-nav__link resume"
-                to="/resume"
-                style={{ textAlign: 'center' }}
-            >
-                <span className="nav__glyph document_alt_fill"></span>Resume
-            </NavLink>
-        </nav>
-    );
+interface IconProps {
+  icon: string
+  children: string
 }
 
-export default Nav;
+const Icon = ({ icon, children }: IconProps) => (
+  <span>
+    <span className={`nav__glyph ${icon}`}></span>
+    {children}
+  </span>
+)
+
+interface NavItemProps {
+  className: string
+  href: string
+  icon: string
+  text: string
+}
+
+const NavItem = ({ className, href, icon, text }: NavItemProps) => {
+  return (
+    <NavLink className={`app-nav__link ${className}`} to={href}>
+      <Icon icon={icon}>{text}</Icon>
+    </NavLink>
+  )
+}
+
+function Nav(): JSX.Element {
+  return (
+    <nav className="app__nav">
+      <NavItem className="about" href="/about" icon="share" text="About" />
+      <NavItem className="work" href="/work" icon="cog" text="Work" />
+      <NavItem className="contact" href="/contact" icon="mail" text="Contact" />
+      <NavItem className="resume" href="/resume" icon="document_alt_fill" text="Resume" />
+    </nav>
+  )
+}
+
+export default Nav
