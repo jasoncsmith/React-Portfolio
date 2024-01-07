@@ -6,7 +6,7 @@ import useModal from '../../hooks/useModal'
 
 import './index.scss'
 
-export interface IContactModel {
+export interface ContactFormModel {
   firstName: string
   lastName: string
   email: string
@@ -14,12 +14,12 @@ export interface IContactModel {
   comments: string
 }
 
-interface IMessage {
+interface ModalContent {
   title: string
   content: JSX.Element
 }
 
-const ContactModel: IContactModel = {
+const ContactModel: ContactFormModel = {
   firstName: '',
   lastName: '',
   email: '',
@@ -44,6 +44,7 @@ const SuccessMessage = ({ firstName }: { firstName: string }) => {
     </>
   )
 }
+
 const ContactForm = () => {
   const modal = useModal()
   const formik = useFormik({
@@ -53,12 +54,12 @@ const ContactForm = () => {
       send(values)
     },
   })
-  const [msg, setMessage] = useState<IMessage>({
+  const [msg, setMessage] = useState<ModalContent>({
     title: '',
     content: <></>,
   })
 
-  const handleSuccess = ({ firstName }: IContactModel): void => {
+  const handleSuccess = ({ firstName }: ContactFormModel): void => {
     setMessage({
       title: 'Thanks for Visiting',
       content: <SuccessMessage firstName={firstName} />,
@@ -67,7 +68,7 @@ const ContactForm = () => {
     reset()
   }
 
-  const send = (data: IContactModel): void => {
+  const send = (data: ContactFormModel): void => {
     handleSuccess(data)
   }
 

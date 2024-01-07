@@ -1,13 +1,14 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react'
+import db from '../../data/db.json'
 import Caption from './components/Caption'
 import MenuItem from './components/MenuItem'
 import SlideImage, { ImageProps } from './components/Image/Index'
-import db from '../../data/db.json'
+
 import { DURATION_SLIDE, DURATION_CAPTION, DURATION_TIMEOUT, TIMER } from './constants'
 
 import './index.scss'
 
-export interface IData {
+export interface Project {
   id: number
   client: string
   clientId: string
@@ -23,7 +24,7 @@ export interface IData {
   image: ImageProps
 }
 
-const data: IData[] = db
+const data: Project[] = db
 
 function Slider() {
   const intervalRef = useRef<number | undefined>()
@@ -122,7 +123,7 @@ function Slider() {
   }, [play, isHovered])
 
   const menuItems = data.map(
-    (t: IData, idx): JSX.Element => (
+    (t: Project, idx): JSX.Element => (
       <MenuItem
         key={`mi-${t.id}`}
         isActive={index === idx}
@@ -134,9 +135,9 @@ function Slider() {
   )
 
   const currentSlide = data[viewingIndex]
-  const slideImagePrev: ImageProps = data[prevIndex].image
-  const slideImageCurrent: ImageProps = currentSlide.image
-  const slideImageNext: ImageProps = data[nextIndex].image
+  const slideImagePrev: ImageProps = data[prevIndex]?.image
+  const slideImageCurrent: ImageProps = currentSlide?.image
+  const slideImageNext: ImageProps = data[nextIndex]?.image
 
   return (
     <div id="slider1" className="slider">
