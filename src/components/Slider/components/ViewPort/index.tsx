@@ -1,31 +1,30 @@
-import SlideImage, { ImageProps } from '../Image/Index'
+import { observer } from 'mobx-react'
+
+import { useSliderStoreContext } from '../../contexts'
+import SlideImage from '../Image/Index'
 
 import './index.scss'
 
-interface ViewPortProps {
-  isAnimatingRight: boolean
-  isAnimatingLeft: boolean
-  previousImage: ImageProps
-  currentImage: ImageProps
-  nextImage: ImageProps
+const ViewPort = () => {
+  const { isAnimatingRight, isAnimatingLeft, prevIndex, index, nextIndex, slides } = useSliderStoreContext()
+
+  return (
+    <div className="slider__viewport">
+      <div
+        className={
+          isAnimatingRight
+            ? 'slider__viewport__slides slider__viewport__slides--is-animating-right'
+            : isAnimatingLeft
+            ? 'slider__viewport__slides slider__viewport__slides--is-animating-left'
+            : 'slider__viewport__slides'
+        }
+      >
+        <SlideImage {...slides[prevIndex]?.image} />
+        <SlideImage {...slides[index]?.image} />
+        <SlideImage {...slides[nextIndex]?.image} />
+      </div>
+    </div>
+  )
 }
 
-const ViewPort = ({ isAnimatingRight, isAnimatingLeft, previousImage, currentImage, nextImage }: ViewPortProps) => (
-  <div className="slider__viewport">
-    <div
-      className={
-        isAnimatingRight
-          ? 'slider__viewport__slides slider__viewport__slides--is-animating-right'
-          : isAnimatingLeft
-          ? 'slider__viewport__slides slider__viewport__slides--is-animating-left'
-          : 'slider__viewport__slides'
-      }
-    >
-      <SlideImage {...previousImage} />
-      <SlideImage {...currentImage} />
-      <SlideImage {...nextImage} />
-    </div>
-  </div>
-)
-
-export default ViewPort
+export default observer(ViewPort)

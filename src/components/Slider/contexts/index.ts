@@ -1,7 +1,9 @@
 import { makeObservable, computed, observable, action } from 'mobx'
 import { createContext, useContext } from 'react'
+
 import db from '../../../data/db.json'
-import { DURATION_JANK_DELAY, DURATION_SLIDE, SLIDE_INTERVAL } from '../constants'
+import { DURATION_CAPTION, DURATION_SLIDE_BUFFER, SLIDE_INTERVAL } from '../constants'
+
 import { ImageProps } from '../components/Image/Index'
 
 export interface Project {
@@ -29,18 +31,17 @@ class SliderStore {
   }
 
   @observable index = 0
-  // @observable viewingIndex = 0
-  // @observable isAnimatingLeft = false
-  // @observable isAnimatingRight = false
+  @observable isAnimatingLeft = false
+  @observable isAnimatingRight = false
+  @observable isCaptionShowing = false
   @observable isCaptionHiding = false
   @observable isCaptionHidden = false
-  @observable isCaptionShowing = false
   @observable isPlaying = false
-  @observable data: Project[] = []
+  @observable slides: Project[] = []
 
   @computed
   get numOfSlides(): number {
-    return this.data?.length ?? 0
+    return this.slides?.length ?? 0
   }
 
   @computed
@@ -68,58 +69,46 @@ class SliderStore {
     this.index = val
   }
 
-  // @action.bound
-  // setViewingIndex(val: number) {
-  //   this.viewingIndex = val
-  // }
-
   @action.bound
   goToPrevious() {
-    // if (!!this.isAnimatingLeft) {
-    //   return
-    // }
+    if (!!this.isAnimatingLeft) {
+      return
+    }
 
-    this.setIndex(this.prevIndex)
-    // this.setIsAnimatingLeft(true)
+    this.setIsAnimatingLeft(true)
 
-    // setTimeout(() => {
-    //   this.setViewingIndex(this.prevIndex)
-    //   setTimeout(this.setIsAnimatingLeft, DURATION_JANK_DELAY, false) // setTimeout fixes jank in Edge
-    // }, DURATION_SLIDE)
+    setTimeout(() => {
+      this.setIndex(this.prevIndex)
+      this.setIsAnimatingLeft(false)
+    }, DURATION_SLIDE_BUFFER)
   }
 
   @action.bound
   goToNext() {
-    // if (!!this.isAnimatingRight) {
-    //   return
-    // }
+    if (!!this.isAnimatingRight) return
 
-    // this.setIndex(this.nextIndex)
-    // this.setIsAnimatingRight(true)
+    this.setIsAnimatingRight(true)
 
-    this.setIndex(this.nextIndex)
-    // this.setViewingIndex(this.nextIndex)
-
-    // setTimeout(() => {
-    //   setTimeout(this.setIsAnimatingRight, DURATION_JANK_DELAY, false) // setTimeout fixes jank in Edge
-    // }, DURATION_SLIDE)
+    setTimeout(() => {
+      this.setIndex(this.nextIndex)
+      this.setIsAnimatingRight(false)
+    }, DURATION_SLIDE_BUFFER)
   }
 
   @action.bound
   goTo(val: number) {
     this.index = val
-    // this.viewingIndex = val
   }
 
-  // @action.bound
-  // setIsAnimatingRight(val: boolean) {
-  //   this.isAnimatingRight = val
-  // }
+  @action.bound
+  setIsAnimatingRight(val: boolean) {
+    this.isAnimatingRight = val
+  }
 
-  // @action.bound
-  // setIsAnimatingLeft(val: boolean) {
-  //   this.isAnimatingLeft = val
-  // }
+  @action.bound
+  setIsAnimatingLeft(val: boolean) {
+    this.isAnimatingLeft = val
+  }
 
   @action.bound
   setIsCaptionHiding(val: boolean) {
@@ -141,11 +130,35 @@ class SliderStore {
     this.isPlaying = val
   }
 
+  @action.bound
+  hideCaptions = (): void => {
+    this.setIsCaptionHiding(true)
+
+    setTimeout(() => {
+      this.setIsCaptionHidden(true)
+      this.setIsCaptionHiding(false)
+    }, DURATION_CAPTION)
+  }
+
+  @action.bound
+  showCaptions = (): void => {
+    this.setIsCaptionShowing(true)
+    this.setIsCaptionHidden(false)
+
+    setTimeout(this.setIsCaptionShowing, DURATION_CAPTION, false)
+  }
+
+  toggleCaptions = () => {
+    !!this.isCaptionHidden ? this.showCaptions() : this.hideCaptions()
+  }
+
+  @action.bound
   pause = () => {
     window.clearInterval(this.intervalId)
     this.setIsPlaying(false)
   }
 
+  @action.bound
   play = () => {
     this.intervalId = window.setInterval(this.goToNext, SLIDE_INTERVAL)
     this.setIsPlaying(true)
@@ -153,7 +166,7 @@ class SliderStore {
 
   @action.bound
   init() {
-    this.data = db
+    this.slides = db
     this.play()
   }
 }

@@ -1,15 +1,17 @@
 import { ReactNode } from 'react'
+import { observer } from 'mobx-react'
+
+import { useSliderStoreContext } from '../../contexts'
 
 import './index.scss'
 
 interface CaptionContainerProps {
-  isCaptionHiding: boolean
-  isCaptionHidden: boolean
-  isCaptionShowing: boolean
   children: ReactNode
 }
 
-const CaptionContainer = ({ isCaptionHiding, isCaptionHidden, isCaptionShowing, children }: CaptionContainerProps) => {
+const CaptionContainer = ({ children }: CaptionContainerProps) => {
+  const { isCaptionHiding, isCaptionHidden, isCaptionShowing } = useSliderStoreContext()
+
   return (
     <div
       className={
@@ -29,4 +31,4 @@ const CaptionContainer = ({ isCaptionHiding, isCaptionHidden, isCaptionShowing, 
   )
 }
 
-export default CaptionContainer
+export default observer(CaptionContainer)
