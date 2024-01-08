@@ -2,14 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 // import {RouterProvider} from 'react-router-dom'
+import './index.css' // import first so less specificity
 
 import App from './views/App'
 import Work from './views/Work'
 import About from './views/About'
 import Contact from './views/Contact'
 import Resume from './views/Resume'
-
-import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 

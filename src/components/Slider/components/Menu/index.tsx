@@ -1,6 +1,9 @@
 import { ReactNode } from 'react'
-import { Project } from '../..'
+
 import MenuItem from '../MenuItem'
+
+import { Project } from '../../contexts'
+
 import './index.scss'
 
 interface MenuProps {

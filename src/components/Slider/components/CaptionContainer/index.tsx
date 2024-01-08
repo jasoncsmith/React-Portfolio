@@ -1,5 +1,4 @@
 import { ReactNode } from 'react'
-import Caption from '../Caption'
 
 import './index.scss'
 

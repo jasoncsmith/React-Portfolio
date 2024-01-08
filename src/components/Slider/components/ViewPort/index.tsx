@@ -1,21 +1,16 @@
 import SlideImage, { ImageProps } from '../Image/Index'
+
 import './index.scss'
 
 interface ViewPortProps {
   isAnimatingRight: boolean
   isAnimatingLeft: boolean
-  slideImagePrev: ImageProps
-  slideImageCurrent: ImageProps
-  slideImageNext: ImageProps
+  previousImage: ImageProps
+  currentImage: ImageProps
+  nextImage: ImageProps
 }
 
-const ViewPort = ({
-  isAnimatingRight,
-  isAnimatingLeft,
-  slideImagePrev,
-  slideImageCurrent,
-  slideImageNext,
-}: ViewPortProps) => (
+const ViewPort = ({ isAnimatingRight, isAnimatingLeft, previousImage, currentImage, nextImage }: ViewPortProps) => (
   <div className="slider__viewport">
     <div
       className={
@@ -26,9 +21,9 @@ const ViewPort = ({
           : 'slider__viewport__slides'
       }
     >
-      <SlideImage {...slideImagePrev} />
-      <SlideImage {...slideImageCurrent} />
-      <SlideImage {...slideImageNext} />
+      <SlideImage {...previousImage} />
+      <SlideImage {...currentImage} />
+      <SlideImage {...nextImage} />
     </div>
   </div>
 )

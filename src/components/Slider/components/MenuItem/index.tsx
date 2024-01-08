@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import './index.scss'
+
 import { ImageProps } from '../Image/Index'
+
+import './index.scss'
 
 interface MenuItemProps {
   isActive: boolean
