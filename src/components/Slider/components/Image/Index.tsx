@@ -2,8 +2,8 @@ import { SLIDE_WIDTH } from '../../constants'
 import './index.scss'
 
 export interface ImageProps {
-  width: string
-  height: string
+  width?: string
+  height?: string
   alt: string
   name: string
 }

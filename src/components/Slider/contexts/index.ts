@@ -4,7 +4,7 @@ import { createContext, useContext } from 'react'
 import db from '../../../data/db.json'
 import { DURATION_CAPTION, DURATION_SLIDE_BUFFER, SLIDE_INTERVAL } from '../constants'
 
-import { ImageProps } from '../components/Image/Index'
+import { ImageProps } from '../components/Image'
 
 export interface Project {
   id: number
@@ -71,9 +71,7 @@ class SliderStore {
 
   @action.bound
   goToPrevious() {
-    if (!!this.isAnimatingLeft) {
-      return
-    }
+    if (!!this.isAnimatingLeft) return
 
     this.setIsAnimatingLeft(true)
 
@@ -148,9 +146,7 @@ class SliderStore {
     setTimeout(this.setIsCaptionShowing, DURATION_CAPTION, false)
   }
 
-  toggleCaptions = () => {
-    !!this.isCaptionHidden ? this.showCaptions() : this.hideCaptions()
-  }
+  toggleCaptions = () => (!!this.isCaptionHidden ? this.showCaptions() : this.hideCaptions())
 
   @action.bound
   pause = () => {
@@ -171,7 +167,8 @@ class SliderStore {
   }
 }
 
-export default SliderStore
 type SliderStoreType = InstanceType<typeof SliderStore>
+
+export default SliderStore
 export const SliderStoreContext = createContext<SliderStoreType>({} as SliderStoreType)
 export const useSliderStoreContext = () => useContext(SliderStoreContext)

@@ -7,14 +7,12 @@ import ViewPort from './components/ViewPort'
 import Caption from './components/Caption'
 import Controls from './components/Controls'
 import Nav from './components/Nav'
-
 import SliderStore, { SliderStoreContext } from './contexts'
 
 import './index.scss'
 
 function Slider() {
   const [store] = useState(() => new SliderStore())
-
   return (
     <SliderStoreContext.Provider value={store}>
       <div className="slider">

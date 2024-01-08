@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react'
 
 import { useSliderStoreContext } from '../../contexts'
-import SlideImage from '../Image/Index'
+import SlideImage from '../Image'
 
 import './index.scss'
 

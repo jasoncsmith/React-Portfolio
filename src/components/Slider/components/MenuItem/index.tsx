@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { ImageProps } from '../Image/Index'
+import { ImageProps } from '../Image'
 
 import './index.scss'
 
