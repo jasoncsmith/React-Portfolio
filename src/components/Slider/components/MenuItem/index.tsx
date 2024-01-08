@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import cn from 'classnames'
 
 import { ImageProps } from '../Image'
 
@@ -16,7 +17,12 @@ const MenuItem = ({ isActive, onMenuClick, image, client }: MenuItemProps) => {
   const { alt, name } = image
 
   return (
-    <div className={isActive ? 'menuItem menuItem--selected' : 'menuItem'}>
+    <div
+      className={cn({
+        menuItem: true,
+        'menuItem--selected': isActive,
+      })}
+    >
       <button
         type="button"
         onClick={onMenuClick}

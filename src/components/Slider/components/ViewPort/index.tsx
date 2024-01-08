@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react'
+import cn from 'classnames'
 
 import { useSliderStoreContext } from '../../contexts'
 import SlideImage from '../Image'
@@ -11,13 +12,11 @@ const ViewPort = () => {
   return (
     <div className="slider__viewport">
       <div
-        className={
-          isAnimatingRight
-            ? 'slider__viewport__slides slider__viewport__slides--is-animating-right'
-            : isAnimatingLeft
-            ? 'slider__viewport__slides slider__viewport__slides--is-animating-left'
-            : 'slider__viewport__slides'
-        }
+        className={cn({
+          slider__viewport__slides: true,
+          'slider__viewport__slides--is-animating-left': isAnimatingLeft,
+          'slider__viewport__slides--is-animating-right': isAnimatingRight,
+        })}
       >
         <SlideImage {...slides[prevIndex]?.image} />
         <SlideImage {...slides[index]?.image} />

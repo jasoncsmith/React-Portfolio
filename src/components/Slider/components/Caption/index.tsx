@@ -1,4 +1,5 @@
 import { observer } from 'mobx-react'
+import cn from 'classnames'
 
 import { useSliderStoreContext } from '../../contexts'
 
@@ -10,11 +11,10 @@ const Caption = () => {
 
   return (
     <div
-      className={
-        isAnimatingRight || isAnimatingLeft
-          ? 'caption-display__caption caption--is-updating'
-          : 'caption-display__caption'
-      }
+      className={cn({
+        'caption-display__caption': true,
+        'caption--is-updating': isAnimatingRight || isAnimatingLeft,
+      })}
     >
       <h5 className="caption__subtitle">Client</h5>
       <p className="caption__client-name">{slide.client}</p>

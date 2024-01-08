@@ -30,6 +30,7 @@ class SliderStore {
     this.init()
   }
 
+  @observable slides: Project[] = []
   @observable index = 0
   @observable isAnimatingLeft = false
   @observable isAnimatingRight = false
@@ -37,7 +38,6 @@ class SliderStore {
   @observable isCaptionHiding = false
   @observable isCaptionHidden = false
   @observable isPlaying = false
-  @observable slides: Project[] = []
 
   @computed
   get numOfSlides(): number {

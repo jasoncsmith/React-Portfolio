@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import { observer } from 'mobx-react'
+import cn from 'classnames'
 
 import { useSliderStoreContext } from '../../contexts'
 
@@ -14,15 +15,12 @@ const CaptionContainer = ({ children }: CaptionContainerProps) => {
 
   return (
     <div
-      className={
-        isCaptionHiding
-          ? 'slider__caption-display slider__caption-display--is-hiding'
-          : isCaptionHidden
-          ? 'slider__caption-display slider__caption-display--is-hidden'
-          : isCaptionShowing
-          ? 'slider__caption-display slider__caption-display--is-showing'
-          : 'slider__caption-display'
-      }
+      className={cn({
+        'slider__caption-display': true,
+        'slider__caption-display--is-hidden': isCaptionHidden,
+        'slider__caption-display--is-hiding': isCaptionHiding,
+        'slider__caption-display--is-showing': isCaptionShowing,
+      })}
     >
       {children}
 
