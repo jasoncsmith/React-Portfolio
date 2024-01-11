@@ -12,7 +12,7 @@ const data = [
     projectName: 'Online Automotive Shopping',
     projectDescription: 'Online Automotive Shopping',
     fragment: '#/work/autonation',
-    skills: 'React, MobX, TypeScript, Modular SCSS, Node.js, Azure DevOps, GIT',
+    skills: 'React, NextJs, MobX, TypeScript, Modular SCSS, Node.js, Azure DevOps, GIT',
     software: 'Visual Studio, SQL Server Management Studio',
     longDesc: '<p>Banged out code</p>',
     image: {
