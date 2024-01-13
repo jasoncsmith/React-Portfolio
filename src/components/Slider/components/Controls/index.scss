@@ -1,7 +1,13 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
+
 .slider__controls {
-    display: flex;
+    display: none;
+    padding: 15px 0 0 0;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px;
-    height: 44px;
+
+    @include mixins.breakpointMin(715px) {
+        display: flex;
+    }
 }

@@ -6,25 +6,25 @@
     padding: 70px 10px 20px 10px; // TODO: componentize this
 
     .validation-meassage--is-error {
-        background-color: #fbfbfb;
-        color: colors.$errorRed;
-        border-radius: 3px;
-        padding: 3px 5px;
-        white-space: nowrap;
-        line-height: 1;
         position: absolute;
         bottom: -22px;
         left: 0;
+        padding: 3px 5px;
+        line-height: 1;
         font-size: 14px;
+        white-space: nowrap;
+        border-radius: 3px;
+        background-color: #fbfbfb;
+        color: colors.$errorRed;
     }
 
     .view__header {
         // TODO: componentize this
-        text-align: center;
         z-index: 30;
         padding: 35px 0 30px 0;
-        border-bottom: 1px solid #333;
         margin-bottom: 50px;
+        text-align: center;
+        border-bottom: 1px solid #333;
     }
 
     h2 {

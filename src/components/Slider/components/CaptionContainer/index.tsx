@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import { observer } from 'mobx-react'
-import cn from 'classnames'
+import classNames from 'classnames'
 
 import { useSliderStoreContext } from '../../contexts'
 
@@ -15,7 +15,7 @@ const CaptionContainer = ({ children }: CaptionContainerProps) => {
 
   return (
     <div
-      className={cn({
+      className={classNames({
         'slider__caption-display': true,
         'slider__caption-display--is-hidden': isCaptionHidden,
         'slider__caption-display--is-hiding': isCaptionHiding,

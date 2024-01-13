@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react'
-import cn from 'classnames'
+import classNames from 'classnames'
 
 import { useSliderStoreContext } from '../../contexts'
 
@@ -11,7 +11,7 @@ const Caption = () => {
 
   return (
     <div
-      className={cn({
+      className={classNames({
         'caption-display__caption': true,
         'caption--is-updating': isAnimatingRight || isAnimatingLeft,
       })}

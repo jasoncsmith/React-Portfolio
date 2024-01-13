@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import './index.scss'
 import { useState } from 'react'
-import cn from 'classnames'
+import classNames from 'classnames'
 
 interface IconProps {
   icon: string
@@ -36,10 +36,13 @@ function Nav(): JSX.Element {
 
   return (
     <nav className="app__nav">
-      <div onClick={handleClick} className={cn({ 'app-nav__trigger': true, 'app-nav__trigger--is-active': isOpen })}>
+      <div
+        onClick={handleClick}
+        className={classNames({ 'app-nav__trigger': true, 'app-nav__trigger--is-active': isOpen })}
+      >
         <Icon icon="layers" />
       </div>
-      <div className={cn({ 'app-nav__wrapper': true, 'app-nav__wrapper--is-open': isOpen })}>
+      <div className={classNames({ 'app-nav__wrapper': true, 'app-nav__wrapper--is-open': isOpen })}>
         <NavItem onClick={handleClick} className="about" href="/about" icon="share" text="About" />
         <NavItem onClick={handleClick} className="work" href="/work" icon="cog" text="Work" />
         <NavItem onClick={handleClick} className="contact" href="/contact" icon="mail" text="Contact" />

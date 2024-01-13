@@ -24,9 +24,9 @@ function About() {
         </p>
         <p>
           I enjoy building things from scratch, as much as I as enjoy the React open-source community. The site uses{' '}
-          <span>MobX, HashRouter, responsive design</span> (excluding the slider; working on that next), a custom built{' '}
-          <span>React carousel, formik validation, custom hooks, react-icons, Webpack, SCSS</span>, and a bit of{' '}
-          <span>TailwindCSS</span>.
+          <span>MobX, HashRouter, responsive design</span>, a custom-built{' '}
+          <span>responsive React carousel, formik validation, custom hooks, react-icons, Webpack, SCSS</span>, and a bit
+          of <span>TailwindCSS</span>.
         </p>
 
         <p>

@@ -1,25 +1,30 @@
 @use "/src/styles/mixins";
 @use "/src/styles/colors";
+
 .slider__caption-display {
-    color: #ffffff;
-    width: 330px;
+    width: 100%;
+    max-width: 495px;
     height: 100%;
-    padding: 13px 20px 20px 23px;
-    position: relative;
-    top: 10px;
-    left: -6px;
+    padding: 0;
     z-index: 5;
-    background: url(../../../../assets/bg-slider-responsive-2.jpg) no-repeat 100% 0;
 
-    // @include mixins.breakpointMin(915px) {
-    //     flex-wrap: unset;
-    // }
+    color: #ffffff;
+    background-color: #2b77a5b3;
+    border-radius: 0;
 
-    border-radius: 4px;
-    box-shadow:
-        -20px 28px 20px rgba(0, 0, 0, 0.8),
-        7px -5px 5px rgba(0, 0, 0, 0.5) inset,
-        -5px 5px 4px rgba(255, 255, 211, 0.3) inset;
+    @include mixins.breakpointMin(715px) {
+        flex-wrap: unset;
+        position: relative;
+        top: 10px;
+        left: -6px;
+        padding: 13px 20px 20px 23px;
+        box-shadow:
+            -20px 28px 20px rgba(0, 0, 0, 0.8),
+            7px -5px 5px rgba(0, 0, 0, 0.5) inset,
+            -5px 5px 4px rgba(255, 255, 211, 0.3) inset;
+        border-radius: 4px;
+        background: url(../../../../assets/b_d.jpg) repeat;
+    }
 
     p {
         font-size: 15px;

@@ -1,16 +1,27 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
+
 .slider__container {
+    display: inline-block;
     position: relative;
-    background: url(../../../../assets/bg-slider-responsive-2.jpg) no-repeat 0 0;
-    margin: 0 0 100px 0;
+    padding: 0;
     z-index: 2;
 
+    border-radius: 0;
+    background-color: #2b77a5b3;
     transition: transform 0.25s ease-in-out;
-    border-radius: 10px;
-    box-shadow:
-        7px -5px 5px rgba(0, 0, 0, 0.5) inset,
-        -5px 5px 4px rgba(255, 255, 211, 0.3) inset;
+
+    @include mixins.breakpointMin(715px) {
+        flex-wrap: unset;
+        padding: 20px 20px 20px 20px;
+        box-shadow:
+            7px -5px 5px rgba(0, 0, 0, 0.5) inset,
+            -5px 5px 4px rgba(255, 255, 211, 0.3) inset;
+        border-radius: 10px;
+        background: url(../../../../assets/b_d.jpg) repeat 34px -19px;
+    }
 
     &--captions-hidden {
-        transform: translate(30%, 0);
+        transform: translate(calc(50vw - calc(535px / 2)), 0);
     }
 }

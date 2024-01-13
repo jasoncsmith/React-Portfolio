@@ -4,9 +4,7 @@
 .slider__menu {
     display: flex;
     align-items: center;
-    // width: min-content;
-    height: 27px;
-    padding: 0 0 0 10px;
+    padding: 4px 0 4px 10px;
     margin-top: 1px;
     background-color: rgba(#000, 0.4);
     box-shadow:
@@ -17,15 +15,14 @@
     &--play-state {
         width: 55px;
         height: 18px;
-        line-height: 15px;
-
-        text-align: center;
-        font-style: italic;
         padding: 0 0 5px 0;
         margin-right: 6px;
-        border-radius: 5px 18px 18px 5px;
-
         font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        font-style: italic;
+
+        border-radius: 5px 18px 18px 5px;
         color: colors.$gold;
         background-color: rgba(#000, 0.3);
     }

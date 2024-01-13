@@ -2,9 +2,10 @@
 @use "../../styles/colors";
 
 $width: 1000px;
-.app__nav {
-    width: 100%;
-}
+// .app__nav {
+//     // width: 110%;
+//     // margin-left: -5%;
+// }
 
 .app-nav__link {
     width: 100%;
@@ -13,7 +14,7 @@ $width: 1000px;
     justify-content: flex-start;
     padding: 10px 0px 10px 20px;
     font-size: 20px;
-    color: #665;
+    color: #e7e7e7;
     text-decoration: none;
     background-color: #111;
     border-left: 1px dotted #333;
@@ -22,12 +23,13 @@ $width: 1000px;
     font-family: "BebasNeueRegular", Arial, sans-serif;
 
     @include mixins.breakpointMin(630px) {
+        color: #665;
         width: 25%;
         height: 65px;
-        line-height: 65px;
-        padding: 0;
-        font-size: 30px;
         justify-content: center;
+        padding: 0;
+        line-height: 65px;
+        font-size: 30px;
     }
 
     &:hover {
@@ -54,9 +56,12 @@ $width: 1000px;
         cursor: default;
         background-color: #222;
         text-shadow: 0 1px 3px #000;
-        box-shadow:
-            -8px 0 18px rgba(0, 0, 0, 0.7) inset,
-            8px 0 18px rgba(0, 0, 0, 0.7) inset;
+
+        @include mixins.breakpointMin(630px) {
+            box-shadow:
+                -8px 0 18px rgba(0, 0, 0, 0.7) inset,
+                8px 0 18px rgba(0, 0, 0, 0.7) inset;
+        }
 
         &:hover {
             color: colors.$gold;
@@ -72,14 +77,14 @@ $width: 1000px;
 }
 
 .nav__glyph {
-    display: inline-block;
     font-family: "IconicStroke";
-    color: #3a3a3a;
+    display: inline-block;
     margin-right: 15px;
-    font-size: 18px;
     position: relative;
-    transition: all 150ms;
     line-height: 1;
+    color: #3a3a3a;
+    font-size: 18px;
+    transition: all 150ms;
 
     @include mixins.breakpointMin(630px) {
         font-size: 30px;
@@ -87,20 +92,18 @@ $width: 1000px;
 }
 
 .app-nav__trigger {
-    z-index: 5;
-    // width: 40px;
-    // height: 40px;
-    padding: 8px 12px 4px 12px;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     top: 15px;
     right: 20px;
+    z-index: 5;
+    padding: 8px 12px 4px 12px;
     border-radius: 3px;
     border: 1px solid #353535;
     background: rgba(#000, 0.4);
+    cursor: pointer;
 
     &:hover {
         .nav__glyph {
@@ -124,16 +127,15 @@ $width: 1000px;
 }
 
 .app-nav__wrapper {
-    display: flex;
     position: absolute;
+    display: flex;
     flex-wrap: wrap;
     width: 100%;
     max-width: $width;
     z-index: 1;
-    transition: transform 0.3s;
     background-color: #000;
     box-shadow: 0 1px 5px #000;
-    border: 2px solid #333;
+    transition: transform 0.3s;
     transform: translateY(-100%);
 
     &--is-open {
@@ -145,6 +147,7 @@ $width: 1000px;
     }
 
     @include mixins.breakpointMin(630px) {
+        border: 2px solid #333;
         transform: translateY(0);
     }
 }

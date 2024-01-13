@@ -12,11 +12,11 @@
     }
 
     form {
-        max-width: 980px;
-        margin: 0 auto;
         display: grid;
         grid-template-columns: 1fr;
         row-gap: 28px;
+        max-width: 980px;
+        margin: 0 auto;
         padding: 14px 10px;
         border-radius: 6px;
         background: url(../../assets/bg_contactForm.jpg) repeat 0 0;
@@ -26,9 +26,9 @@
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
             grid-gap: 20px;
-            border-radius: 14px;
             height: 320px;
             padding: 35px 25px;
+            border-radius: 14px;
             background-repeat: no-repeat;
         }
     }
@@ -45,6 +45,7 @@
     }
 
     .loader {
+        display: none;
         position: absolute;
         bottom: 32.5px;
         right: 141px;
@@ -52,8 +53,6 @@
         height: 30px;
         z-index: 20;
         background: url(../../assets/loader/loader-o-yellow.gif) no-repeat 50% 50%;
-        display: none;
-        //@include transition(200ms);
     }
 
     .sending .loader {
@@ -71,9 +70,9 @@
         padding: 10px;
         margin: 0;
         line-height: 30px;
+        border: 2px solid #11363f;
         font: 16px Arial;
         color: #ddd;
-        border: 2px solid #11363f;
         box-shadow:
             0 0 8px #000 inset,
             -2px 2px 2px rgba(152, 192, 183, 0.5),
@@ -95,8 +94,8 @@
     .group {
         width: 100%;
         display: flex;
-        gap: 4%;
         justify-content: space-between;
+        gap: 4%;
 
         .control-input {
             width: 50%;
@@ -130,11 +129,12 @@
     }
 
     .btn-submit {
-        cursor: pointer;
         width: 100%;
         padding: 6px 30px 3px 30px;
         font-size: 25px;
+        cursor: pointer;
         color: #835500;
+        font-family: "BebasNeueRegular", Arial, sans-serif;
         text-transform: uppercase;
         text-shadow:
             0px -1px 0px #333,
@@ -145,7 +145,6 @@
             0px -1px 0px rgba(245, 233, 172, 1);
         transition: all 0.2s;
         @include mixins.vertical-gradient(#eabb00, #a86400);
-        font-family: "BebasNeueRegular", Arial, sans-serif;
         @include mixins.breakpointMin(630px) {
             width: 50%;
             grid-column: 2;

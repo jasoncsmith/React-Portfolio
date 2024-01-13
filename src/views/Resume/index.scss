@@ -5,29 +5,33 @@
 
     .view__header {
         // TODO: componentize this
-        text-align: center;
-        z-index: 30;
         padding: 35px 0 30px 0;
-        border-bottom: 1px solid #333;
         margin-bottom: 50px;
+        z-index: 30;
+        text-align: center;
+        border-bottom: 1px solid #333;
     }
 
     h2 {
-        font-family: "BebasNeueRegular", Arial, sans-serif;
-        color: colors.$teal;
         font-size: 50px;
         line-height: 1;
+        font-family: "BebasNeueRegular", Arial, sans-serif;
+        color: colors.$teal;
     }
 
     .document-viewer {
-        background: #fff;
-        min-height: 100vh;
-        max-width: 612px;
         width: 100%;
+        max-width: 612px;
+        min-height: 100vh;
         margin: 0 auto;
+        background: #fff;
     }
 
     .pdf-page {
         margin-bottom: 25px;
     }
+}
+
+.pdf-document .loader {
+    margin: 0 auto;
 }

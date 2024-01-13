@@ -8,7 +8,7 @@ export interface ImageProps {
   name: string
 }
 
-const SlideImage = ({ name, alt }: ImageProps) => {
-  return <img className="slider__slide" src={`images/${name}`} alt={alt} title={alt} height={350} width={SLIDE_WIDTH} />
+const SlideImage = ({ name, alt, width = SLIDE_WIDTH }: ImageProps) => {
+  return <img className="slider__slide" src={`images/${name}`} alt={alt} title={alt} height={'100%'} width={'100%'} />
 }
 export default SlideImage

@@ -4,6 +4,7 @@
 #view-about {
     background: black url(../../assets/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
     padding: 70px 10px 20px 10px; // TODO: componentize this
+
     header {
         height: auto;
         padding: 40px 0;
@@ -15,22 +16,22 @@
         width: 100%;
         height: auto;
         color: #fff;
-        font-size: 55px;
         line-height: 0.9;
+        font-size: 55px;
         text-shadow: -2px 3px 1px #000;
         font-family: "BebasNeueRegular", Arial, sans-serif;
     }
 
     .of {
         font-family: "Lobster13Regular", Arial, Helvetica;
-        color: #eabb00;
-        font-size: 30px;
         position: relative;
         top: 2px;
         left: -10px;
-        text-shadow: -3px 4px 3px #000;
+        font-size: 30px;
         font-weight: normal;
         font-style: italic;
+        color: #eabb00;
+        text-shadow: -3px 4px 3px #000;
     }
 
     article {
@@ -39,9 +40,9 @@
         margin: 0 auto;
         position: relative;
         line-height: 1.5;
+        font-size: 16px;
         background-color: rgba(#000, 0.3);
         border-radius: 2px;
-        font-size: 16px;
 
         @include mixins.breakpointMin(480px) {
             padding: 40px;

@@ -13,6 +13,7 @@ import './index.scss'
 
 function Slider() {
   const [store] = useState(() => new SliderStore())
+
   return (
     <SliderStoreContext.Provider value={store}>
       <div className="slider">
