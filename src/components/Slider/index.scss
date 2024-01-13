@@ -6,6 +6,10 @@
     width: 915px;
     margin: 0 auto;
 
+    @include mixins.breakpointMin(915px) {
+        flex-wrap: wrap;
+    }
+
     .btn {
         cursor: pointer;
         line-height: 1;

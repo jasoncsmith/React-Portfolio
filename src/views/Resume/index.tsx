@@ -3,7 +3,12 @@ import './index.scss'
 function Resume() {
   return (
     <div id="view-resume">
-      <embed src={pdf} type="application/pdf" height="600px" width="100%"></embed>
+      <header className="view__header">
+        <h2>Resume</h2>
+      </header>
+      <div className={'document-viewer'}>
+        <object data={pdf} type="application/pdf" width="100%" height="700px" aria-label="resume"></object>
+      </div>
     </div>
   )
 }

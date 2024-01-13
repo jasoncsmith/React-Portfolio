@@ -1,15 +1,12 @@
 @use "/src/styles/colors";
 
 #view-about {
-    height: auto;
     background: black url(../../assets/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
-
+    padding: 70px 10px 20px 10px; // TODO: componentize this
     header {
         height: auto;
         padding: 40px 0;
-        overflow: hidden;
         text-align: center;
-        //@include box-sizing();
     }
 
     h1 {
@@ -36,8 +33,7 @@
     }
 
     article {
-        width: 690px;
-        height: auto;
+        max-width: 690px;
         padding: 40px;
         margin: 0 auto;
         position: relative;
@@ -53,7 +49,7 @@
             text-overflow: ellipsis;
         }
         span {
-            color: #00fffb;
+            color: colors.$teal;
         }
         strong {
             color: colors.$gold;

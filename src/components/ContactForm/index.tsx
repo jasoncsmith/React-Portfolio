@@ -33,12 +33,17 @@ const SuccessMessage = ({ firstName }: { firstName: string }) => {
         Hello, <span style={{ color: '#eabb00', fontWeight: 'bold' }}>{firstName}</span>.
       </p>
       <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm leading-5">
-        This form is not hooked up to a backend api. It is just a demo. Styled with{' '}
+        This form is not hooked up to a backend api, just a demo. Styled with{' '}
         <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>tailwindCSS</strong> and uses the{' '}
         <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>formik</strong> validation library. Source code is
-        available in my <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>GitHub</strong> repo here:{' '}
-        <a href="https://github.com/jasoncsmith/React-Portfolio" target="_blank" rel="noreferrer">
-          Visit
+        available in my <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>GitHub</strong> repo{' '}
+        <a
+          className="text-blue-500"
+          href="https://github.com/jasoncsmith/React-Portfolio"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Check it out
         </a>
       </p>
     </>
@@ -82,7 +87,7 @@ const ContactForm = () => {
         method="post"
         onSubmit={formik.handleSubmit}
       >
-        <div className="form-lcol">
+        <div className="form-lcol column">
           <div className="group">
             <div className="control-input">
               <label htmlFor="input-firstName">First Name</label>
@@ -164,7 +169,7 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="form-rcol">
+        <div className="form-rcol column">
           <div className="control-textarea">
             <label htmlFor="textarea-comments">Comments</label>
             <textarea
@@ -184,12 +189,11 @@ const ContactForm = () => {
               <span className="validation-meassage--is-error">{formik.errors.comments}</span>
             ) : null}
           </div>
-
-          <button className="btn-submit" type="submit" tabIndex={6}>
-            Transmit
-          </button>
-          <div className="loader"></div>
         </div>
+        <button className="btn-submit" type="submit" tabIndex={6}>
+          Transmit
+        </button>
+        <div className="loader"></div>
       </form>
 
       <modal.Modal

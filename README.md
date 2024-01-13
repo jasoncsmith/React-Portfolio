@@ -7,6 +7,7 @@ Source code for my React powered online portfolio.
 Click the link: https://jasoncsmith.github.io/React-Portfolio/build/
 
 # To Do
+- Clean up SCSS
 - Implement modular SCSSS
 - Implement Webpack scss nested BEM to camelCase classNames
-- Mobile Friendly
+- Implement Responsive Design for Slider

@@ -1,52 +1,57 @@
-$gold: #eabb00;
+@use "../../styles/mixins";
+@use "../../styles/colors";
 
+$width: 1000px;
 .app__nav {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: calc((100vw - 1000px) / 2);
-    width: 1000px;
-    z-index: 30;
-    background-color: #000;
-    box-shadow: 0 1px 5px #000;
-    border: 2px solid #333;
+    width: 100%;
+}
 
-    .app-nav__link {
-        width: 25%;
-        text-align: center;
-        display: inline-block;
+.app-nav__link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 18px;
+    color: #665;
+    text-decoration: none;
+    background-color: #111;
+    border-left: 1px dotted #333;
+    box-shadow: 0 0 5px rgba(#000, 1) inset;
+    transition: all 150ms;
+    font-family: "BebasNeueRegular", Arial, sans-serif;
+
+    @include mixins.breakpointMin(630px) {
+        justify-content: center;
+        font-size: 30px;
         line-height: 65px;
         height: 65px;
-        color: #665;
-        font-size: 30px;
-        text-decoration: none;
-        background-color: #111;
-        border-left: 1px dotted #333;
-        box-shadow: 0 0 5px rgba(#000, 1) inset;
-        transition: all 150ms;
-        font-family: "BebasNeueRegular", Arial, sans-serif;
-        &:hover {
-            color: #ddd;
-            .nav__glyph {
-                color: $gold;
-            }
-            .cog {
-                transform: rotate(60deg);
-            }
-            .share {
-                transform: rotate(-45deg);
-            }
-            .mail {
-                transform: scale(1.2);
-            }
-            .document_alt_fill {
-                transform: scale(1.2);
-            }
+        width: 25%;
+        text-align: center;
+        padding-left: 0;
+    }
+    &:hover {
+        color: #ddd;
+        .nav__glyph {
+            color: colors.$gold;
+        }
+        .cog {
+            transform: rotate(60deg);
+        }
+        .share {
+            transform: rotate(-45deg);
+        }
+        .mail {
+            transform: scale(1.2);
+        }
+        .document_alt_fill {
+            transform: scale(1.2);
         }
     }
 
-    .app-nav__link.active {
-        color: $gold;
+    &.active {
+        color: colors.$gold;
         cursor: default;
         background-color: #222;
         text-shadow: 0 1px 3px #000;
@@ -55,37 +60,104 @@ $gold: #eabb00;
             8px 0 18px rgba(0, 0, 0, 0.7) inset;
 
         &:hover {
-            color: $gold;
+            color: colors.$gold;
             .nav__glyph {
-                color: #ddd;
+                color: colors.$teal;
             }
         }
 
         .nav__glyph {
-            color: #ddd;
+            color: colors.$teal;
+        }
+    }
+}
+
+.nav__glyph {
+    display: inline-block;
+    font-family: "IconicStroke";
+    color: #3a3a3a;
+    margin-right: 15px;
+    font-size: 18px;
+    position: relative;
+    transition: all 150ms;
+
+    @include mixins.breakpointMin(630px) {
+        font-size: 30px;
+    }
+}
+
+.app-nav__trigger {
+    z-index: 5;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    border-radius: 3px;
+    border: 1px solid #353535;
+    background: rgba(#000, 0.4);
+
+    &:hover {
+        .nav__glyph {
+            color: #ccc;
         }
     }
 
     .nav__glyph {
-        display: inline-block;
-        font-family: "IconicStroke";
-        color: #3a3a3a;
-        margin-right: 15px;
-        font-size: 30px;
-        position: relative;
-        transition: all 150ms;
+        margin: 0 !important; // remove later
+        color: #888;
+        font-size: 27px;
     }
 
-    .mail:before {
-        content: "\2709";
+    &--is-active .nav__glyph {
+        color: #ccc;
     }
-    .document_alt_fill:before {
-        content: "\e000";
+
+    @include mixins.breakpointMin(630px) {
+        display: none;
     }
-    .cog:before {
-        content: "\2699";
+}
+
+.app-nav__wrapper {
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: $width;
+    z-index: 1;
+    transition: transform 0.3s;
+    background-color: #000;
+    box-shadow: 0 1px 5px #000;
+    border: 2px solid #333;
+    transform: translateX(100%);
+
+    &--is-open {
+        transform: translateX(0);
     }
-    .share:before {
-        content: "\e02e";
+
+    @include mixins.breakpointMin($width) {
+        left: calc((100vw - $width) / 2);
     }
+
+    @include mixins.breakpointMin(630px) {
+        transform: translateX(0);
+    }
+}
+
+.mail:before {
+    content: "\2709";
+}
+.document_alt_fill:before {
+    content: "\e000";
+}
+.cog:before {
+    content: "\2699";
+}
+.share:before {
+    content: "\e02e";
+}
+.layers:before {
+    content: "\e01f";
 }

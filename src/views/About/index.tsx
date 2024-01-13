@@ -17,18 +17,16 @@ function About() {
           enjoyed building the graphics back in the day.
         </p>
         <p>
-          My name is <span>Jason Smith</span>, I live in <span>Denver, CO</span>. I am a <span>Frontend</span> Developer
+          My name is <span>Jason Smith</span>, I live in <span>Denver, CO</span>. I am a <span>Frontend</span> Engineer
           expanding into <span>Fullstack</span> development. I have been building web applications for 13 years and for
-          the last 9.5 years, have been working on an e-billing and analytics SaaS product. I love working with React
-          and building Web Applications.
+          the last 9.5 years, have been working on an e-billing and analytics SaaS product. I love building Web
+          Applications working with React.
         </p>
         <p>
           I enjoy building things from scratch, as much as I as enjoy the React open-source community. The site uses{' '}
-          <span>
-            MobX, HashRouter, a custom built React carousel, formik validation, custom hooks, react-icons, Webpack,
-            SCSS, and a bit of TailwindCSS
-          </span>
-          .
+          <span>MobX, HashRouter, responsive design</span> (excluding the slider; working on that next), a custom built{' '}
+          <span>React carousel, formik validation, custom hooks, react-icons, Webpack, SCSS</span>, and a bit of{' '}
+          <span>TailwindCSS</span>.
         </p>
 
         <p>

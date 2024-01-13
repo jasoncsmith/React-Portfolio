@@ -1,13 +1,21 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
 .slider__caption-display {
     color: #ffffff;
     width: 330px;
     height: 100%;
-    left: -6px;
     padding: 13px 20px 20px 23px;
     position: relative;
     top: 10px;
+    left: -6px;
     z-index: 5;
     background: url(../../../../assets/bg-slider-responsive-2.jpg) no-repeat 100% 0;
+    flex-wrap: wrap;
+    position: static;
+
+    @include mixins.breakpointMin(915px) {
+        flex-wrap: unset;
+    }
 
     border-radius: 4px;
     box-shadow:
