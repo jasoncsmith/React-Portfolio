@@ -29,7 +29,7 @@ function Resume() {
         <Document className={'pdf-document'} file={pdf} onLoadSuccess={({ numPages }) => setNumPages(numPages)}>
           {[...Array(numPages)].map((_, i) => (
             <Page
-              key={`pdf_${i}`}
+              key={`pdf_${i}_${width}`}
               className={'pdf-page'}
               renderMode={'svg'}
               width={width_}
