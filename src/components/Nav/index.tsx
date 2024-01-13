@@ -33,7 +33,6 @@ function Nav(): JSX.Element {
   function handleClick() {
     setIsOpen(open => !open)
   }
-  console.log(isOpen)
 
   return (
     <nav className="app__nav">

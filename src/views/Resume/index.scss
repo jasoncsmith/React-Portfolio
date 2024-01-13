@@ -21,8 +21,13 @@
 
     .document-viewer {
         background: #010101;
-        max-width: 1000px;
+        // --page-width: 200px; // TODO: set with javascript
+        max-width: 612px;
         width: 100%;
         margin: 0 auto;
+    }
+
+    .pdf-page {
+        margin-bottom: 25px;
     }
 }

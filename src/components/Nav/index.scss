@@ -11,9 +11,8 @@ $width: 1000px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    text-align: left;
-    padding-left: 20px;
-    font-size: 18px;
+    padding: 10px 0px 10px 20px;
+    font-size: 20px;
     color: #665;
     text-decoration: none;
     background-color: #111;
@@ -23,14 +22,14 @@ $width: 1000px;
     font-family: "BebasNeueRegular", Arial, sans-serif;
 
     @include mixins.breakpointMin(630px) {
-        justify-content: center;
-        font-size: 30px;
-        line-height: 65px;
-        height: 65px;
         width: 25%;
-        text-align: center;
-        padding-left: 0;
+        height: 65px;
+        line-height: 65px;
+        padding: 0;
+        font-size: 30px;
+        justify-content: center;
     }
+
     &:hover {
         color: #ddd;
         .nav__glyph {
@@ -131,10 +130,10 @@ $width: 1000px;
     background-color: #000;
     box-shadow: 0 1px 5px #000;
     border: 2px solid #333;
-    transform: translateX(100%);
+    transform: translateY(-100%);
 
     &--is-open {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 
     @include mixins.breakpointMin($width) {
@@ -142,7 +141,7 @@ $width: 1000px;
     }
 
     @include mixins.breakpointMin(630px) {
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
