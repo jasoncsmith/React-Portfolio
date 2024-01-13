@@ -19,7 +19,7 @@ const data = [
       width: '100%',
       height: '360',
       alt: 'AutoNation Mobility',
-      name: 'media-autonation-mobility.jpg',
+      name: 'media-AN.jpg',
     },
   },
   {

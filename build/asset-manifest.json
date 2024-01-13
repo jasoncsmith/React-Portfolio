@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.ab246ed5.css",
-    "main.js": "./static/js/main.c481a97c.js",
+    "main.js": "./static/js/main.db2e9920.js",
     "static/media/b_d.jpg": "./static/media/b_d.89fddc527a0c1383fb10.jpg",
     "static/media/iconic_stroke.svg": "./static/media/iconic_stroke.a467f613989209a71754.svg",
     "static/media/bg_contactForm.jpg": "./static/media/bg_contactForm.8ed3625cdebd9adbb76c.jpg",
@@ -23,10 +23,10 @@
     "static/media/BebasNeue-webfont.eot": "./static/media/BebasNeue-webfont.23b4c82415107a88ee01.eot",
     "index.html": "./index.html",
     "main.ab246ed5.css.map": "./static/css/main.ab246ed5.css.map",
-    "main.c481a97c.js.map": "./static/js/main.c481a97c.js.map"
+    "main.db2e9920.js.map": "./static/js/main.db2e9920.js.map"
   },
   "entrypoints": [
     "static/css/main.ab246ed5.css",
-    "static/js/main.c481a97c.js"
+    "static/js/main.db2e9920.js"
   ]
 }
