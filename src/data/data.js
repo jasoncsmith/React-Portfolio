@@ -141,26 +141,26 @@ const data = [
       name: 'slide-rocketComm.jpg',
     },
   },
-  {
-    client: 'Holder Properties',
-    clientId: 'holderProperties',
-    year: 2010,
-    role: 'Front End Web Developer',
-    url: 'http://clients.jcs-productions.com/holderProperties/',
-    projectName: 'Condominium Rentals',
-    projectDescription: 'Condo rental website built on WordPress',
-    fragment: '#/work/holderProperties',
-    skills: 'HTML5, CSS3, jQuery, Wordpress, PHP, Google Maps API, UI Design, Phototoshop',
-    software: 'Sublime Text 2, Photoshop CS5',
-    longDesc:
-      '<p>Holder Properties contracted me to build a website that showcased their vacation condo in St. Simons Island, GA. My strategy was to build a unique experience that allowed the user fast access to the necessary information required to sell and book the condo.</p><p>The site was built on the Wordpress platform. I designed, and hand coded the site, and all UI features myself. I built a &quot;plugin like&quot; javaScript Slider, custom AJAX contact forms, and error handling. I had the most fun working with the Google Maps API, to deliver driving time, mileage, and route information to and from the condo within a custom skin, <a href="http://clients.jcs-productions.com/holderProperties/contact-us/#findUs" target="_blank">see it here.</a></p>',
-    image: {
-      width: '100%',
-      height: '360',
-      alt: 'Condominium Rentals',
-      name: 'media_holderProperties.jpg',
-    },
-  },
+  // {
+  //   client: 'Holder Properties',
+  //   clientId: 'holderProperties',
+  //   year: 2010,
+  //   role: 'Front End Web Developer',
+  //   url: 'http://clients.jcs-productions.com/holderProperties/',
+  //   projectName: 'Condominium Rentals',
+  //   projectDescription: 'Condo rental website built on WordPress',
+  //   fragment: '#/work/holderProperties',
+  //   skills: 'HTML5, CSS3, jQuery, Wordpress, PHP, Google Maps API, UI Design, Phototoshop',
+  //   software: 'Sublime Text 2, Photoshop CS5',
+  //   longDesc:
+  //     '<p>Holder Properties contracted me to build a website that showcased their vacation condo in St. Simons Island, GA. My strategy was to build a unique experience that allowed the user fast access to the necessary information required to sell and book the condo.</p><p>The site was built on the Wordpress platform. I designed, and hand coded the site, and all UI features myself. I built a &quot;plugin like&quot; javaScript Slider, custom AJAX contact forms, and error handling. I had the most fun working with the Google Maps API, to deliver driving time, mileage, and route information to and from the condo within a custom skin, <a href="http://clients.jcs-productions.com/holderProperties/contact-us/#findUs" target="_blank">see it here.</a></p>',
+  //   image: {
+  //     width: '100%',
+  //     height: '360',
+  //     alt: 'Condominium Rentals',
+  //     name: 'media_holderProperties.jpg',
+  //   },
+  // },
   // ].map((d: DataModel, idx: number) => {
 ].map((d, idx) => {
   d.id = idx + 1
