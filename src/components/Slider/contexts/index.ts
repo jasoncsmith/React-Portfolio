@@ -76,8 +76,8 @@ class SliderStore {
     this.setIsAnimatingLeft(true)
 
     setTimeout(() => {
-      this.setIndex(this.prevIndex)
       this.setIsAnimatingLeft(false)
+      this.setIndex(this.prevIndex)
     }, DURATION_SLIDE_BUFFER)
   }
 
@@ -88,8 +88,8 @@ class SliderStore {
     this.setIsAnimatingRight(true)
 
     setTimeout(() => {
-      this.setIndex(this.nextIndex)
       this.setIsAnimatingRight(false)
+      this.setIndex(this.nextIndex)
     }, DURATION_SLIDE_BUFFER)
   }
 
