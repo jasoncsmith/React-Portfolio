@@ -10,12 +10,10 @@
     left: -6px;
     z-index: 5;
     background: url(../../../../assets/bg-slider-responsive-2.jpg) no-repeat 100% 0;
-    flex-wrap: wrap;
-    position: static;
 
-    @include mixins.breakpointMin(915px) {
-        flex-wrap: unset;
-    }
+    // @include mixins.breakpointMin(915px) {
+    //     flex-wrap: unset;
+    // }
 
     border-radius: 4px;
     box-shadow:

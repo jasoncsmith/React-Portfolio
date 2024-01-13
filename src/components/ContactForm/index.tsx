@@ -178,7 +178,7 @@ const ContactForm = () => {
               className={formik.touched.comments && formik.errors.comments ? 'input--is-invalid' : ''}
               rows={7}
               cols={37}
-              placeholder="Greetings, questions, comments... *"
+              placeholder="Greetings, questions, comments...*"
               tabIndex={5}
               maxLength={275}
               value={formik.values.comments}

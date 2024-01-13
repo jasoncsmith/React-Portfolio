@@ -1,4 +1,5 @@
 @use "/src/styles/colors";
+@use "/src/styles/mixins";
 
 #view-about {
     background: black url(../../assets/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
@@ -34,12 +35,16 @@
 
     article {
         max-width: 690px;
-        padding: 40px;
+        padding: 15px;
         margin: 0 auto;
         position: relative;
-
+        line-height: 1.4;
         background-color: rgba(#000, 0.3);
         border-radius: 2px;
+
+        @include mixins.breakpointMin(480px) {
+            padding: 40px;
+        }
 
         p {
             color: #ddd;
