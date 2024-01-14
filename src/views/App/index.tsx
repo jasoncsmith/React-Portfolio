@@ -9,8 +9,8 @@ import Footer from '../../components/Footer'
 import './index.scss'
 
 export default function App() {
-  const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>()
-  const [width_, setWidth_] = useState('195px')
+  const { ref, width = 1 } = useResizeObserver<HTMLDivElement>()
+  const [width_, setWidth_] = useState('100%')
 
   useEffect(() => {
     setWidth_(`${width}px`)

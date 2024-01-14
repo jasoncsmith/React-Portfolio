@@ -12,7 +12,7 @@ function Header() {
   const { scrollY, prevScrollY } = useUIStoreContext()
 
   useEffect(() => {
-    setHidden(scrollY > 70 && scrollY > prevScrollY)
+    setHidden(scrollY > 35 && scrollY > prevScrollY)
   }, [scrollY, prevScrollY])
 
   return (

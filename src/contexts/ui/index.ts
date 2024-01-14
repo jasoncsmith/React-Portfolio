@@ -20,12 +20,17 @@ class UIStore {
   @action.bound
   onResize(e: any) {
     this.clientWidth = window.innerWidth
+    // identical to useResizeObserver on App
   }
 
   @action.bound
   init() {
-    document.addEventListener('scroll', this.onScroll)
+    window.addEventListener('scroll', this.onScroll)
     window.addEventListener('resize', this.onResize)
+  }
+  destroy() {
+    window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('resize', this.onResize)
   }
 }
 

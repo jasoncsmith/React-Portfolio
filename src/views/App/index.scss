@@ -11,6 +11,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: "Lobster13Regular";
     src: url("../../assets/fonts/Lobster/Lobster_1.3-webfont.eot");
@@ -22,6 +23,7 @@
     font-weight: normal;
     font-style: normal;
 }
+
 @font-face {
     font-family: "IconicStroke";
     src: url("../../assets/fonts/iconic_stroke/iconic_stroke.eot");
@@ -34,12 +36,6 @@
     font-style: normal;
 }
 
-body * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; //  Opera/IE 8+
-}
-
 html {
     background-color: #000;
 }
@@ -49,6 +45,12 @@ body {
     height: 100%;
     position: relative;
     font-family: Arial;
+
+    & * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box; //  Opera/IE 8+
+    }
 }
 
 .view {

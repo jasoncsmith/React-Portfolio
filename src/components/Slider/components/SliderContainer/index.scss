@@ -12,7 +12,7 @@
     transition: transform 0.25s ease-in-out;
     background: url(../../../../assets/b_d.jpg) repeat 34px -19px;
 
-    @include mixins.breakpointMin(730px) {
+    @include mixins.breakpointMin(715px) {
         flex-wrap: unset;
         padding: 20px 20px 20px 20px;
         box-shadow:
