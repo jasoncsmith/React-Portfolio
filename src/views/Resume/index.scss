@@ -24,14 +24,14 @@
         max-width: 612px;
         min-height: 100vh;
         margin: 0 auto;
-        background: #fff;
+        background: #222;
+
+        &__loader {
+            margin: 0 auto;
+        }
     }
 
     .pdf-page {
         margin-bottom: 25px;
     }
-}
-
-.pdf-document .loader {
-    margin: 0 auto;
 }

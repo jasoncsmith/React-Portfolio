@@ -1,5 +1,25 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
+
 .loader {
-    width: 50px;
-    height: 50px;
-    background: #000 url(../../assets/loader/loader-o-yellow.gif) no-repeat 50% 50%;
+    font-size: 40px;
+    color: colors.$gold;
+    animation: rotating 1.3s linear infinite;
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 }

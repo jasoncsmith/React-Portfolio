@@ -31,12 +31,18 @@ $bodyPadding: 20px;
     }
 
     &__slides--is-animating-right {
-        // animation: play .8s steps(10) forwards;
+        -ms-animation: slide-right 0.4s steps(100) forwards;
+        -moz-animation: slide-right 0.4s steps(100) forwards;
+        -webkit-animation: slide-right 0.4s steps(100) forwards;
+        -o-animation: slide-right 0.4s steps(100) forwards;
         animation: slide-right 0.4s steps(100) forwards;
     }
 
     &__slides--is-animating-left {
-        // animation: 0.4s ease-in-out 0s slide-left;
+        -ms-animation: slide-left 0.4s steps(100) forwards;
+        -moz-animation: slide-left 0.4s steps(100) forwards;
+        -webkit-animation: slide-left 0.4s steps(100) forwards;
+        -o-animation: slide-left 0.4s steps(100) forwards;
         animation: slide-left 0.4s steps(100) forwards;
     }
 
@@ -45,6 +51,10 @@ $bodyPadding: 20px;
             left: -100%;
         }
         to {
+            -ms-transform: translateX(calc($widthViewPort * -1));
+            -moz-transform: translateX(calc($widthViewPort * -1));
+            -webkit-transform: translateX(calc($widthViewPort * -1));
+            -o-transform: translateX(calc($widthViewPort * -1));
             transform: translateX(calc($widthViewPort * -1));
         }
     }
