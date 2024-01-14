@@ -5,7 +5,9 @@ $aspectRatio: 0.7070707;
 $bodyPadding: 20px;
 // TODO: centtralize all vars
 .slider__viewport {
-    $widthViewPort: min(calc(var(--global-viewport-width) - $bodyPadding), 495px);
+    // $widthViewPort: min(calc(var(--global-viewport-width) - $bodyPadding), 495px);
+    $widthViewPort: calc(var(--global-viewport-width) - $bodyPadding);
+
     width: $widthViewPort;
     height: calc($widthViewPort * $aspectRatio);
     overflow: hidden;
