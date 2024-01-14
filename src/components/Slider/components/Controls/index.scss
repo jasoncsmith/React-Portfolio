@@ -2,12 +2,11 @@
 @use "/src/styles/colors";
 
 .slider__controls {
-    display: none;
-    padding: 15px 0 0 0;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-
+    padding: 0;
     @include mixins.breakpointMin(715px) {
-        display: flex;
+        padding: 15px 0 0 0;
     }
 }

@@ -1,10 +1,25 @@
+import { useEffect, useState } from 'react'
+import { observer } from 'mobx-react'
+import classNames from 'classnames'
+
+import { useUIStoreContext } from '../../contexts/ui'
+
 import Nav from '../Nav'
 import './index.scss'
 
-export default function Header() {
+function Header() {
+  const [hidden, setHidden] = useState(false)
+  const { scrollY, prevScrollY } = useUIStoreContext()
+
+  useEffect(() => {
+    setHidden(scrollY > 70 && scrollY > prevScrollY)
+  }, [scrollY, prevScrollY])
+
   return (
-    <header className="app__header">
+    <header className={classNames({ app__header: true, 'app__header--hidden': hidden })}>
       <Nav />
     </header>
   )
 }
+
+export default observer(Header)

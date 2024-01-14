@@ -6,4 +6,9 @@
     left: 0;
     z-index: 30;
     background: rgba(#000, 0.5);
+    transition: all 0.4s 0.5s ease-in-out;
+
+    &--hidden {
+        transform: translateY(-100%);
+    }
 }
