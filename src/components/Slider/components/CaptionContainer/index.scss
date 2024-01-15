@@ -10,7 +10,7 @@
 
     color: #ffffff;
     border-radius: 0;
-    background: url(../../../../assets/b_d.jpg) repeat;
+    background: url(../../../../assets/bg/b_d.jpg) repeat;
 
     @include mixins.breakpointMin(715px) {
         flex-wrap: unset;

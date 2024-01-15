@@ -10,7 +10,7 @@
     border-radius: 0;
     background-color: #2b77a5b3;
     transition: transform 0.25s ease-in-out;
-    background: url(../../../../assets/b_d.jpg) repeat 34px -19px;
+    background: #c69a69 url(../../../../assets/bg/b_d.jpg) repeat 34px -19px;
 
     @include mixins.breakpointMin(715px) {
         flex-wrap: unset;

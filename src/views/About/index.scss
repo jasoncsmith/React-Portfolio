@@ -2,7 +2,7 @@
 @use "/src/styles/mixins";
 
 #view-about {
-    background: black url(../../assets/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
+    background: black url(../../assets/bg/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
     padding: 70px 10px 20px 10px; // TODO: componentize this
 
     header {
@@ -26,12 +26,12 @@
         font-family: "Lobster13Regular", Arial, Helvetica;
         position: relative;
         top: 2px;
-        left: -10px;
+        left: -13px;
         font-size: 30px;
         font-weight: normal;
         font-style: italic;
         color: #eabb00;
-        text-shadow: -3px 4px 3px #000;
+        text-shadow: -5px 4px 3px #000;
     }
 
     article {
@@ -41,7 +41,7 @@
         position: relative;
         line-height: 1.5;
         font-size: 16px;
-        background-color: rgba(#000, 0.3);
+        background-color: rgba(#000, 0.5);
         border-radius: 2px;
 
         @include mixins.breakpointMin(480px) {
@@ -54,18 +54,40 @@
             line-height: 1.4;
             margin-bottom: 20px;
             text-overflow: ellipsis;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
+
         span {
             color: colors.$teal;
         }
+
         strong {
             color: colors.$gold;
             font-weight: bold;
         }
     }
 
-    a {
-        color: colors.$linkBlue;
-        text-decoration: underline;
+    .icon--waving {
+        display: inline-block;
+        position: relative;
+        left: -4px;
+        top: 1px;
+        animation: waving 2s infinite ease-in-out;
+        transform-origin: right bottom;
+    }
+}
+
+@keyframes waving {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(22.5deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }

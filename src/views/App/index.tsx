@@ -6,6 +6,7 @@ import UIStore, { UIStoreContext } from '../../contexts/ui'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+
 import './index.scss'
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
 
   return (
     <UIStoreContext.Provider value={UIStore}>
-      <div ref={ref} style={{ '--global-viewport-width': width_ } as React.CSSProperties} className="app">
+      <div ref={ref} className="app" style={{ '--global-viewport-width': width_ } as React.CSSProperties}>
         <Header />
         <main className="app__content">
           <Outlet />

@@ -1,4 +1,9 @@
+@use "../../styles/colors";
 @import "../../styles/reset";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @font-face {
     font-family: "BebasNeueRegular";
@@ -53,22 +58,26 @@ body {
     }
 }
 
+code {
+    font-family: monospace;
+    background-color: #222;
+    padding: 1px 4px;
+    color: colors.$gold;
+    font-size: 12px;
+    line-height: 1;
+    border-radius: 3px;
+}
+
+a {
+    color: colors.$linkBlue;
+    text-decoration: underline;
+}
+
 .view {
     z-index: 2;
     width: 100%;
     height: auto;
     padding: 0 0 100px 0;
-}
-
-.loading {
-    position: absolute;
-    right: 111px;
-    bottom: 30px;
-    width: 32px;
-    height: 32px;
-    z-index: 1;
-    // background: url(../../assets/ajax_loader.gif) no-repeat 0 0;
-    display: none;
 }
 
 :global {

@@ -6,32 +6,41 @@ function About() {
       <header>
         <h1>
           <strong className="caption">Portfolio</strong>
-          <span className="of">of</span>
+          <span className="of"> of </span>
           <br />
           <strong className="name">Jason Smith</strong>
         </h1>
       </header>
       <article>
         <p>
-          This is my 10 year old portfolio site rebuilt with <span>React 18</span>. My web design days are over but, I
-          enjoyed building the graphics back in the day.
+          <span className="icon--waving">👋</span> My name is <span>Jason Smith</span>, I am a{' '}
+          <span>Frontend Engineer</span> living in <span>Denver, CO</span>. My passion is delivering elegant
+          web applications through solid engineering.
         </p>
         <p>
-          My name is <span>Jason Smith</span>, I live in <span>Denver, CO</span>. I am a <span>Frontend</span> Engineer
-          expanding into <span>Fullstack</span> development. I have been building web applications for 13 years and for
-          the last 9.5 years, have been working on an e-billing and analytics SaaS product. I love building Web
-          Applications working with React.
+          About this site, it is 10 years old and needed some work under the hood. So I rebuilt it with{' '}
+          <code>React 18</code> and <code>MobX</code>. The graphics are original, and I had a great time
+          creating them back in the day. The biggest design update is that it is now <code>responsive</code>{' '}
+          across all devices <small>(go ahead and resize the width of your browser)</small>.
         </p>
         <p>
-          I enjoy building things from scratch, as much as I as enjoy the React open-source community. The site uses{' '}
-          <span>MobX, HashRouter, responsive design</span>, a custom-built{' '}
-          <span>responsive React carousel, formik validation, custom hooks, react-icons, Webpack, SCSS</span>, and a bit
-          of <span>TailwindCSS</span>.
+          Would like to call out my <a href="#/work">custom-built fully responsive carousel</a>, written with{' '}
+          <code>React</code> and <code>MobX</code>. Other technologies used on this site include:{' '}
+          <code>
+            Typescript, formik validation, useResizeObserver hook, a custom modal hook, react-pdf,
+            react-icons, SASS
+          </code>
+          , and played with a bit of <code>Tailwind CSS</code>.
         </p>
-
         <p>
-          Take a look around and of course view the source code on <strong>GitHub</strong>:{' '}
-          <a href="https://github.com/jasoncsmith/React-Portfolio/">Portfolio source code</a>.
+          Please take a look around and I encourage you to take a peek under the hood -- link to the source
+          code is here:{' '}
+          <strong>
+            <a href="https://github.com/jasoncsmith/React-Portfolio/" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </strong>
+          .
         </p>
       </article>
     </div>

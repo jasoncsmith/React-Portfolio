@@ -19,7 +19,7 @@
         margin: 0 auto;
         padding: 14px 10px;
         border-radius: 6px;
-        background: url(../../assets/bg_contactForm.jpg) repeat 0 0;
+        background: #215153 url(../../assets/bg/bg_contactForm.jpg) repeat 0 0;
         background-size: cover;
 
         @include mixins.breakpointMin(630px) {
@@ -70,7 +70,7 @@
         padding: 10px;
         margin: 0;
         line-height: 30px;
-        border: 2px solid #11363f;
+        border: 2px solid transparent;
         font: 16px Arial;
         color: #ddd;
         box-shadow:
@@ -80,7 +80,10 @@
         background-color: rgba(#000, 0.8);
         border-radius: 4px;
         transition: all 200ms;
-
+        &:focus {
+            border-color: #00fffb;
+            outline: none;
+        }
         @include mixins.breakpointMin(1000px) {
             font-size: 24px;
         }
@@ -114,7 +117,7 @@
         padding: 10px;
         font: 16px Arial;
         color: #ddd;
-        border: 2px solid #11363f;
+        border: 2px solid transparent;
         background-color: rgba(#000, 0.8);
         box-shadow:
             0 0 8px #000 inset,
@@ -122,6 +125,10 @@
             2px -2px 1px rgba(0, 0, 0, 0.5);
         border-radius: 4px;
         transition: all 200ms;
+        &:focus {
+            border-color: #00fffb;
+            outline: none;
+        }
     }
 
     .confirmEmail {

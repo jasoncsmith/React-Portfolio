@@ -3,7 +3,7 @@
 
 #view-resume {
     padding: 70px 10px 20px 10px; // TODO: componentize this
-
+    background: url("../../assets/bg/bg_main_projects_header.jpg") no-repeat 0 0;
     .view__header {
         // TODO: componentize this
         padding: 35px 0;
@@ -37,6 +37,7 @@
     }
 
     .pdf-page {
-        margin-bottom: 25px;
+        border: 2px solid #000;
+        margin-bottom: 16px;
     }
 }

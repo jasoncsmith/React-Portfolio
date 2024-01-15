@@ -3,7 +3,7 @@ import { Document, Page, pdfjs } from 'react-pdf'
 import useResizeObserver from 'use-resize-observer'
 
 import Loader from '../../components/Loader'
-import pdf from '../../assets/resume-jasonsmith-01_2024.pdf'
+import pdf from '../../assets/docs/resume-jasonsmith-01_2024.pdf'
 
 import './index.scss'
 import 'react-pdf/dist/esm/Page/TextLayer.css'
