@@ -4,6 +4,7 @@
 #view-resume {
     padding: 70px 10px 20px 10px; // TODO: componentize this
     background: url("../../assets/bg/bg_main_projects_header.jpg") no-repeat 0 0;
+
     .view__header {
         // TODO: componentize this
         padding: 35px 0;
@@ -29,15 +30,29 @@
         max-width: 612px;
         min-height: 100vh;
         margin: 0 auto;
-        background: #222;
 
         &__loader {
             margin: 0 auto;
         }
     }
 
-    .pdf-page {
-        border: 2px solid #000;
-        margin-bottom: 16px;
+    .download-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 10px;
+        border: 1px solid #333;
+        color: colors.$gold;
+        text-decoration: none;
+        border-radius: 3px;
+        background-color: #111;
+
+        &__svg {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        &:hover {
+            color: colors.$teal;
+        }
     }
 }

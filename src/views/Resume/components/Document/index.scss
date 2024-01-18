@@ -1,0 +1,8 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
+
+.pdf-page {
+    border: 2px solid #000;
+    margin-bottom: 16px;
+    background: #222;
+}

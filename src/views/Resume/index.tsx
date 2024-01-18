@@ -1,24 +1,12 @@
-import { useEffect, useState } from 'react'
-import { Document, Page, pdfjs } from 'react-pdf'
 import useResizeObserver from 'use-resize-observer'
 
-import Loader from '../../components/Loader'
 import pdf from '../../assets/docs/resume-jasonsmith-01_2024.pdf'
-
+import Document from './components/Document'
+import { BsDownload } from 'react-icons/bs'
 import './index.scss'
-import 'react-pdf/dist/esm/Page/TextLayer.css'
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css'
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`
 
 function Resume() {
   const { ref, width = 1 } = useResizeObserver<HTMLDivElement>()
-  const [width_, setWidth_] = useState(1)
-  const [numPages, setNumPages] = useState(0)
-
-  useEffect(() => {
-    setWidth_(width)
-  }, [width])
 
   return (
     <div id="view-resume">
@@ -27,24 +15,13 @@ function Resume() {
       </header>
 
       <div ref={ref} className={'document-viewer'}>
-        <Document
-          className={'pdf-document'}
-          file={pdf}
-          loading={<Loader className={'document-viewer__loader'} />}
-          onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-        >
-          {[...Array(numPages)].map((_, i) => (
-            <Page
-              key={`pdf_${i}_${width}`}
-              className={'pdf-page'}
-              renderMode={'svg'}
-              width={width_}
-              pageNumber={i + 1}
-              renderTextLayer={false}
-              loading={<Loader className={'document-viewer__loader'} />}
-            />
-          ))}
-        </Document>
+        <a className="download-link" href={pdf} target="_blank" rel="noreferrer" title="Download Resume">
+          Download <BsDownload className={'download-link__svg'} />
+        </a>
+        <Document width={width} file={pdf} />
+        <a className="download-link" href={pdf} target="_blank" rel="noreferrer" title="Download Resume">
+          Download <BsDownload className={'download-link__svg'} />
+        </a>
       </div>
     </div>
   )
