@@ -26,6 +26,7 @@ const ContactModel: ContactFormModel = {
   company: '',
   comments: '',
 }
+
 const SuccessMessage = ({ firstName }: { firstName: string }) => {
   return (
     <>
