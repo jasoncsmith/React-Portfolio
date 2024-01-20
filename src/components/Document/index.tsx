@@ -2,7 +2,7 @@ import { Document, Page, pdfjs, DocumentProps } from 'react-pdf'
 
 import { useState } from 'react'
 
-import Loader from '../../../../components/Loader'
+import Loader from '../Loader'
 
 import './index.scss'
 import 'react-pdf/dist/esm/Page/TextLayer.css'

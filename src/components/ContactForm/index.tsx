@@ -35,8 +35,8 @@ const SuccessMessage = ({ firstName }: { firstName: string }) => {
       <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm leading-5">
         This form is not hooked up to a backend api, just a demo. Styled with{' '}
         <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>tailwindCSS</strong> and uses the{' '}
-        <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>formik</strong> validation library. Source code is
-        available in my <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>GitHub</strong> repo{' '}
+        <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>formik</strong> validation library. Source
+        code is available in my <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>GitHub</strong> repo{' '}
         <a
           className="text-blue-500"
           href="https://github.com/jasoncsmith/React-Portfolio"
@@ -59,6 +59,7 @@ const ContactForm = () => {
       send(values)
     },
   })
+
   const [msg, setMessage] = useState<ModalContent>({
     title: '',
     content: <></>,
@@ -83,11 +84,11 @@ const ContactForm = () => {
     <>
       <form
         // action="/webservices/form.php"
+        // method="post"
         autoFocus
-        method="post"
         onSubmit={formik.handleSubmit}
       >
-        <div className="form-lcol column">
+        <div className="column">
           <div className="group">
             <div className="control-input">
               <label htmlFor="input-firstName">First Name</label>
@@ -169,7 +170,7 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="form-rcol column">
+        <div className="column">
           <div className="control-textarea">
             <label htmlFor="textarea-comments">Comments</label>
             <textarea
@@ -190,10 +191,10 @@ const ContactForm = () => {
             ) : null}
           </div>
         </div>
+
         <button className="btn-submit" type="submit" tabIndex={6}>
           Transmit
         </button>
-        <div className="loader"></div>
       </form>
 
       <modal.Modal

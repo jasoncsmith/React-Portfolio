@@ -1,7 +1,7 @@
 import useResizeObserver from 'use-resize-observer'
 
 import pdf from '../../assets/docs/resume-jasonsmith-01_2024.pdf'
-import Document from './components/Document'
+import Document from '../../components/Document'
 import { BsDownload } from 'react-icons/bs'
 import './index.scss'
 
