@@ -5,19 +5,6 @@
     background: #000 url(../../assets/bg/bg_page_contact.jpg) no-repeat 50% 200px fixed;
     padding: 70px 10px 20px 10px; // TODO: componentize this
 
-    .validation-meassage--is-error {
-        position: absolute;
-        bottom: -22px;
-        left: 0;
-        padding: 3px 5px;
-        line-height: 1;
-        font-size: 14px;
-        white-space: nowrap;
-        border-radius: 3px;
-        background-color: #fbfbfb;
-        color: colors.$errorRed;
-    }
-
     .view__header {
         // TODO: componentize this
         z-index: 30;

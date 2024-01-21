@@ -1,8 +1,14 @@
+import { useEffect, useRef, useState } from 'react'
 import { useFormik } from 'formik'
+
 import { validateForm } from './helpers'
-import { useState } from 'react'
 
 import useModal from '../../hooks/useModal'
+
+import Field from '../Field'
+import FieldInputTrap from '../FieldInputTrap'
+import FieldLabel from '../FieldLabel'
+import FieldTextArea from '../FieldTextArea'
 
 import './index.scss'
 
@@ -60,7 +66,7 @@ const ContactForm = () => {
       send(values)
     },
   })
-
+  const ref = useRef<HTMLInputElement>(null)
   const [msg, setMessage] = useState<ModalContent>({
     title: '',
     content: <></>,
@@ -81,6 +87,10 @@ const ContactForm = () => {
 
   const reset = () => formik.handleReset(null)
 
+  useEffect(() => {
+    ref?.current?.focus()
+  }, [ref])
+
   return (
     <>
       <form
@@ -91,106 +101,91 @@ const ContactForm = () => {
       >
         <div className="column">
           <div className="group">
-            <div className="control-input">
-              <label htmlFor="input-firstName">First Name</label>
-              <input
-                id="input-firstName"
-                name="firstName"
-                className={formik.touched.firstName && formik.errors.firstName ? 'input--is-invalid' : ''}
-                type="text"
-                maxLength={25}
-                tabIndex={1}
-                placeholder="First name*"
-                value={formik.values.firstName}
-                onBlur={formik.handleBlur}
-                onChange={formik.handleChange}
-              />
-              {formik.touched.firstName && formik.errors.firstName ? (
-                <span className="validation-meassage--is-error">{formik.errors.firstName}</span>
-              ) : null}
-            </div>
-
-            <div className="control-input">
-              <label htmlFor="input-lastName">Last Name</label>
-              <input
-                id="input-lastName"
-                name="lastName"
-                className={formik.touched.lastName && formik.errors.lastName ? 'input--is-invalid' : ''}
-                type="text"
-                maxLength={25}
-                tabIndex={2}
-                placeholder="Last name*"
-                value={formik.values.lastName}
-                onBlur={formik.handleBlur}
-                onChange={formik.handleChange}
-              />
-              {formik.touched.lastName && formik.errors.lastName ? (
-                <span className="validation-meassage--is-error">{formik.errors.lastName}</span>
-              ) : null}
-            </div>
-          </div>
-
-          <div className="control-input">
-            <label htmlFor="input-email">Email</label>
-            <input
-              id="input-email"
-              name="email"
-              className={formik.touched.email && formik.errors.email ? 'input--is-invalid' : ''}
-              type="email"
-              maxLength={40}
-              tabIndex={3}
-              placeholder="Email*"
-              value={formik.values.email}
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-            />
-
-            {formik.touched.email && formik.errors.email ? (
-              <span className="validation-meassage--is-error">{formik.errors.email}</span>
-            ) : null}
-          </div>
-
-          <div className="control-input">
-            <label htmlFor="input-company">Company</label>
-            <input
-              id="input-company"
-              name="company"
+            <Field
+              ref={ref}
+              id="firstName"
+              name="firstName"
               type="text"
-              maxLength={40}
-              tabIndex={4}
-              placeholder="Company"
-              value={formik.values.company}
+              label="first Name*"
+              placeholder="First Name*"
+              tabIndex={1}
+              maxLength={25}
+              error={!!formik.touched.firstName && !!formik.errors.firstName}
+              msg={formik.errors.firstName}
+              value={formik.values.firstName}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+            />
+
+            <Field
+              id="lastName"
+              name="lastName"
+              type="text"
+              label="Last Name*"
+              placeholder="Last Name*"
+              tabIndex={2}
+              maxLength={25}
+              error={!!formik.touched.lastName && !!formik.errors.lastName}
+              msg={formik.errors.lastName}
+              value={formik.values.lastName}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
             />
           </div>
+
+          <Field
+            id="email"
+            name="email"
+            type="email"
+            label="Email*"
+            placeholder="Email*"
+            tabIndex={3}
+            maxLength={40}
+            error={!!formik.touched.email && !!formik.errors.email}
+            msg={formik.errors.email}
+            value={formik.values.email}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+          />
+
+          <Field
+            id="company"
+            name="company"
+            type="text"
+            label="Company"
+            placeholder="Company"
+            tabIndex={4}
+            maxLength={25}
+            error={false}
+            msg={''}
+            value={formik.values.company}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+          />
 
           <div className="confirmEmail">
-            <label htmlFor="input-confirmEmail">Honeytrap</label>
-            <input id="input-confirmEmail" name="confirmEmail" type="text" maxLength={40} />
+            <FieldLabel id={'confirmEmail'} hideLabel={true}>
+              Honeytrap
+            </FieldLabel>
+            <FieldInputTrap name="confirmEmail" type="text" />
           </div>
         </div>
 
         <div className="column">
-          <div className="control-textarea">
-            <label htmlFor="textarea-comments">Comments</label>
-            <textarea
-              id="textarea-comments"
-              name="comments"
-              className={formik.touched.comments && formik.errors.comments ? 'input--is-invalid' : ''}
-              rows={7}
-              cols={37}
-              placeholder="Greetings, questions, comments...*"
-              tabIndex={5}
-              maxLength={275}
-              value={formik.values.comments}
-              onBlur={formik.handleBlur}
-              onChange={formik.handleChange}
-            />
-            {formik.touched.comments && formik.errors.comments ? (
-              <span className="validation-meassage--is-error">{formik.errors.comments}</span>
-            ) : null}
-          </div>
+          <FieldTextArea
+            id="comments"
+            name="comments"
+            placeholder="Greetings, questions, comments...*"
+            rows={7}
+            cols={37}
+            tabIndex={5}
+            maxLength={275}
+            value={formik.values.comments}
+            msg={formik.errors.comments}
+            error={!!formik.touched.comments && !!formik.errors.comments}
+            onBlur={formik.handleBlur}
+            onChange={formik.handleChange}
+          />
         </div>
 
         <button className="btn-submit" type="submit" tabIndex={6}>

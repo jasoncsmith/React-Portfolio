@@ -1,0 +1,6 @@
+.label {
+    &--is-hidden {
+        position: absolute;
+        text-indent: -9999px;
+    }
+}
