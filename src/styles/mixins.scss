@@ -82,11 +82,43 @@
     }
 }
 
+@mixin label-animation {
+    &::placeholder {
+        opacity: 1;
+        transition: all 0.2s;
+    }
+
+    &:placeholder-shown:not(:focus)::placeholder {
+        opacity: 0;
+    }
+}
+
+@mixin float-label-scaled {
+    &:placeholder-shown:not(:focus) + label {
+        font-size: 16px;
+        color: #ddd;
+        top: 20px; // 50% -- KEEP EYE ON THIS
+        font-weight: normal;
+        margin-top: -7px;
+        left: 10px;
+        @content;
+    }
+
+    &:focus + label {
+        // color: colors.$buttonBlueHover;
+    }
+
+    &--is-invalid + .label {
+        // color: colors.$errorRed !important;
+    }
+}
+
 @mixin breakpointMax($width) {
     @media screen and (max-width: $width) {
         @content();
     }
 }
+
 @mixin breakpointMin($width) {
     @media screen and (min-width: $width) {
         @content();

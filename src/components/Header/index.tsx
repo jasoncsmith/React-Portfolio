@@ -9,11 +9,11 @@ import './index.scss'
 
 function Header() {
   const [hidden, setHidden] = useState(false)
-  const { scrollY, prevScrollY } = useUIStoreContext()
+  const { scrollY, scrollingDown } = useUIStoreContext()
 
   useEffect(() => {
-    setHidden(scrollY > 35 && scrollY > prevScrollY)
-  }, [scrollY, prevScrollY])
+    setHidden(scrollY > 35 && scrollingDown)
+  }, [scrollY, scrollingDown])
 
   return (
     <header className={classNames({ app__header: true, 'app__header--hidden': hidden })}>

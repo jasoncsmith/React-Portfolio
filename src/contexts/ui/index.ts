@@ -1,4 +1,4 @@
-import { action, makeObservable, observable } from 'mobx'
+import { action, computed, makeObservable, observable } from 'mobx'
 import { createContext, useContext } from 'react'
 
 class UIStore {
@@ -10,6 +10,21 @@ class UIStore {
   @observable scrollY = 1
   @observable prevScrollY = 1
   @observable clientWidth = 1
+
+  @computed
+  get scrollingDiff() {
+    return Math.abs(this.scrollY - this.prevScrollY)
+  }
+
+  @computed
+  get scrollingDown() {
+    return this.scrollY > this.prevScrollY
+  }
+
+  @computed
+  get scrollingUp() {
+    return this.scrollY < this.prevScrollY
+  }
 
   @action.bound
   onScroll(e: any) {

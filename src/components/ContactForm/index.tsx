@@ -106,8 +106,8 @@ const ContactForm = () => {
               id="firstName"
               name="firstName"
               type="text"
-              label="first Name*"
-              placeholder="First Name*"
+              label="First Name*"
+              placeholder="First Name"
               tabIndex={1}
               maxLength={25}
               error={!!formik.touched.firstName && !!formik.errors.firstName}

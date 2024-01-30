@@ -172,3 +172,23 @@ type SliderStoreType = InstanceType<typeof SliderStore>
 export default SliderStore
 export const SliderStoreContext = createContext<SliderStoreType>({} as SliderStoreType)
 export const useSliderStoreContext = () => useContext(SliderStoreContext)
+
+// function onTouch(event, touched) {
+//     const swipeX = event.originalEvent.touches[0].pageX
+//     const threshold = 20
+
+//     if (Math.floor(touched - swipeX) > threshold) {
+//       this.next()
+//     } else if (Math.floor(touched - swipeX) < -threshold) {
+//       this.prev()
+//     }
+//   })
+//
+// el.addEventListener('touchstart', function (event) {
+//   const touched = event.originalEvent.touches[0].pageX
+
+//   this.addEventListener('touchmove', () => onTouch(touched))
+//   this.addEventListener('touchend', function () {
+//     this.removeEventListener('touchmove', onTouch)
+//   })
+// })
