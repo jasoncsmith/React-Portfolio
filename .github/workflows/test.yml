@@ -37,10 +37,7 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: '18'
-            - run: cd ./client
-            - run: npm install
-            - run: npm run build
-            - run: cd ../
+            - run: npm run deploy
 
             - name: Setup Pages
               uses: actions/configure-pages@v4
