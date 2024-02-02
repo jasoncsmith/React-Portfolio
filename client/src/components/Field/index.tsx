@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react'
-import classNames from 'classnames'
 
 import FieldLabel from '../FieldLabel'
 import FieldInput from '../FieldInput'

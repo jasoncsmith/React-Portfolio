@@ -1,4 +1,4 @@
-import React, { ForwardRefRenderFunction, RefAttributes, forwardRef } from 'react'
+import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 import './index.scss'
 

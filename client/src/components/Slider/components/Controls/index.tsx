@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react'
 
-import { useSliderStoreContext } from '../../contexts'
+// import { useSliderStoreContext } from '../../contexts'
 import Menu from '../Menu'
 
 import './index.scss'
