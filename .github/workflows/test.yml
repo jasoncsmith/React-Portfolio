@@ -21,11 +21,8 @@
           with:
             persist-credentials: false
 
-        - name: Install 🔧
-          run: npm install
-
         - name: Build 🏗️
-          run: npm run build
+          run: npm run deploy
           env:
             NODE_ENV: production
 
