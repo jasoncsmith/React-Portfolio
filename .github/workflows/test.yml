@@ -1,3 +1,4 @@
+# builds but cant get the deploy to grab the dir in client/build says doesnt exist.
 name: folio to GH Pages deploy
 
 on:
@@ -21,9 +22,6 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version: '18'
-
-            - name: Change to client directory
-              run: cd client
 
             - name: Install dependencies
               run: |
