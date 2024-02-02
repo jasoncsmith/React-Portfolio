@@ -16,7 +16,12 @@
           uses: actions/checkout@master
           with:
             persist-credentials: false
-
+            
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: '18'
+            
         - name: Build 🏗️
           run: npm run deploy
           env:
