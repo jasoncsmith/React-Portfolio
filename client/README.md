@@ -18,7 +18,6 @@ Source code for my React powered online portfolio.
 Click the link: https://jasoncsmith.tech/#/about
 
 # To Do
-- implement modular scss
 - Clean up SCSS
 - Implement modular SCSSS
 - Implement Webpack scss nested BEM to camelCase classNames
