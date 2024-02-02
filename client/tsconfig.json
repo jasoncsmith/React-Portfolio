@@ -17,5 +17,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["src", "global.d.ts", "src/.scripts"]
+  "include": ["src", "global.d.ts", "src/.scripts"],
+  "exclude": ["node_modules"]
 }
