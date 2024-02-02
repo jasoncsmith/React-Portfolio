@@ -1,0 +1,58 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
+
+#view-resume {
+    padding: 70px 10px 20px 10px; // TODO: componentize this
+    background: url("../../assets/bg/bg_main_projects_header.jpg") no-repeat 0 0;
+
+    .view__header {
+        // TODO: componentize this
+        padding: 35px 0;
+        z-index: 30;
+        text-align: center;
+        border-bottom: 1px solid #333;
+
+        @include mixins.breakpointMin(715px) {
+            padding: 35px 0;
+            margin-bottom: 50px;
+        }
+    }
+
+    h2 {
+        font-size: 50px;
+        line-height: 1;
+        font-family: "BebasNeueRegular", Arial, sans-serif;
+        color: colors.$teal;
+    }
+
+    .document-viewer {
+        width: 100%;
+        max-width: 612px;
+        min-height: 100vh;
+        margin: 0 auto;
+
+        &__loader {
+            margin: 0 auto;
+        }
+    }
+
+    .download-link {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 10px;
+        border: 1px solid #333;
+        color: colors.$gold;
+        text-decoration: none;
+        border-radius: 3px;
+        background-color: #111;
+
+        &__svg {
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        &:hover {
+            color: colors.$teal;
+        }
+    }
+}

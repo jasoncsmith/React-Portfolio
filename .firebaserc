@@ -1,0 +1,13 @@
+{
+    "projects": {
+        "default": "portfolio-2d6cd"
+    },
+    "hosting": {
+        "public": "/client/build",
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ]
+    }
+}

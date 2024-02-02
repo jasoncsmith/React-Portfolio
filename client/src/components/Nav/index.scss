@@ -1,0 +1,169 @@
+@use "../../styles/mixins";
+@use "../../styles/colors";
+
+$width: 1000px;
+// .app__nav {
+//     // width: 110%;
+//     // margin-left: -5%;
+// }
+
+.app-nav__link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0px 10px 20px;
+    font-size: 20px;
+    color: #adadad;
+    text-decoration: none;
+    background-color: #111;
+    border-left: 1px dotted #333;
+    box-shadow: 0 0 5px rgba(#000, 1) inset;
+    transition: all 150ms;
+    font-family: "BebasNeueRegular", Arial, sans-serif;
+
+    @include mixins.breakpointMin(630px) {
+        color: #665;
+        width: 25%;
+        height: 65px;
+        justify-content: center;
+        padding: 0;
+        line-height: 65px;
+        font-size: 30px;
+    }
+
+    &:hover {
+        color: #ddd;
+        .nav__glyph {
+            color: colors.$gold;
+        }
+        .cog {
+            transform: rotate(60deg);
+        }
+        .share {
+            transform: rotate(-45deg);
+        }
+        .mail {
+            transform: scale(1.2);
+        }
+        .document_alt_fill {
+            transform: scale(1.2);
+        }
+    }
+
+    &.active {
+        color: colors.$gold;
+        cursor: default;
+        background-color: #222;
+        text-shadow: 0 1px 3px #000;
+
+        @include mixins.breakpointMin(630px) {
+            box-shadow:
+                -8px 0 18px rgba(0, 0, 0, 0.7) inset,
+                8px 0 18px rgba(0, 0, 0, 0.7) inset;
+        }
+
+        &:hover {
+            color: colors.$gold;
+            .nav__glyph {
+                color: colors.$teal;
+            }
+        }
+
+        .nav__glyph {
+            color: colors.$teal;
+        }
+    }
+}
+
+.nav__glyph {
+    font-family: "IconicStroke";
+    display: inline-block;
+    margin-right: 15px;
+    position: relative;
+    line-height: 1;
+    color: #3a3a3a;
+    font-size: 18px;
+    transition: all 150ms;
+
+    @include mixins.breakpointMin(630px) {
+        font-size: 30px;
+    }
+}
+
+.app-nav__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 5;
+    padding: 8px 12px 4px 12px;
+    border-radius: 3px;
+    border: 1px solid #353535;
+    background: rgba(#000, 0.4);
+    cursor: pointer;
+
+    &:hover {
+        .nav__glyph {
+            color: #ccc;
+        }
+    }
+
+    .nav__glyph {
+        margin: 0 !important; // remove later
+        color: #888;
+        font-size: 36px;
+    }
+
+    &--is-active .nav__glyph {
+        color: #ccc;
+    }
+
+    @include mixins.breakpointMin(630px) {
+        display: none;
+    }
+}
+
+.app-nav__wrapper {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: $width;
+    z-index: 1;
+    background-color: #000;
+    box-shadow: 0 1px 5px #000;
+    transition: transform 0.3s;
+    transform: translateY(-100%);
+
+    &--is-open {
+        transform: translateY(0);
+    }
+
+    @include mixins.breakpointMin($width) {
+        left: calc((100vw - $width) / 2);
+    }
+
+    @include mixins.breakpointMin(630px) {
+        border: 2px solid #333;
+        transform: translateY(0);
+    }
+}
+
+.mail:before {
+    content: "\2709";
+}
+.document_alt_fill:before {
+    content: "\e000";
+}
+.cog:before {
+    content: "\2699";
+}
+.share:before {
+    content: "\e02e";
+}
+.layers:before {
+    content: "\e01f";
+}

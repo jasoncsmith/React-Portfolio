@@ -1,0 +1,70 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
+
+$aspectRatio: 0.7070707;
+$bodyPadding: 20px;
+// TODO: centtralize all vars
+.slider__viewport {
+    $width: calc(var(--global-viewport-width) - $bodyPadding);
+    $widthViewPort: min($width, 495px);
+
+    width: $widthViewPort;
+    height: calc($widthViewPort * $aspectRatio);
+    overflow: hidden;
+
+    border-radius: 0;
+    background: #000 url(../../../../assets/loader/loader-o-yellow.gif) no-repeat 50% 50%;
+
+    @include mixins.breakpointMin(715px) {
+        box-shadow:
+            -3px 4px 1px rgba(255, 255, 211, 0.3),
+            4px -4px 1px rgba(0, 0, 0, 0.5);
+        border-radius: 9px;
+    }
+
+    &__slides {
+        display: flex;
+        width: calc($widthViewPort * 3);
+        height: calc($widthViewPort * $aspectRatio);
+        left: -100%;
+        position: relative;
+    }
+
+    &__slides--is-animating-right {
+        -ms-animation: slide-right 0.4s steps(100) forwards;
+        -moz-animation: slide-right 0.4s steps(100) forwards;
+        -webkit-animation: slide-right 0.4s steps(100) forwards;
+        -o-animation: slide-right 0.4s steps(100) forwards;
+        animation: slide-right 0.4s steps(100) forwards;
+    }
+
+    &__slides--is-animating-left {
+        -ms-animation: slide-left 0.4s steps(100) forwards;
+        -moz-animation: slide-left 0.4s steps(100) forwards;
+        -webkit-animation: slide-left 0.4s steps(100) forwards;
+        -o-animation: slide-left 0.4s steps(100) forwards;
+        animation: slide-left 0.4s steps(100) forwards;
+    }
+
+    @keyframes slide-right {
+        from {
+            left: -100%;
+        }
+        to {
+            -ms-transform: translateX(calc($widthViewPort * -1));
+            -moz-transform: translateX(calc($widthViewPort * -1));
+            -webkit-transform: translateX(calc($widthViewPort * -1));
+            -o-transform: translateX(calc($widthViewPort * -1));
+            transform: translateX(calc($widthViewPort * -1));
+        }
+    }
+
+    @keyframes slide-left {
+        from {
+            left: -100%;
+        }
+        to {
+            left: 0;
+        }
+    }
+}
