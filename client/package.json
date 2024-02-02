@@ -2,7 +2,7 @@
   "name": "jfolio-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jasoncsmith.github.io/React-Portfolio/",
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
