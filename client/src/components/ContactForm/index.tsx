@@ -89,6 +89,7 @@ const ContactForm = () => {
   const send = async (data: ContactFormModel): Promise<void> => {
     try {
       // const { data: user } = await createUser(data)
+      // handleSuccess(user?.firstName)
       handleSuccess(data?.firstName)
       toasts.success('Thanks for posting')
     } catch (error: any) {

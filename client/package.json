@@ -1,5 +1,5 @@
 {
-  "name": "@jfolio/frontend",
+  "name": "jfolio-client",
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
