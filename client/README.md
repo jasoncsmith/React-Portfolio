@@ -15,10 +15,9 @@ Source code for my React powered online portfolio.
 
 # To View
 
-Click the link: https://jasoncsmith.github.io/React-Portfolio/build/
+Click the link: https://jasoncsmith.tech/#/about
 
 # To Do
-- Implement MobX to manage form state
 - Clean up SCSS
 - Implement modular SCSSS
 - Implement Webpack scss nested BEM to camelCase classNames
