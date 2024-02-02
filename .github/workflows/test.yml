@@ -1,4 +1,4 @@
-  name: GH Pages deploy
+  name: folio to GH Pages deploy
 
   on:
     push:
@@ -27,4 +27,9 @@
           uses: peaceiris/actions-gh-pages@v3
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./build
+            publish_dir: ./client/build
+
+
+
+
+
