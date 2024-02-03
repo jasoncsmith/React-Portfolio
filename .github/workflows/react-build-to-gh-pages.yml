@@ -1,4 +1,5 @@
-# builds but cant get the deploy to grab the dir in client/build says doesnt exist.
+# builds the react app copies build dir to gh-pages branch
+# do not need the gh-pages npm pkg, this script achieves that purpose
 name: folio to GH Pages deploy
 
 on:
