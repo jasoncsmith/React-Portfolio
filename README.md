@@ -15,7 +15,7 @@ Source code for my React powered online portfolio.
 
 # To View
 
-Click the link: https://jasoncsmith.tech/#/about
+Click the link: https://jasoncsmith.github.io/React-Portfolio/#/about
 
 # To Do
 - Clean up SCSS
