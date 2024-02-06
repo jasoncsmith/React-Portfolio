@@ -1,5 +1,5 @@
-import styles from './index.module.scss'
 import Slider from '../../components/Slider'
+import styles from './index.module.scss'
 
 function Work() {
   return (
