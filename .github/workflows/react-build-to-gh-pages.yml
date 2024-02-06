@@ -12,7 +12,8 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
+    env:
+      REACT_APP_API_ENDPOINT: ${{ secrets.REACT_APP_API_ENDPOINT }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
@@ -30,8 +31,6 @@ jobs:
           npm install
 
       - name: Build
-        env:
-          REACT_APP_API_ENDPOINT: ${{ secrets.REACT_APP_API_ENDPOINT }}
         run: |
           cd client
           npm run build
