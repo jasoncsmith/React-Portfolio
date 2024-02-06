@@ -43,6 +43,7 @@ class UIStore {
     window.addEventListener('scroll', this.onScroll)
     window.addEventListener('resize', this.onResize)
   }
+
   destroy() {
     window.removeEventListener('scroll', this.onScroll)
     window.removeEventListener('resize', this.onResize)
