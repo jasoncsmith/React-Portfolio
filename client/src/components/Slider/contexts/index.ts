@@ -1,7 +1,8 @@
 import { makeObservable, computed, observable, action } from 'mobx'
 import { createContext, useContext } from 'react'
+import { getProjects } from '../../../api/projects'
+import toasts from '../../Toast'
 
-import db from '../../../data/db.json'
 import { DURATION_CAPTION, DURATION_SLIDE_BUFFER, SLIDE_INTERVAL } from '../constants'
 
 import { ImageProps } from '../components/Image'
@@ -161,8 +162,20 @@ class SliderStore {
   }
 
   @action.bound
+  fetchSlides = async () => {
+    try {
+      const { data } = await getProjects()
+      await new Promise(res => setTimeout(res, 100)) // TODO: BETER? gives extra render time
+
+      this.slides = data?.projects
+    } catch (error) {
+      toasts.error('There was an issue retrieving projects')
+    }
+  }
+
+  @action.bound
   init() {
-    this.slides = db
+    !this.slides?.length && this.fetchSlides()
     this.play()
   }
 }

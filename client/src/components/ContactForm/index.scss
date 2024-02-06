@@ -55,12 +55,19 @@
 
     .btn-submit {
         width: 100%;
-        padding: 6px 30px 3px 30px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 0;
         font-size: 25px;
+        line-height: 1;
         cursor: pointer;
         color: #835500;
         font-family: "BebasNeueRegular", Arial, sans-serif;
         text-transform: uppercase;
+        border: none;
         text-shadow:
             0px -1px 0px #333,
             0 1px 0px #b69d6f;
@@ -69,18 +76,45 @@
             0px 1px 3px rgba(0, 0, 0, 0.7),
             0px -1px 0px rgba(245, 233, 172, 1);
         transition: all 0.2s;
+
         @include mixins.vertical-gradient(#eabb00, #a86400);
+
         @include mixins.breakpointMin(630px) {
-            width: 50%;
             grid-column: 2;
             justify-self: end;
         }
+
+        @include mixins.breakpointMin(800px) {
+            width: 50%;
+        }
+
         &:hover {
             background: linear-gradient(to bottom, #eabb00 0%, #eabb00 100%);
         }
 
-        &:active {
-            border: 2px solid colors.$linkBlue;
+        &:disabled {
+            cursor: wait;
+            &:hover {
+                @include mixins.vertical-gradient(#eabb00, #a86400);
+            }
+        }
+
+        &__text {
+            padding-top: 4px;
+        }
+
+        [class*="Loader_loader-container"] {
+            width: auto;
+            position: absolute;
+            left: calc(50% - 67px);
+        }
+
+        &__loader {
+            display: inline-block;
+            font-size: 24px;
+            color: #573900;
+
+            // position: absolute;
         }
     }
 }

@@ -4,18 +4,22 @@ import classNames from 'classnames'
 import { useSliderStoreContext } from '../../contexts'
 import SlideImage from '../Image'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 const ViewPort = () => {
   const { isAnimatingRight, isAnimatingLeft, prevIndex, index, nextIndex, slides } = useSliderStoreContext()
 
+  if (!slides?.length) {
+    return null
+  }
+
   return (
-    <div className="slider__viewport">
+    <div className={styles.slider__viewport}>
       <div
         className={classNames({
-          slider__viewport__slides: true,
-          'slider__viewport__slides--is-animating-left': isAnimatingLeft,
-          'slider__viewport__slides--is-animating-right': isAnimatingRight,
+          [styles.slider__viewport__slides]: true,
+          [styles['slider__viewport__slides--is-animating-left']]: isAnimatingLeft,
+          [styles['slider__viewport__slides--is-animating-right']]: isAnimatingRight,
         })}
       >
         <SlideImage {...slides[prevIndex]?.image} />

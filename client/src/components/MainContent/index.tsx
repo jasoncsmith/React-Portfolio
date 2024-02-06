@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react'
-import './index.scss'
+import styles from './index.module.scss'
+
 interface ContentMainProps {
   children: ReactNode
 }
 
 function ContentMain({ children }: ContentMainProps) {
-  return <main className="app__content">{children}</main>
+  return <main className={styles.app__content}>{children}</main>
 }
 
 export default ContentMain

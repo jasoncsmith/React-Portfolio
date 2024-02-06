@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import './index.scss'
+import styles from './index.module.scss'
 
 interface FieldLabelProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string
@@ -14,9 +14,9 @@ function FieldLabel({ id, error = false, hideLabel = true, children }: FieldLabe
   return (
     <label
       className={classNames({
-        label: true,
-        'label--is-invalid': error,
-        'label--is-hidden': hideLabel,
+        [styles.label]: true,
+        [styles['label--is-invalid']]: error,
+        [styles['label--is-hidden']]: hideLabel,
       })}
       htmlFor={id}
     >

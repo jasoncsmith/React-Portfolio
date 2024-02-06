@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { useFormik } from 'formik'
 
-// import { createUser } from '../../api/user'
+import { createUser } from '../../api/user'
 import { validateForm } from './helpers'
 
 import useModal from '../../hooks/useModal'
@@ -11,9 +11,10 @@ import Field from '../Field'
 import FieldInputTrap from '../FieldInputTrap'
 import FieldLabel from '../FieldLabel'
 import FieldTextArea from '../FieldTextArea'
+import toasts from '../Toast'
 
 import './index.scss'
-import toasts from '../Toast'
+import Loader from '../Loader'
 
 const capitalizeFirstLetter = (str: string) =>
   str.length > 0 ? [str[0].toUpperCase(), ...str.split('').slice(1)].join('') : str
@@ -22,6 +23,7 @@ export interface ContactFormModel {
   firstName: string
   lastName: string
   email: string
+  confirmEmail?: string
   company?: string
   comments: string
 }
@@ -46,10 +48,10 @@ const SuccessMessage = ({ firstName }: { firstName: string }) => {
         Hello <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>{firstName}</strong>,
       </p>
       <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm leading-5">
-        This form is not hooked up to a backend api, just a demo. Styled with{' '}
-        <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>tailwindCSS</strong> and uses the{' '}
-        <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>formik</strong> validation library. Source
-        code is available in my <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>GitHub</strong> repo{' '}
+        This form is wired up to a 🔥 <code>Firebase Firestore</code> NoSQL database on the backend and uses
+        the <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>formik</strong> validation library on the
+        client. Source code is available at my{' '}
+        <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>GitHub</strong> repo.{' '}
         <a
           className="text-blue-500"
           href="https://github.com/jasoncsmith/React-Portfolio"
@@ -77,27 +79,36 @@ const ContactForm = () => {
     title: '',
     content: <></>,
   })
+  const [isWaiting, setIsWaiting] = useState(false)
 
-  const handleSuccess = (firstName: string): void => {
+  const handleSuccess = (firstName: string, newUser: boolean): void => {
     setMessage({
-      title: 'Thanks for Visiting',
+      title: newUser ? 'Thanks for Visiting!' : 'Welcome Back!',
       content: <SuccessMessage firstName={capitalizeFirstLetter(firstName)} />,
     })
     modal.toggleIsVisible(true)
     reset()
   }
 
-  const send = async (data: ContactFormModel): Promise<void> => {
+  const send = async (model: ContactFormModel): Promise<void> => {
     try {
-      // const { data: user } = await createUser(data)
-      // handleSuccess(user?.firstName)
-      handleSuccess(data?.firstName)
-      toasts.success('Thanks for posting')
-    } catch (error: any) {
-      toasts.error(error?.message)
-    }
+      setIsWaiting(true)
+      const { data, status } = await createUser(model)
 
-    // handleSuccess(data)
+      if (status === 200 || status === 201) {
+        const fullName = data?.fullName
+        handleSuccess(fullName, status === 201)
+      } else {
+        // spambot
+        toasts.success('Thank you for your comments')
+      }
+
+      reset()
+    } catch (error: any) {
+      toasts.error('Sorry, there was an error submitting this form.')
+    } finally {
+      setIsWaiting(false)
+    }
   }
 
   const reset = () => formik.handleReset(null)
@@ -182,7 +193,12 @@ const ContactForm = () => {
             <FieldLabel id={'confirmEmail'} hideLabel={true}>
               Honeytrap
             </FieldLabel>
-            <FieldInputTrap name="confirmEmail" type="text" />
+            <FieldInputTrap
+              name="confirmEmail"
+              type="text"
+              value={formik.values.confirmEmail}
+              onChange={formik.handleChange}
+            />
           </div>
         </div>
 
@@ -203,8 +219,9 @@ const ContactForm = () => {
           />
         </div>
 
-        <button className="btn-submit" type="submit" tabIndex={6}>
-          Transmit
+        <button className="btn-submit" type="submit" tabIndex={6} disabled={isWaiting}>
+          {isWaiting && <Loader className={'btn-submit__loader'} />}
+          <span className="btn-submit__text">Transmit</span>
         </button>
       </form>
 

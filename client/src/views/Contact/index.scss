@@ -2,7 +2,7 @@
 @use "/src/styles/colors";
 
 .view-contact {
-    background: #000 url(../../assets/bg/bg_page_contact.jpg) no-repeat 50% 200px fixed;
+    background: #000 url(../../assets/bg/bg_page_contact.jpg) no-repeat 47% 104px fixed;
     padding: 70px 10px 20px 10px; // TODO: componentize this
 
     @include mixins.breakpointMin(715px) {

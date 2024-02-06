@@ -4,27 +4,31 @@ import classNames from 'classnames'
 
 import { useSliderStoreContext } from '../../contexts'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 interface CaptionContainerProps {
   children: ReactNode
 }
 
 const CaptionContainer = ({ children }: CaptionContainerProps) => {
-  const { isCaptionHiding, isCaptionHidden, isCaptionShowing } = useSliderStoreContext()
+  const { isCaptionHiding, isCaptionHidden, isCaptionShowing, slides } = useSliderStoreContext()
+
+  if (!slides?.length) {
+    return null
+  }
 
   return (
     <div
       className={classNames({
-        'slider__caption-display': true,
-        'slider__caption-display--is-hidden': isCaptionHidden,
-        'slider__caption-display--is-hiding': isCaptionHiding,
-        'slider__caption-display--is-showing': isCaptionShowing,
+        [styles['slider__caption-display']]: true,
+        [styles['slider__caption-display--is-hidden']]: isCaptionHidden,
+        [styles['slider__caption-display--is-hiding']]: isCaptionHiding,
+        [styles['slider__caption-display--is-showing']]: isCaptionShowing,
       })}
     >
       {children}
 
-      <div className="caption-display__links"></div>
+      <div className={styles['caption-display__links']}></div>
     </div>
   )
 }

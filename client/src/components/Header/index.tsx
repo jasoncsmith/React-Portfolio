@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { useUIStoreContext } from '../../contexts/ui'
 
 import Nav from '../Nav'
-import './index.scss'
+import styles from './index.module.scss'
 
 function Header() {
   const [hidden, setHidden] = useState(false)
@@ -16,7 +16,7 @@ function Header() {
   }, [scrollY, scrollingDown])
 
   return (
-    <header className={classNames({ app__header: true, 'app__header--hidden': hidden })}>
+    <header className={classNames({ [styles.app__header]: true, [styles['app__header--hidden']]: hidden })}>
       <Nav />
     </header>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 interface FieldMessageProps {
   error: boolean
@@ -12,9 +12,9 @@ const FieldMessage = ({ error, children }: FieldMessageProps) =>
   error ? (
     <span
       className={classNames({
-        'validation-message': true,
-        'validation-message--is-invalid': error,
-        'validation-message--is-valid': false,
+        [styles['validation-message']]: true,
+        [styles['validation-message--is-invalid']]: error,
+        [styles['validation-message--is-valid']]: false,
       })}
     >
       {children}

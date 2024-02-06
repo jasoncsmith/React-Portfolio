@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react'
 import classNames from 'classnames'
 
-import './index.scss'
 import FieldLabel from '../FieldLabel'
 import FieldMessage from '../FieldMessage'
+import styles from './index.module.scss'
 
 interface FieldTextAreaProps extends React.InputHTMLAttributes<HTMLTextAreaElement> {
   name: string
@@ -36,7 +36,7 @@ const FieldTextArea = forwardRef(function FieldTextArea(
   const generatedId = `control-textarea-${id}`
 
   return (
-    <div className="control-textarea">
+    <div className={styles['control-textarea']}>
       {label && (
         <FieldLabel id={generatedId} hideLabel={hideLabel}>
           {label}
@@ -48,9 +48,9 @@ const FieldTextArea = forwardRef(function FieldTextArea(
         id={generatedId}
         name={name}
         className={classNames({
-          textarea: true,
-          'textarea--is-invalid': error,
-          'textarea--is-valid': valid,
+          [styles.textarea]: true,
+          [styles['textarea--is-invalid']]: error,
+          [styles['textarea--is-valid']]: valid,
         })}
         {...props}
       />

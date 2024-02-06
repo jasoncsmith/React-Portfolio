@@ -1,8 +1,10 @@
 import React from 'react'
-import './index.scss'
+import styles from './index.module.scss'
 
 interface FieldInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const FieldInputTrap = (props: FieldInputProps) => <input className="confirmEmail" type="text" />
+const FieldInputTrap = (props: FieldInputProps) => (
+  <input className={styles.confirmEmail} type="text" {...props} />
+)
 
 export default FieldInputTrap

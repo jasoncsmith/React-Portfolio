@@ -9,14 +9,14 @@ import Controls from './components/Controls'
 import Nav from './components/Nav'
 import SliderStore, { SliderStoreContext } from './contexts'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 function Slider() {
   const [store] = useState(() => new SliderStore())
 
   return (
     <SliderStoreContext.Provider value={store}>
-      <div className="slider">
+      <div className={styles.slider}>
         <SliderContainer>
           <ViewPort />
           <Nav />

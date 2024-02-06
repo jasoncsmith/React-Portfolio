@@ -18,10 +18,10 @@ function About() {
           web applications through solid engineering.
         </p>
         <p>
-          About this site, it is 10 years old and needed some work under the hood. So I rebuilt it with{' '}
-          <code>React 18</code> and <code>MobX</code>. The graphics are original, and I had a great time
-          creating them back in the day. The biggest design update is that it is now <code>responsive</code>{' '}
-          across all devices <small>(go ahead and resize the width of your browser)</small>.
+          This site is built with <code>React 18</code>, <code>MobX</code> and is served from 🔥
+          <code>Firebase</code> on the backend. The graphics are original, and I had a great time creating
+          them back in the day. The site is built with a mobile first approach and is <code>responsive</code>{' '}
+          across all devices.
         </p>
         <p>
           Would like to call out my <a href="#/work">custom-built fully responsive carousel</a>, written with{' '}

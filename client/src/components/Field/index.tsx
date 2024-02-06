@@ -4,7 +4,7 @@ import FieldLabel from '../FieldLabel'
 import FieldInput from '../FieldInput'
 import FieldMessage from '../FieldMessage'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 // TODO HOW TO PASS IN INDVIDUAL PROPS
 interface FieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -28,7 +28,7 @@ const Field = forwardRef(function Field(
   const generatedID = `field-${type}-${id}`
 
   return (
-    <div className="field">
+    <div className={styles.field}>
       {label && (
         <FieldLabel id={generatedID} error={error} hideLabel={hideLabel}>
           {label}

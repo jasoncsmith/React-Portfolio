@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react'
 import classNames from 'classnames'
-import './index.scss'
+
+import styles from './index.module.scss'
 
 interface FieldInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string
@@ -23,9 +24,9 @@ const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(function FieldI
       name={name}
       type={type}
       className={classNames({
-        'field-input': true,
-        'field-input--is-invalid': error,
-        'field-input--is-valid': valid,
+        [styles['field-input']]: true,
+        [styles['field-input--is-invalid']]: error,
+        [styles['field-input--is-valid']]: valid,
       })}
       {...props}
     />

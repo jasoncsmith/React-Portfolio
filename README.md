@@ -2,16 +2,14 @@
 Source code for my React powered online portfolio.
 
 # Features
-- React Components
+- React Functional Components
 - MobX State Management
+- Firebase Cloud Functions
+- Firebase Firestore NoSQL DB
 - Custom-Built Responsive Carousel
 - Responsive Design
-- useResizeObserver
-- React Functional Components
-- formik form validation
 - react-pdf resume rendering
 - react-icons
-- Tailwind CSS
 
 # To View
 

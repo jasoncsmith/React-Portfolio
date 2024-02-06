@@ -2,22 +2,28 @@ import { ReactNode } from 'react'
 import { observer } from 'mobx-react'
 import classNames from 'classnames'
 
+import Loader from '../../../Loader'
+
 import { useSliderStoreContext } from '../../contexts'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 export interface SliderConteainerProps {
   children: ReactNode
 }
 
 const SliderContainer = ({ children }: SliderConteainerProps) => {
-  const { isCaptionHidden, play, pause } = useSliderStoreContext()
+  const { isCaptionHidden, play, pause, slides } = useSliderStoreContext()
+
+  if (!slides?.length) {
+    return <Loader className={styles.loader} />
+  }
 
   return (
     <div
       className={classNames({
-        slider__container: true,
-        'slider__container--captions-hidden': isCaptionHidden,
+        [styles.slider__container]: true,
+        [styles['slider__container--captions-hidden']]: isCaptionHidden,
       })}
       onMouseOver={() => pause()}
       onMouseLeave={() => play()}

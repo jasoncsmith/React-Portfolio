@@ -4,14 +4,14 @@ import MenuItem from '../MenuItem'
 
 import { Project, useSliderStoreContext } from '../../contexts'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 const Menu = () => {
   const { slides: items, isPlaying, index, goTo } = useSliderStoreContext()
 
   return (
-    <div className="slider__menu">
-      {items.map(
+    <div className={styles.slider__menu}>
+      {items?.map(
         (t: Project, idx: number): JSX.Element => (
           <MenuItem
             key={`mi-${t.id}`}
@@ -23,7 +23,7 @@ const Menu = () => {
         )
       )}
 
-      <div className="slider__menu--play-state">{!!isPlaying ? 'Playing' : 'Paused'}</div>
+      <div className={styles['slider__menu--play-state']}>{!!isPlaying ? 'Playing' : 'Paused'}</div>
     </div>
   )
 }

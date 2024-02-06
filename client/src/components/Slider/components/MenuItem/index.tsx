@@ -3,13 +3,13 @@ import classNames from 'classnames'
 
 import { ImageProps } from '../Image'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 interface MenuItemProps {
   isActive: boolean
-  onMenuClick: () => void
   image: ImageProps
   client: string
+  onMenuClick: () => void
 }
 
 const MenuItem = ({ isActive, onMenuClick, image, client }: MenuItemProps) => {
@@ -19,8 +19,8 @@ const MenuItem = ({ isActive, onMenuClick, image, client }: MenuItemProps) => {
   return (
     <div
       className={classNames({
-        menuItem: true,
-        'menuItem--selected': isActive,
+        [styles.menuItem]: true,
+        [styles['menuItem--selected']]: isActive,
       })}
     >
       <button
@@ -33,9 +33,9 @@ const MenuItem = ({ isActive, onMenuClick, image, client }: MenuItemProps) => {
       </button>
 
       {isHovered === true ? (
-        <div className="menuItem__thumbnail">
-          <h5 dangerouslySetInnerHTML={{ __html: client }}></h5>
-          <img className="menuItem__img" src={`images/${name}`} alt={alt} title={alt} height={100} />
+        <div className={styles.menuItem__thumbnail}>
+          <h5>{client}</h5>
+          <img className={styles.menuItem__img} src={`images/${name}`} alt={alt} title={alt} height={100} />
         </div>
       ) : (
         ''

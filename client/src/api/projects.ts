@@ -1,6 +1,4 @@
 import client from '.'
+const base = process.env.REACT_APP_BASE_URL
 
-const version = 'v1'
-const base = `/${version}/projects`
-
-export const getProjects = () => client.get(`${base}`)
+export const getProjects = () => client.get(`${base}/v1/projects`)
