@@ -2,8 +2,6 @@ import { ReactNode } from 'react'
 import { observer } from 'mobx-react'
 import classNames from 'classnames'
 
-import Loader from '../../../Loader'
-
 import { useSliderStoreContext } from '../../contexts'
 
 import styles from './index.module.scss'
@@ -13,11 +11,7 @@ export interface SliderConteainerProps {
 }
 
 const SliderContainer = ({ children }: SliderConteainerProps) => {
-  const { isCaptionHidden, play, pause, slides } = useSliderStoreContext()
-
-  if (!slides?.length) {
-    return <Loader className={styles.loader} />
-  }
+  const { isCaptionHidden, play, pause } = useSliderStoreContext()
 
   return (
     <div

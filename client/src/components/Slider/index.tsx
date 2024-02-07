@@ -8,11 +8,16 @@ import Caption from './components/Caption'
 import Controls from './components/Controls'
 import Nav from './components/Nav'
 import SliderStore, { SliderStoreContext } from './contexts'
+import Loader from '../Loader'
 
 import styles from './index.module.scss'
 
 function Slider() {
   const [store] = useState(() => new SliderStore())
+
+  if (!store.slides?.length) {
+    return <Loader className={styles.loader} />
+  }
 
   return (
     <SliderStoreContext.Provider value={store}>

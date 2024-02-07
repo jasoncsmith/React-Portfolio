@@ -32,6 +32,7 @@ const Button = ({
   className = '',
   buttonType = 'button',
   isLoading = false,
+  iconName,
   ...props
 }: ComponentProps & (ButtonProps | LinkProps)) => {
   const Component = buttonType === 'link' ? 'a' : 'button'
@@ -45,7 +46,7 @@ const Button = ({
       {...props}
     >
       {isLoading && <Loader className={styles.button__loader} />}
-      {!!props.iconName && <Icon iconName={props.iconName} />}
+      {!!iconName && <Icon iconName={iconName} />}
       <span className={styles.button__text}>{children}</span>
     </Component>
   )

@@ -14,7 +14,7 @@ $width: 1000px;
     justify-content: flex-start;
     padding: 10px 0px 10px 20px;
     font-size: 20px;
-    color: #adadad;
+    color: #ddd;
     text-decoration: none;
     background-color: #111;
     border-left: 1px dotted #333;
@@ -23,7 +23,6 @@ $width: 1000px;
     font-family: "BebasNeueRegular", Arial, sans-serif;
 
     @include mixins.breakpointMin(630px) {
-        color: #665;
         width: 25%;
         height: 65px;
         justify-content: center;
@@ -67,6 +66,7 @@ $width: 1000px;
             color: colors.$gold;
             .nav__glyph {
                 color: colors.$teal;
+                transform: none;
             }
         }
 
