@@ -34,11 +34,11 @@ interface ModalContent {
 }
 
 const initialData: ContactFormModel = {
-  firstName: 'aa',
-  lastName: 'aa',
-  email: 'a@a.com',
+  firstName: '',
+  lastName: '',
+  email: '',
   company: '',
-  comments: 'aasdfsdf',
+  comments: '',
 }
 
 const SuccessMessage = ({ firstName }: { firstName: string }) => {
