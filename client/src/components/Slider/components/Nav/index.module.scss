@@ -4,6 +4,7 @@
 .slider__nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 1.5%;
@@ -28,6 +29,7 @@
     }
 
     &__btn-icon {
+        display: inline-block;
         font-size: 40px;
         background-color: rgba(#000, 0.75);
         border-radius: 4px;

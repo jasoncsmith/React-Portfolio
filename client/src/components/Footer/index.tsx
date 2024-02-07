@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import Icon from '../Icon'
 import styles from './index.module.scss'
 import classNames from 'classnames'
 
@@ -22,7 +22,7 @@ function Footer() {
           href={urls.gitHub}
           target="_blank"
         >
-          <FaGithub />
+          <Icon iconName="FaGithub" />
         </a>
         <a
           className={classNames({
@@ -33,7 +33,7 @@ function Footer() {
           href={urls.linkedin}
           target="_blank"
         >
-          <FaLinkedin />
+          <Icon iconName="FaLinkedin" />
         </a>
       </nav>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
-import { IoMdClose } from 'react-icons/io'
+import Icon from '../Icon'
 // import './index.scss';
 // using TailwindCSS for Modal
 
@@ -53,7 +53,7 @@ function Modal({ isVisible, hideModal, title, content }: ModalProps): React.Reac
                 ref={btnCloseRef}
                 onClick={hideModal}
               >
-                <IoMdClose color="#eabb00" size="22px" />
+                <Icon iconName="IoMdClose" color="#eabb00" size="22px" />
               </button>
             </div>
           </div>

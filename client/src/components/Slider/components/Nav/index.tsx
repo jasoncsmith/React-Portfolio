@@ -1,8 +1,9 @@
 import { observer } from 'mobx-react'
-import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
 import classNames from 'classnames'
 
+import Icon from '../../../Icon'
 import { useSliderStoreContext } from '../../contexts'
+
 import styles from './index.module.scss'
 
 const Nav = () => {
@@ -20,8 +21,9 @@ const Nav = () => {
       >
         Previous
       </button>
-      <IoChevronBack className={styles['slider__nav__btn-icon']} onClick={goToPrevious} />
-
+      <span className={styles['slider__nav__btn-icon']} onClick={goToPrevious}>
+        <Icon iconName="IoChevronBack" />
+      </span>
       <button
         type="button"
         className={classNames({
@@ -32,7 +34,9 @@ const Nav = () => {
       >
         Next
       </button>
-      <IoChevronForward className={styles['slider__nav__btn-icon']} onClick={goToNext} />
+      <span className={styles['slider__nav__btn-icon']} onClick={goToNext}>
+        <Icon iconName="IoChevronForward" />
+      </span>{' '}
     </nav>
   )
 }
