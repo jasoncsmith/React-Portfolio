@@ -2,7 +2,8 @@ import useResizeObserver from 'use-resize-observer'
 
 import pdf from '../../assets/docs/resume-jasonsmith-01_2024.pdf'
 import Document from '../../components/Document'
-import { BsDownload } from 'react-icons/bs'
+import Button from '../../components/Button'
+
 import './index.scss'
 
 function Resume() {
@@ -15,13 +16,25 @@ function Resume() {
       </header>
 
       <div ref={ref} className={'document-viewer'}>
-        <a className="download-link" href={pdf} target="_blank" rel="noreferrer" title="Download Resume">
-          Download <BsDownload className={'download-link__svg'} />
-        </a>
+        <Button
+          buttonType="link"
+          href={pdf}
+          iconName={'BsDownload'}
+          className={'document-viewer__button'}
+          title="Download Resume"
+        >
+          Download
+        </Button>
         <Document width={width} file={pdf} />
-        <a className="download-link" href={pdf} target="_blank" rel="noreferrer" title="Download Resume">
-          Download <BsDownload className={'download-link__svg'} />
-        </a>
+        <Button
+          buttonType="link"
+          href={pdf}
+          iconName={'BsDownload'}
+          className={'document-viewer__button'}
+          title="Download Resume"
+        >
+          Download
+        </Button>
       </div>
     </div>
   )

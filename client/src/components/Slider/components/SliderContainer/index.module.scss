@@ -21,9 +21,9 @@
         border-radius: 10px;
     }
 
-    &--captions-hidden {
-        transform: translate(calc(50vw - calc(535px / 2)), 0);
-    }
+    // &--captions-hidden {
+    //     transform: translate(calc(0), 0);
+    // }
 }
 
 .loader {

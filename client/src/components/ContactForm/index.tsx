@@ -11,10 +11,10 @@ import Field from '../Field'
 import FieldInputTrap from '../FieldInputTrap'
 import FieldLabel from '../FieldLabel'
 import FieldTextArea from '../FieldTextArea'
+import Button from '../Button'
 import toasts from '../Toast'
 
 import './index.scss'
-import Loader from '../Loader'
 
 const capitalizeFirstLetter = (str: string) =>
   str.length > 0 ? [str[0].toUpperCase(), ...str.split('').slice(1)].join('') : str
@@ -34,11 +34,11 @@ interface ModalContent {
 }
 
 const initialData: ContactFormModel = {
-  firstName: '',
-  lastName: '',
-  email: '',
+  firstName: 'aa',
+  lastName: 'aa',
+  email: 'a@a.com',
   company: '',
-  comments: '',
+  comments: 'aasdfsdf',
 }
 
 const SuccessMessage = ({ firstName }: { firstName: string }) => {
@@ -219,10 +219,15 @@ const ContactForm = () => {
           />
         </div>
 
-        <button className="btn-submit" type="submit" tabIndex={6} disabled={isWaiting}>
-          {isWaiting && <Loader className={'btn-submit__loader'} />}
-          <span className="btn-submit__text">Transmit</span>
-        </button>
+        <Button
+          buttonType="button"
+          type="submit"
+          tabIndex={6}
+          isLoading={isWaiting}
+          className="contact-form btn-submit"
+        >
+          Transmit
+        </Button>
       </form>
 
       <modal.Modal

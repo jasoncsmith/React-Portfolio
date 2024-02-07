@@ -36,6 +36,16 @@
         }
     }
 
+    .document-viewer__button {
+        width: 100%;
+        font-size: 18px;
+        margin: 16px 0;
+
+        @include mixins.breakpointMin(715px) {
+            width: 50%;
+        }
+    }
+
     .download-link {
         display: inline-block;
         margin-bottom: 20px;
