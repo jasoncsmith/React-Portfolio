@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.95aafad4.css",
-    "main.js": "./static/js/main.dfcf6f8c.js",
+    "main.css": "./static/css/main.885ebe74.css",
+    "main.js": "./static/js/main.d9d459d9.js",
     "static/media/b_d.jpg": "./static/media/b_d.89fddc527a0c1383fb10.jpg",
     "static/media/iconic_stroke.svg": "./static/media/iconic_stroke.a467f613989209a71754.svg",
     "static/media/bg_contactForm.jpg": "./static/media/bg_contactForm.8ed3625cdebd9adbb76c.jpg",
@@ -23,11 +23,11 @@
     "static/media/loader-o-yellow.gif": "./static/media/loader-o-yellow.abe59b1aab08249d4a65.gif",
     "static/media/BebasNeue-webfont.eot": "./static/media/BebasNeue-webfont.23b4c82415107a88ee01.eot",
     "index.html": "./index.html",
-    "main.95aafad4.css.map": "./static/css/main.95aafad4.css.map",
-    "main.dfcf6f8c.js.map": "./static/js/main.dfcf6f8c.js.map"
+    "main.885ebe74.css.map": "./static/css/main.885ebe74.css.map",
+    "main.d9d459d9.js.map": "./static/js/main.d9d459d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.95aafad4.css",
-    "static/js/main.dfcf6f8c.js"
+    "static/css/main.885ebe74.css",
+    "static/js/main.d9d459d9.js"
   ]
 }
