@@ -133,7 +133,7 @@ const ContactForm = () => {
               name="firstName"
               type="text"
               label="First Name*"
-              placeholder="First Name"
+              placeholder="First Name*"
               tabIndex={1}
               maxLength={25}
               error={!!formik.touched.firstName && !!formik.errors.firstName}

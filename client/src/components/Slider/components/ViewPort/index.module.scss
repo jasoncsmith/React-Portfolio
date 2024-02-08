@@ -3,9 +3,11 @@
 
 $aspectRatio: 0.7070707;
 $bodyPadding: 20px;
+$borders: 2px;
+
 // TODO: centtralize all vars
 .slider__viewport {
-    $width: calc(var(--global-viewport-width) - $bodyPadding);
+    $width: calc(var(--global-viewport-width) - $bodyPadding - $borders);
     $widthViewPort: min($width, 495px);
 
     width: $widthViewPort;
@@ -17,8 +19,8 @@ $bodyPadding: 20px;
 
     @include mixins.breakpointMin(715px) {
         box-shadow:
-            -3px 4px 1px rgba(255, 255, 211, 0.3),
-            4px -4px 1px rgba(0, 0, 0, 0.5);
+            -2px 3px 2px rgba(#fff, 0.5),
+            2px -3px 2px rgba(#000, 0.8);
         border-radius: 9px;
     }
 

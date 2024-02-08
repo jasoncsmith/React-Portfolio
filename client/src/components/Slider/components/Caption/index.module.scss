@@ -9,8 +9,8 @@
     color: #fbfbfb;
     background-color: #000;
     border-radius: 0;
-    box-shadow: -2px 3px 4px rgba(#000, 1) inset;
     background: linear-gradient(45deg, rgba(#000, 0.925) 47%, #4a4a4a 93%, #4a4a4a 100%);
+    box-shadow: -1px 1px 2px black inset;
 
     p {
         margin: 0 0 16px 0;
@@ -27,6 +27,7 @@
     }
 
     @include mixins.breakpointMin(715px) {
+        box-shadow: -2px 3px 4px rgba(#000, 1) inset;
         border-radius: 9px;
         padding: 16px;
     }

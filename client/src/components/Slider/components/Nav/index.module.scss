@@ -26,37 +26,42 @@
             display: block;
             background: url(../../../../assets/ui_slider_buttons_sprite.png) no-repeat 0 0;
         }
+
+        &--prev {
+            transition: margin 200ms;
+            background-position: 0 0;
+
+            &:hover {
+                background-position: 0 -56px;
+                margin-left: -2px;
+            }
+        }
+
+        &--next {
+            background-position: -61px 0px;
+            transition: margin 200ms;
+
+            &:hover {
+                background-position: -61px -56px;
+                margin-right: -2px;
+            }
+        }
     }
 
     &__btn-icon {
         display: inline-block;
         font-size: 40px;
-        background-color: rgba(#000, 0.75);
+        // background-color: rgba(#000, 0.75);
         border-radius: 4px;
-        color: colors.$gold;
+        color: #888;
         cursor: pointer;
+
+        &:hover {
+            color: colors.$gold;
+        }
 
         @include mixins.breakpointMin(715px) {
             display: none;
-        }
-    }
-    &__btn--prev {
-        transition: margin 200ms;
-        background-position: 0 0;
-
-        &:hover {
-            background-position: 0 -56px;
-            margin-left: -2px;
-        }
-    }
-
-    &__btn--next {
-        background-position: -61px 0px;
-        transition: margin 200ms;
-
-        &:hover {
-            background-position: -61px -56px;
-            margin-right: -2px;
         }
     }
 }
