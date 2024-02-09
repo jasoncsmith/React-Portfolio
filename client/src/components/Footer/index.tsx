@@ -10,36 +10,38 @@ const urls = {
 function Footer() {
   return (
     <footer className={styles.app__footer}>
-      <p className={styles.footer__author}>JASON SMITH</p>
+      <div className={styles.footer__container}>
+        <p className={styles.footer__author}>JASON SMITH</p>
 
-      <nav className={styles.footer__nav}>
-        <a
-          className={classNames({
-            [styles.footer__link]: true,
-            [styles['footer__link-gitHub']]: true,
-          })}
-          rel="noreferrer"
-          href={urls.gitHub}
-          target="_blank"
-        >
-          <Icon iconName="FaGithub" />
-        </a>
-        <a
-          className={classNames({
-            [styles.footer__link]: true,
-            [styles['footer__link-linkedin']]: true,
-          })}
-          rel="noreferrer"
-          href={urls.linkedin}
-          target="_blank"
-        >
-          <Icon iconName="FaLinkedin" />
-        </a>
-      </nav>
+        <nav className={styles.footer__nav}>
+          <a
+            className={classNames({
+              [styles.footer__link]: true,
+              [styles['footer__link-gitHub']]: true,
+            })}
+            rel="noreferrer"
+            href={urls.gitHub}
+            target="_blank"
+          >
+            <Icon iconName="FaGithub" />
+          </a>
+          <a
+            className={classNames({
+              [styles.footer__link]: true,
+              [styles['footer__link-linkedin']]: true,
+            })}
+            rel="noreferrer"
+            href={urls.linkedin}
+            target="_blank"
+          >
+            <Icon iconName="FaLinkedin" />
+          </a>
+        </nav>
 
-      <p className={styles.footer__copyright}>
-        &copy;{new Date().getFullYear()}&nbsp;|&nbsp;jason smith&nbsp;|&nbsp;All rights reserved...
-      </p>
+        <p className={styles.footer__copyright}>
+          &copy;{new Date().getFullYear()}&nbsp;|&nbsp;jason smith&nbsp;|&nbsp;All rights reserved...
+        </p>
+      </div>
     </footer>
   )
 }

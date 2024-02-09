@@ -47,7 +47,7 @@ function About() {
           <p>
             I Would like to call out my <a href="#/work">custom-built fully responsive carousel</a>, written
             with <code>React</code>, <code>MobX</code> and the <code>useResizeObserver</code> hook. Other
-            technologies used on this site include: <code>Typescript</code>, <code>Modular SASS</code>{' '}
+            technologies used on this site include: <code>Typescript</code>, <code>Modular SASS</code>,{' '}
             <code>react-pdf</code>, <code>react-icons</code>, and played with a bit of{' '}
             <code>Tailwind CSS</code>.
           </p>
