@@ -1,0 +1,17 @@
+.base {
+    opacity: 1;
+    transform: none;
+    transform: translateY(0);
+
+    transition:
+        opacity 0.6s ease-out 0.3s,
+        transform 0.6s ease-out 0.1s;
+
+    &--is-hidden {
+        opacity: 0;
+    }
+
+    &--is-hidden.base--has-translate {
+        transform: translateY(20px);
+    }
+}

@@ -13,6 +13,7 @@ import FieldLabel from '../FieldLabel'
 import FieldTextArea from '../FieldTextArea'
 import Button from '../Button'
 import toasts from '../Toast'
+import Fade from '../Fade'
 
 import './index.scss'
 
@@ -118,7 +119,7 @@ const ContactForm = () => {
   }, [ref])
 
   return (
-    <>
+    <Fade>
       <form
         // action="/webservices/form.php"
         // method="post"
@@ -236,7 +237,7 @@ const ContactForm = () => {
         title={msg.title}
         content={msg.content}
       />
-    </>
+    </Fade>
   )
 }
 

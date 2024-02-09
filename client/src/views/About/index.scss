@@ -53,10 +53,9 @@
             line-height: 1.4;
             margin-bottom: 20px;
             text-overflow: ellipsis;
-
-            &:last-of-type {
-                margin-bottom: 0;
-            }
+        }
+        & > div:last-of-type > p {
+            margin-bottom: 0;
         }
 
         span {
@@ -77,6 +76,14 @@
         animation: waving 2s infinite ease-in-out;
         transform-origin: right bottom;
     }
+
+    .icon--flickering {
+        display: inline-block;
+        position: relative;
+
+        animation: flickering 1s infinite;
+        transform-origin: center bottom;
+    }
 }
 
 @keyframes waving {
@@ -88,5 +95,25 @@
     }
     100% {
         transform: rotate(0deg);
+    }
+}
+@keyframes flickering {
+    0% {
+        transform: rotate(0deg) translateX(0);
+    }
+    25% {
+        transform: rotate(2deg) translateX(0.5px);
+    }
+    50% {
+        transform: rotate(4deg) translateX(0px);
+    }
+    60% {
+        transform: rotate(0deg) translateX(0px);
+    }
+    75% {
+        transform: rotate(-2deg) translateX(-0.2px);
+    }
+    100% {
+        transform: rotate(0deg) translateX(0);
     }
 }

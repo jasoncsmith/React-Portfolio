@@ -3,6 +3,7 @@ import useResizeObserver from 'use-resize-observer'
 import pdf from '../../assets/docs/resume-jasonsmith-01_2024.pdf'
 import Document from '../../components/Document'
 import Button from '../../components/Button'
+import Fade from '../../components/Fade'
 
 import './index.scss'
 
@@ -15,27 +16,29 @@ function Resume() {
         <h2>Resume</h2>
       </header>
 
-      <div ref={ref} className={'document-viewer'}>
-        <Button
-          buttonType="link"
-          href={pdf}
-          iconName={'BsDownload'}
-          className={'document-viewer__button'}
-          title="Download Resume"
-        >
-          Download
-        </Button>
-        <Document width={width} file={pdf} />
-        <Button
-          buttonType="link"
-          href={pdf}
-          iconName={'BsDownload'}
-          className={'document-viewer__button'}
-          title="Download Resume"
-        >
-          Download
-        </Button>
-      </div>
+      <Fade>
+        <div ref={ref} className={'document-viewer'}>
+          <Button
+            buttonType="link"
+            href={pdf}
+            iconName={'BsDownload'}
+            className={'document-viewer__button'}
+            title="Download Resume"
+          >
+            Download
+          </Button>
+          <Document width={width} file={pdf} />
+          <Button
+            buttonType="link"
+            href={pdf}
+            iconName={'BsDownload'}
+            className={'document-viewer__button'}
+            title="Download Resume"
+          >
+            Download
+          </Button>
+        </div>
+      </Fade>
     </div>
   )
 }

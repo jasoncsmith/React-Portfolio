@@ -140,6 +140,11 @@ class SliderStore {
   }
 
   @action.bound
+  setSlides = (val: Project[] = []) => {
+    this.slides = val
+  }
+
+  @action.bound
   showCaptions = (): void => {
     this.setIsCaptionShowing(true)
     this.setIsCaptionHidden(false)
@@ -161,13 +166,10 @@ class SliderStore {
     this.setIsPlaying(true)
   }
 
-  @action.bound
   fetchSlides = async () => {
     try {
       const { data } = await getProjects()
-      await new Promise(res => setTimeout(res, 100)) // TODO: BETER? gives extra render time
-
-      this.slides = data?.projects
+      this.setSlides(data?.projects)
     } catch (error) {
       toasts.error('There was an issue retrieving projects')
     }
@@ -175,8 +177,9 @@ class SliderStore {
 
   @action.bound
   init() {
-    !this.slides?.length && this.fetchSlides()
-    this.play()
+    if (this.slides?.length === 0) {
+      this.fetchSlides().then(this.play)
+    }
   }
 }
 

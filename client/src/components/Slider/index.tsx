@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
 
 import SliderContainer from './components/SliderContainer'
@@ -9,6 +9,7 @@ import Controls from './components/Controls'
 import Nav from './components/Nav'
 import SliderStore, { SliderStoreContext } from './contexts'
 import Loader from '../Loader'
+import Fade from '../Fade'
 
 import styles from './index.module.scss'
 
@@ -21,17 +22,19 @@ function Slider() {
 
   return (
     <SliderStoreContext.Provider value={store}>
-      <div className={styles.slider}>
-        <SliderContainer>
-          <ViewPort />
-          <Nav />
-          <Controls />
-        </SliderContainer>
+      <Fade>
+        <div className={styles.slider}>
+          <SliderContainer>
+            <ViewPort />
+            <Nav />
+            <Controls />
+          </SliderContainer>
 
-        <CaptionContainer>
-          <Caption />
-        </CaptionContainer>
-      </div>
+          <CaptionContainer>
+            <Caption />
+          </CaptionContainer>
+        </div>
+      </Fade>
     </SliderStoreContext.Provider>
   )
 }
