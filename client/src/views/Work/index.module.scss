@@ -3,6 +3,7 @@
 
 .view-work {
     padding: 70px 10px 20px 10px; // TODO: componentize this
+    min-height: 100vh;
     background: black url(../../assets/bg/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
 
     @include mixins.breakpointMin(715px) {
@@ -19,6 +20,9 @@
             padding: 35px 0;
             margin-bottom: 50px;
         }
+    }
+
+    section {
     }
 
     h2 {
