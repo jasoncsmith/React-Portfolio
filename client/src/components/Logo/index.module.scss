@@ -1,0 +1,10 @@
+@use "../../styles/mixins";
+@use "../../styles/colors";
+
+.logo {
+    position: static;
+    @include mixins.breakpointMin(630px) {
+        position: absolute;
+        left: 20px;
+    }
+}

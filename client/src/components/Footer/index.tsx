@@ -2,7 +2,7 @@ import Icon from '../Icon'
 import styles from './index.module.scss'
 import classNames from 'classnames'
 
-const urls = {
+export const urls = {
   linkedin: 'https://www.linkedin.com/in/jasoncsmithweb/',
   gitHub: 'https://github.com/jasoncsmith/',
 }

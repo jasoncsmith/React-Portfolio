@@ -1,0 +1,101 @@
+@use "/src/styles/colors";
+@use "/src/styles/mixins";
+
+.nav-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px;
+    font-size: 24px;
+    color: #ddd;
+    text-decoration: none;
+    background-color: #111;
+    font-family: "BebasNeueRegular", Arial, sans-serif;
+
+    &__wrap {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+    }
+
+    // &--is-offsite {
+    //     font-size: 20px;
+    //     font-family: Arial;
+    // }
+
+    @include mixins.breakpointMin(630px) {
+        width: 25%;
+        height: 65px;
+        border-left: 1px dotted #333;
+        box-shadow: 0 0 5px rgba(#000, 1) inset;
+        justify-content: center;
+        padding: 0;
+        line-height: 65px;
+        font-size: 30px;
+
+        &--is-offsite {
+            display: none;
+        }
+    }
+
+    &__icon {
+        transition: all 150ms;
+        position: relative;
+        top: -2px;
+    }
+
+    &:hover {
+        .nav-item__icon {
+            color: colors.$gold;
+            transform: scale(1.2);
+        }
+
+        .nav-item__icon--IoCogOutline {
+            // animation: rotating 3s linear infinite;
+            transform: rotate(60deg) scale(1.2);
+        }
+        .nav-item__icon--IoShareSocialOutline {
+            transform: rotate(-8deg) scale(1.2);
+        }
+    }
+
+    &--is-active {
+        width: calc(100% - 8px);
+        margin: 0 4px;
+        background-color: colors.$gold;
+        color: #000;
+        border-radius: 4px;
+        cursor: default;
+
+        .nav-item__icon {
+            color: #000;
+        }
+
+        @include mixins.breakpointMin(630px) {
+            background-color: #222;
+            color: colors.$gold;
+            width: 25%;
+            margin: 0;
+            text-shadow: 0 1px 3px #000;
+            box-shadow:
+                -8px 0 18px rgba(0, 0, 0, 0.7) inset,
+                8px 0 18px rgba(0, 0, 0, 0.7) inset;
+
+            .nav-item__icon {
+                color: colors.$teal;
+            }
+        }
+
+        &:hover {
+            .nav-item__icon {
+                transform: none;
+                color: #000;
+                @include mixins.breakpointMin(630px) {
+                    color: colors.$teal;
+                }
+            }
+        }
+    }
+}

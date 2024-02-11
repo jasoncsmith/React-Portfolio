@@ -16,7 +16,6 @@
 
     &__btn {
         display: none;
-        font-family: "IconicStroke";
         width: 56px;
         height: 56px;
         text-indent: -9999px;
@@ -51,7 +50,6 @@
     &__btn-icon {
         display: inline-block;
         font-size: 40px;
-        // background-color: rgba(#000, 0.75);
         border-radius: 4px;
         color: #888;
         cursor: pointer;

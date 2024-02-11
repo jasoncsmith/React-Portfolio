@@ -1,52 +1,60 @@
-import { NavLink } from 'react-router-dom'
-import './index.scss'
-import { useState } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 
-interface IconProps {
-  icon: string
-  children?: string
-}
+import { useUIStoreContext } from '../../contexts/ui'
+import { urls } from '../Footer'
 
-const Icon = ({ icon, children }: IconProps) => <span className={`nav__glyph ${icon}`}>{children}</span>
+import Icon from '../Icon'
+import NavItem from './components/NavItem'
 
-interface NavItemProps {
-  className: string
-  href: string
-  icon: string
-  text: string
-  onClick: () => void
-}
-
-const NavItem = ({ className, href, icon, text, onClick }: NavItemProps) => {
-  return (
-    <NavLink className={`app-nav__link ${className}`} to={href} onClick={onClick}>
-      <Icon icon={icon} />
-      {text}
-    </NavLink>
-  )
-}
+import styles from './index.module.scss'
 
 function Nav(): JSX.Element {
-  const [isOpen, setIsOpen] = useState(false)
+  const { isNavOpen, setIsNavOpen } = useUIStoreContext()
 
-  function handleClick() {
-    setIsOpen(open => !open)
+  function handleClick(e: React.MouseEvent) {
+    e.stopPropagation()
+
+    setIsNavOpen(!isNavOpen)
   }
 
   return (
-    <nav className="app__nav">
+    <nav className={styles['app-nav']}>
       <div
         onClick={handleClick}
-        className={classNames({ 'app-nav__trigger': true, 'app-nav__trigger--is-active': isOpen })}
+        className={classNames(styles['app-nav__trigger'], {
+          [styles['app-nav__trigger--is-active']]: isNavOpen,
+        })}
       >
-        <Icon icon="layers" />
+        <Icon iconName="IoLayersOutline" />
       </div>
-      <div className={classNames({ 'app-nav__wrapper': true, 'app-nav__wrapper--is-open': isOpen })}>
-        <NavItem onClick={handleClick} className="about" href="/about" icon="share" text="About" />
-        <NavItem onClick={handleClick} className="work" href="/work" icon="cog" text="Work" />
-        <NavItem onClick={handleClick} className="contact" href="/contact" icon="mail" text="Contact" />
-        <NavItem onClick={handleClick} className="resume" href="/resume" icon="document_alt_fill" text="Resume" />
+      <div
+        onClick={handleClick}
+        className={classNames(styles['app-nav__wrapper'], {
+          [styles['app-nav__wrapper--is-nav-open']]: isNavOpen,
+        })}
+      >
+        <NavItem onClick={handleClick} href="/about" icon="IoShareSocialOutline">
+          About
+        </NavItem>
+        <NavItem onClick={handleClick} href="/work" icon="IoCogOutline">
+          Work
+        </NavItem>
+        <NavItem onClick={handleClick} href="/contact" icon="IoMailOutline">
+          Contact
+        </NavItem>
+        <NavItem onClick={handleClick} href="/resume" icon="IoDocumentOutline">
+          Resume
+        </NavItem>
+
+        <hr />
+
+        <NavItem onClick={handleClick} icon="FaGithub" href={urls.gitHub} isOffSite={true}>
+          GitHub
+        </NavItem>
+        <NavItem onClick={handleClick} icon="FaLinkedin" href={urls.linkedin} isOffSite={true}>
+          Linked In
+        </NavItem>
       </div>
     </nav>
   )

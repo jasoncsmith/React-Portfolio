@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
 import classNames from 'classnames'
 
@@ -6,17 +5,19 @@ import { useUIStoreContext } from '../../contexts/ui'
 
 import Nav from '../Nav'
 import styles from './index.module.scss'
+import Logo from '../Logo'
 
 function Header() {
-  const [hidden, setHidden] = useState(false)
-  const { scrollY, scrollingDown } = useUIStoreContext()
-
-  useEffect(() => {
-    setHidden(scrollY > 35 && scrollingDown)
-  }, [scrollY, scrollingDown])
+  const { isNavOpen, shouldHideHeader } = useUIStoreContext()
 
   return (
-    <header className={classNames({ [styles.app__header]: true, [styles['app__header--hidden']]: hidden })}>
+    <header
+      className={classNames([styles.app__header], {
+        [styles['app__header--hidden']]: shouldHideHeader,
+        [styles['app__header--nav-open']]: isNavOpen,
+      })}
+    >
+      <Logo />
       <Nav />
     </header>
   )

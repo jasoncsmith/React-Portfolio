@@ -15,7 +15,7 @@ export interface IconProps extends IconBaseProps {
 
 const Icon: React.FC<IconProps> = ({ iconName, className = '', ...props }: IconProps) => {
   const IconName = IconSet[iconName]
-  return IconName ? <IconName {...props} /> : null
+  return IconName ? <IconName className={className} {...props} /> : null
 }
 
 export default Icon

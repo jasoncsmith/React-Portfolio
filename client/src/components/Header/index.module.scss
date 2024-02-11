@@ -7,15 +7,22 @@
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
     z-index: 30;
-    background: rgba(#000, 0.5);
     transition: all 0.4s ease-in-out;
 
     &--hidden {
         transform: translateY(-100%);
     }
 
-    @include mixins.breakpointMin(715px) {
-        background: none;
+    &--nav-open {
+        background: #000;
+    }
+
+    @include mixins.breakpointMin(630px) {
+        justify-content: center;
     }
 }
