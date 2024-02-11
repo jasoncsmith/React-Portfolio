@@ -38,7 +38,7 @@
 
         &__button {
             width: 100%;
-            font-size: 18px;
+            font-size: 22px;
             margin: 16px 0;
 
             @include mixins.breakpointMin(715px) {

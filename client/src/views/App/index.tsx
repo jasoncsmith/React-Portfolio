@@ -1,6 +1,6 @@
 // root route" since the rest of routes will render inside of it
-import { Outlet } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import useResizeObserver from 'use-resize-observer'
 import { ToastContainer } from 'react-toastify'
 import UIStore, { UIStoreContext } from '../../contexts/ui'
@@ -13,6 +13,11 @@ import './index.scss'
 export default function App() {
   const { ref, width = 1 } = useResizeObserver<HTMLDivElement>()
   const [width_, setWidth_] = useState('100%')
+  const { pathname } = useLocation()
+
+  useLayoutEffect(() => {
+    document.documentElement.scrollTo(0, 0)
+  }, [pathname])
 
   useEffect(() => {
     setWidth_(`${width}px`)
