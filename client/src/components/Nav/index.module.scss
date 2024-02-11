@@ -55,9 +55,10 @@ $width: 1000px;
         }
 
         hr {
-            height: 4px;
-            background: colors.$gold;
+            display: block;
             width: 100%;
+            height: 4px;
+            background: #555;
             border: none;
             border-left: 20px solid #000;
             border-right: 20px solid #000;

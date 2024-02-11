@@ -8,13 +8,13 @@ import styles from './index.module.scss'
 import Logo from '../Logo'
 
 function Header() {
-  const { isNavOpen, shouldHideHeader } = useUIStoreContext()
+  const { isNavOpen, shouldHideHeader, scrollY } = useUIStoreContext()
 
   return (
     <header
       className={classNames([styles.app__header], {
         [styles['app__header--hidden']]: shouldHideHeader,
-        [styles['app__header--nav-open']]: isNavOpen,
+        [styles['app__header--solid-bg']]: isNavOpen || scrollY > 150,
       })}
     >
       <Logo />
