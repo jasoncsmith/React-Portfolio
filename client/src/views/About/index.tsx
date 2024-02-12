@@ -36,11 +36,9 @@ function About() {
           <p>
             Periodically, I rebuild this site with my latest skills and technologies. Now featuring functional{' '}
             <code>React</code> components, <code>MobX</code> for state management along with{' '}
-            <code>NodeJs</code> and
-            <code>Firebase</code>
-            <span className="icon--flickering">🔥</span> on the backend. The graphics are original and 10
-            years old. The layout uses a mobile first approach and is <code>responsive</code> across all
-            devices.
+            <code>NodeJs</code> and <code>Firebase</code> <span className="icon--flickering">🔥</span> on the
+            backend. The graphics are original and 10 years old. The layout uses a mobile first approach and
+            is <code>responsive</code> across all devices.
           </p>
         </Fade>
         <Fade>
