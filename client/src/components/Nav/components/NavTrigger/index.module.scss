@@ -1,0 +1,63 @@
+@use "/src/styles/colors";
+@use "/src/styles/mixins";
+
+.nav-trigger {
+    $durationMovement: 0.2s;
+    $durationOpacity: 0.2s;
+
+    position: relative;
+    width: 30px;
+    height: 20px;
+
+    @include mixins.breakpointMin(630px) {
+        display: none;
+    }
+
+    span {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: #ddd;
+        border-radius: 3px;
+        transition:
+            backgroun $durationOpacity ease-in-out,
+            top $durationMovement ease-in-out $durationMovement,
+            opacity $durationOpacity ease-in-out $durationMovement,
+            transform $durationMovement ease-in-out;
+
+        &:nth-child(1) {
+            top: 0;
+        }
+        &:nth-child(2) {
+            top: 50%;
+        }
+        &:nth-child(3) {
+            top: 100%;
+        }
+    }
+
+    &--is-active {
+        span {
+            background: colors.$gold;
+            transition:
+                top $durationMovement ease-in-out,
+                opacity $durationOpacity ease-in-out $durationMovement,
+                transform $durationMovement ease-in-out $durationMovement;
+
+            &:nth-child(1) {
+                top: 50%;
+                transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                top: 50%;
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

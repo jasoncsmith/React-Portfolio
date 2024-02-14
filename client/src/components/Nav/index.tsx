@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { useUIStoreContext } from '../../contexts/ui'
 import { urls } from '../Footer'
 
-import Icon from '../Icon'
+import NavTrigger from './components/NavTrigger'
 import NavItem from './components/NavItem'
 
 import styles from './index.module.scss'
@@ -20,14 +20,7 @@ function Nav(): JSX.Element {
 
   return (
     <nav className={styles['app-nav']}>
-      <div
-        onClick={handleClick}
-        className={classNames(styles['app-nav__trigger'], {
-          [styles['app-nav__trigger--is-active']]: isNavOpen,
-        })}
-      >
-        <Icon iconName="IoLayersOutline" />
-      </div>
+      <NavTrigger isActive={isNavOpen} onClick={handleClick} />
       <div
         onClick={handleClick}
         className={classNames(styles['app-nav__wrapper'], {

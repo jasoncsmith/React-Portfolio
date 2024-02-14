@@ -4,27 +4,8 @@
 $width: 1000px;
 
 .app-nav {
-    &__trigger {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 8px;
-        border-radius: 3px;
-        border: 1px solid #353535;
-        background: rgba(#000, 0.4);
-        cursor: pointer;
-        color: #ddd;
-        font-size: 36px;
-
-        &--is-active .icon {
-            color: #ccc;
-        }
-
-        @include mixins.breakpointMin(630px) {
-            display: none;
-        }
-    }
-
+    display: flex;
+    align-items: center;
     &__wrapper {
         position: fixed;
         top: 70px;
