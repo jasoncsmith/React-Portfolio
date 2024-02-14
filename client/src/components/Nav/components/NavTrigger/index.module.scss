@@ -4,13 +4,24 @@
 .nav-trigger {
     $durationMovement: 0.2s;
     $durationOpacity: 0.2s;
+    $barHeight: 3px;
+    $barHeightHalf: calc(3px / 2);
+    padding: 8px;
 
-    position: relative;
-    width: 30px;
-    height: 20px;
+    &:hover {
+        span {
+            background: colors.$gold;
+        }
+    }
 
     @include mixins.breakpointMin(630px) {
         display: none;
+    }
+
+    &__wrapper {
+        position: relative;
+        width: 30px;
+        height: 24px;
     }
 
     span {
@@ -19,7 +30,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 3px;
+        height: $barHeight;
         background: #ddd;
         border-radius: 3px;
         transition:
@@ -32,10 +43,10 @@
             top: 0;
         }
         &:nth-child(2) {
-            top: 50%;
+            top: calc(50% - $barHeightHalf);
         }
         &:nth-child(3) {
-            top: 100%;
+            top: calc(100% - $barHeight);
         }
     }
 
@@ -48,14 +59,14 @@
                 transform $durationMovement ease-in-out $durationMovement;
 
             &:nth-child(1) {
-                top: 50%;
+                top: calc(50% - $barHeightHalf);
                 transform: rotate(45deg);
             }
             &:nth-child(2) {
                 opacity: 0;
             }
             &:nth-child(3) {
-                top: 50%;
+                top: calc(50% - $barHeightHalf);
                 transform: rotate(-45deg);
             }
         }

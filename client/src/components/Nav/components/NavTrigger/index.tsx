@@ -18,9 +18,11 @@ function NavTrigger({
         [styles['nav-trigger--is-active']]: isActive,
       })}
     >
-      <span></span>
-      <span></span>
-      <span></span>
+      <div className={styles['nav-trigger__wrapper']}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </button>
   )
 }
