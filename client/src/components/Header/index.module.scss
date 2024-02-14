@@ -20,6 +20,9 @@
 
     &--solid-bg {
         background: #000;
+        @include mixins.breakpointMin(630px) {
+            background: none;
+        }
     }
 
     @include mixins.breakpointMin(630px) {

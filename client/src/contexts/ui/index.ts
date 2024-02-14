@@ -30,10 +30,8 @@ class UIStore {
   get shouldHideHeader() {
     if (this.isNavOpen) {
       return false
-    } else if (this.scrollingDown) {
+    } else if (this.scrollingDown && this.scrollY > 35) {
       return true
-    } else if (this.scrollY === 0) {
-      return false
     } else {
       return false
     }
