@@ -15,30 +15,31 @@ function Resume() {
       <header className="view__header">
         <h2>Resume</h2>
       </header>
-
-      <Fade>
-        <div ref={ref} className={'document-viewer'}>
-          <Button
-            buttonType="link"
-            href={pdf}
-            iconName={'BsDownload'}
-            className={'document-viewer__button'}
-            title="Download Resume"
-          >
-            Download
-          </Button>
-          <Document width={width} file={pdf} />
-          <Button
-            buttonType="link"
-            href={pdf}
-            iconName={'BsDownload'}
-            className={'document-viewer__button'}
-            title="Download Resume"
-          >
-            Download
-          </Button>
-        </div>
-      </Fade>
+      <section>
+        <Fade>
+          <div ref={ref} className={'document-viewer'}>
+            <Button
+              buttonType="link"
+              href={pdf}
+              iconName={'BsDownload'}
+              className={'document-viewer__button'}
+              title="Download Resume"
+            >
+              Download
+            </Button>
+            <Document width={width} file={pdf} />
+            <Button
+              buttonType="link"
+              href={pdf}
+              iconName={'BsDownload'}
+              className={'document-viewer__button'}
+              title="Download Resume"
+            >
+              Download
+            </Button>
+          </div>
+        </Fade>
+      </section>
     </div>
   )
 }

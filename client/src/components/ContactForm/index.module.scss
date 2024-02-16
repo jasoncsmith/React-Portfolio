@@ -1,0 +1,61 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 28px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 14px 10px;
+    border-radius: 6px;
+    background: #215153 url(../../assets/bg/bg_contactForm.jpg) repeat 0 0;
+    background-size: cover;
+
+    @include mixins.breakpointMin(630px) {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 20px;
+        height: 320px;
+        padding: 35px 25px;
+        border-radius: 14px;
+        background-repeat: no-repeat;
+    }
+
+    @include mixins.placeholder-styles {
+        color: #777;
+        font-style: italic;
+        font-family: "Trebuchet MS";
+        font-size: 16px;
+    }
+
+    &__column {
+        &:first-of-type div:nth-child(3) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__group {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 4%;
+
+        .field {
+            width: 50%;
+        }
+    }
+
+    &__btn-submit {
+        width: 100%;
+
+        @include mixins.breakpointMin(630px) {
+            grid-column: 2;
+            justify-self: end;
+        }
+
+        @include mixins.breakpointMin(800px) {
+            width: 50%;
+        }
+    }
+}

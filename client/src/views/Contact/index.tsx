@@ -9,7 +9,7 @@ export default function Contact(): JSX.Element {
         <h2>Contact Me</h2>
       </header>
 
-      <section id="contact-form1" className="contact-form">
+      <section>
         <ContactForm />
       </section>
     </div>

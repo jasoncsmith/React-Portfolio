@@ -7,7 +7,8 @@ interface FormError {
   comments: string
 }
 
-const validateEmail = ({ email }: { email: string }) => !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)
+const validateEmail = ({ email }: { email: string }) =>
+  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)
 
 export const validateForm = (values: ContactFormModel): FormError => {
   const errors = {} as FormError

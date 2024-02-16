@@ -15,7 +15,7 @@ import Button from '../Button'
 import toasts from '../Toast'
 import Fade from '../Fade'
 
-import './index.scss'
+import styles from './index.module.scss'
 
 const capitalizeFirstLetter = (str: string) =>
   str.length > 0 ? [str[0].toUpperCase(), ...str.split('').slice(1)].join('') : str
@@ -28,7 +28,6 @@ export interface ContactFormModel {
   company?: string
   comments: string
 }
-
 interface ModalContent {
   title: string
   content: JSX.Element
@@ -125,9 +124,10 @@ const ContactForm = () => {
         // method="post"
         autoFocus
         onSubmit={formik.handleSubmit}
+        className={styles['contact-form']}
       >
-        <div className="column">
-          <div className="group">
+        <div className={styles['contact-form__column']}>
+          <div className={styles['contact-form__group']}>
             <Field
               ref={ref}
               id="firstName"
@@ -203,7 +203,7 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="column">
+        <div className={styles['contact-form__column']}>
           <FieldTextArea
             id="comments"
             name="comments"
@@ -225,7 +225,7 @@ const ContactForm = () => {
           type="submit"
           tabIndex={6}
           isLoading={isWaiting}
-          className="contact-form btn-submit"
+          className={styles['contact-form__btn-submit']}
         >
           Transmit
         </Button>

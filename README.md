@@ -6,6 +6,7 @@ Source code for my React powered online portfolio.
 - MobX State Management
 - Firebase Cloud Functions
 - Firebase Firestore NoSQL DB
+- Modular SCSS
 - Custom-Built Responsive Carousel
 - Responsive Design
 - react-pdf resume rendering
@@ -16,7 +17,6 @@ Source code for my React powered online portfolio.
 Click the link: https://jasoncsmith.github.io/React-Portfolio/#/about
 
 # To Do
-- Clean up SCSS
-- Implement modular SCSSS
 - Implement Webpack scss nested BEM to camelCase classNames
 - Restore hide captions functionality
+- Write jest tests
