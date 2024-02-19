@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { observer } from 'mobx-react'
 
 import SliderContainer from './components/SliderContainer'
@@ -15,6 +15,12 @@ import styles from './index.module.scss'
 
 function Slider() {
   const [store] = useState(() => new SliderStore())
+  useEffect(() => {
+    store.init()
+    return () => {
+      store.destroy()
+    }
+  }, [store])
 
   if (!store.slides?.length) {
     return <Loader className={styles.loader} />

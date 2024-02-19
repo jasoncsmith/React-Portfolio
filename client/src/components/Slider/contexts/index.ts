@@ -28,7 +28,6 @@ class SliderStore {
 
   constructor() {
     makeObservable(this)
-    this.init()
   }
 
   @observable slides: Project[] = []
@@ -176,10 +175,16 @@ class SliderStore {
   }
 
   @action.bound
-  init() {
+  async init() {
     if (this.slides?.length === 0) {
-      this.fetchSlides().then(this.play)
+      await this.fetchSlides()
+      this.play()
     }
+  }
+
+  @action.bound
+  destroy() {
+    this.setSlides([])
   }
 }
 
