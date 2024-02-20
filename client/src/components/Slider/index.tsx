@@ -17,9 +17,7 @@ function Slider() {
   const [store] = useState(() => new SliderStore())
   useEffect(() => {
     store.init()
-    return () => {
-      store.destroy()
-    }
+    return () => store.destroy()
   }, [store])
 
   if (!store.slides?.length) {

@@ -184,7 +184,7 @@ class SliderStore {
 
   @action.bound
   destroy() {
-    this.setSlides([])
+    this.pause() // clear out interval
   }
 }
 
