@@ -23,7 +23,7 @@ const Menu = () => {
         )
       )}
 
-      <div className={styles['slider__menu--play-state']}>{!!isPlaying ? 'Playing' : 'Paused'}</div>
+      <div className={styles['slider__menu--play-state']}>{isPlaying ? 'Playing' : 'Paused'}</div>
     </div>
   )
 }

@@ -14,7 +14,7 @@ interface FieldInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const FieldInput = forwardRef<HTMLInputElement, FieldInputProps>(function FieldInput(
-  { id, name, type = 'text', error, valid, maxLength = 50, ...props }: FieldInputProps,
+  { id, name, type = 'text', error, valid, ...props }: FieldInputProps,
   ref: React.Ref<HTMLInputElement>
 ) {
   return (

@@ -86,7 +86,7 @@ const ContactForm = () => {
       title: newUser ? 'Thanks for Visiting!' : 'Welcome Back!',
       content: <SuccessMessage firstName={capitalizeFirstLetter(firstName)} />,
     })
-    modal.toggleIsVisible(true)
+    modal.toggleIsVisible()
     reset()
   }
 
@@ -104,7 +104,7 @@ const ContactForm = () => {
       }
 
       reset()
-    } catch (error: any) {
+    } catch (error: unknown) {
       toasts.error('Sorry, there was an error submitting this form.')
     } finally {
       setIsWaiting(false)
@@ -234,8 +234,8 @@ const ContactForm = () => {
       <modal.Modal
         isVisible={modal.isVisible}
         hideModal={modal.toggleIsVisible}
-        title={msg.title}
         content={msg.content}
+        title={msg.title}
       />
     </Fade>
   )

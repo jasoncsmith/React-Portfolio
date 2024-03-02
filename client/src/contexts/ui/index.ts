@@ -67,7 +67,7 @@ class UIStore {
   // }
 
   @action.bound
-  onScroll(e: any) {
+  onScroll() {
     this.prevScrollY = this.scrollY
     this.scrollY = window.scrollY
 
@@ -75,7 +75,7 @@ class UIStore {
   }
 
   @action.bound
-  onResize(e: any) {
+  onResize() {
     this.clientWidth = window.innerWidth
     // identical to useResizeObserver on App
   }

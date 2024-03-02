@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react'
 import { act } from 'react-dom/test-utils'
 import { SLIDE_INTERVAL } from '../constants'
-import SliderStore from '../contexts/'
-import Slider from '../'
+import SliderStore from '../contexts'
+import Slider from '..'
 
 describe('Test Slider Component', () => {
   const intersectionObserverMock = () => ({
@@ -18,10 +18,10 @@ describe('Test Slider Component', () => {
   })
 
   test('slider store receive 7 slides and start playing on instantiation', async () => {
-    const buffer = 600 // TODO: this seems excessive should be at most 100
+    const buffer = 500 // TODO: this seems excessive should be at most 100
 
     const store = new SliderStore()
-    await act(() => store.init())
+    await act(async () => store.init())
     expect(store.numOfSlides).toEqual(7)
     expect(store.isAtStart).toEqual(true)
     expect(store.prevIndex).toBe(6)

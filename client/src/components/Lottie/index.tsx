@@ -1,11 +1,10 @@
 import Lottie, { LottieComponentProps, LottieRefCurrentProps } from 'lottie-react'
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import loader from '../../assets/loader/loader-lottie-dots.json'
 import styles from './index.module.scss'
 
 const LottieLoader = ({ ...props }: Omit<LottieComponentProps, 'animationData'>) => {
   const ref = useRef<LottieRefCurrentProps>(null)
-
   // useEffect(() => {
   //   const r = ref?.current
   //   if (r) {

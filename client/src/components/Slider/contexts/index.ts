@@ -71,7 +71,7 @@ class SliderStore {
 
   @action.bound
   goToPrevious() {
-    if (!!this.isAnimatingLeft) return
+    if (this.isAnimatingLeft) return
 
     this.setIsAnimatingLeft(true)
 
@@ -83,7 +83,7 @@ class SliderStore {
 
   @action.bound
   goToNext() {
-    if (!!this.isAnimatingRight) return
+    if (this.isAnimatingRight) return
 
     this.setIsAnimatingRight(true)
 
@@ -151,7 +151,7 @@ class SliderStore {
     setTimeout(this.setIsCaptionShowing, DURATION_CAPTION, false)
   }
 
-  toggleCaptions = () => (!!this.isCaptionHidden ? this.showCaptions() : this.hideCaptions())
+  toggleCaptions = () => (this.isCaptionHidden ? this.showCaptions() : this.hideCaptions())
 
   @action.bound
   pause = () => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { ReactNode, useEffect, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import Icon from '../Icon'
 // import './index.scss';
@@ -7,8 +7,8 @@ import Icon from '../Icon'
 export interface ModalProps {
   isVisible: boolean
   title: string
-  content: string
-  hideModal: () => {}
+  content: ReactNode | string
+  hideModal: () => void
 }
 
 function Modal({ isVisible, hideModal, title, content }: ModalProps): React.ReactPortal | null {

@@ -1,14 +1,14 @@
-import { useRouteError } from 'react-router-dom'
+import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
 import './index.scss'
 
 const Four04 = () => {
-  const error: any = useRouteError()
-  const msg =
-    error && typeof error.statusText === 'string'
-      ? error.statusText
-      : typeof error.message === 'string'
-      ? error.message
-      : 'Unknown Error'
+  const error = useRouteError()
+
+  const msg = isRouteErrorResponse(error)
+    ? error.error?.message || error.statusText
+    : error instanceof Error
+    ? error.message
+    : 'Unknown Error'
 
   return (
     <div id="error-404">

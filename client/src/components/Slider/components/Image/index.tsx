@@ -1,4 +1,4 @@
-import { SLIDE_WIDTH } from '../../constants'
+// import { SLIDE_WIDTH } from '../../constants'
 import styles from './index.module.scss'
 
 export interface ImageProps {
@@ -8,7 +8,7 @@ export interface ImageProps {
   name: string
 }
 
-const SlideImage = ({ name, alt, width = SLIDE_WIDTH }: ImageProps) => {
+const SlideImage = ({ name, alt }: ImageProps) => {
   return <img className={styles.slider__slide} src={`images/${name}`} alt={alt} title={alt} />
 }
 export default SlideImage

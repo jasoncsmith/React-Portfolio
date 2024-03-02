@@ -1,14 +1,14 @@
-import { useState, Dispatch } from 'react'
+import { useState } from 'react'
 
 import Modal from '../components/Modal'
 
-interface Props {
+interface UseModalReturnType {
   isVisible: boolean
-  toggleIsVisible: Dispatch<boolean>
-  Modal: any // TODO: find out why ReactPortal | null doesnt work
+  toggleIsVisible: () => void
+  Modal: typeof Modal
 }
 
-function useModal(): Props {
+function useModal(): UseModalReturnType {
   const [isVisible, setIsVisible] = useState(false)
 
   const toggleIsVisible = () => setIsVisible(!isVisible)

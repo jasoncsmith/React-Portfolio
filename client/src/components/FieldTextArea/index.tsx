@@ -19,18 +19,7 @@ interface FieldTextAreaProps extends React.InputHTMLAttributes<HTMLTextAreaEleme
 }
 
 const FieldTextArea = forwardRef(function FieldTextArea(
-  {
-    id,
-    name,
-    type = 'text',
-    msg,
-    label,
-    hideLabel = false,
-    error,
-    valid,
-    maxLength = 50,
-    ...props
-  }: FieldTextAreaProps,
+  { id, name, msg, label, hideLabel = false, error, valid, ...props }: FieldTextAreaProps,
   ref: React.Ref<HTMLTextAreaElement>
 ) {
   const generatedId = `control-textarea-${id}`
