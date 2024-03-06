@@ -3,6 +3,7 @@
   "scripts": {
     "start:client": "cd ./client && npm start",
     "start:server": "cd ./functions && npm run serve",
+    "deploy:client": "cd ./client && npm i && npm run build",
     "deploy:server": "cd ./functions && npm run deploy",
     "build": "cd ./client && npm run build"
   }
