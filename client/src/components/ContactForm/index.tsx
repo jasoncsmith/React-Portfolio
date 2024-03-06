@@ -2,6 +2,7 @@ import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { useFormik } from 'formik'
 import pickBy from 'lodash/pickBy'
+import omit from 'lodash/omit'
 
 import { createUser } from '../../api/user'
 import { validateForm } from './helpers'
@@ -50,16 +51,20 @@ const initialData: ContactFormModel = {
   comments: '',
 }
 
+const populateUserData = (user: User) => {
+  return user ? { ...initialData, ...user } : initialData
+}
+
 const ContactForm = () => {
-  const { setUser } = useManageUser()
+  const { setUser, getUser } = useManageUser()
   const modal = useModal()
   const formik = useFormik({
-    initialValues: initialData,
+    initialValues: populateUserData(getUser()),
     validate: validateForm,
-    onSubmit: values => {
-      send(values)
-    },
+    onSubmit: values => send(values),
+    enableReinitialize: true, // will fill in latest vals after reset
   })
+
   const ref = useRef<HTMLInputElement>(null)
   const [msg, setMessage] = useState<ModalContent>({
     title: '',
@@ -82,21 +87,19 @@ const ContactForm = () => {
 
       if (status === 200 || status === 201) {
         showSuccessModal(data.fullName, status === 201)
-        setUser(pickBy(data) as User)
+        setUser(omit(pickBy(data), 'exists') as User)
       } else if (status === 202) {
         // spambot
         toasts.success('Thank you for your comments')
       }
 
-      reset()
+      formik.handleReset(null)
     } catch (error: unknown) {
       toasts.error('Sorry, there was an error submitting this form.')
     } finally {
       setIsWaiting(false)
     }
   }
-
-  const reset = () => formik.handleReset(null)
 
   useEffect(() => {
     ref?.current?.focus()
