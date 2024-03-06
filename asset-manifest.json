@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.4bd96159.css",
-    "main.js": "./static/js/main.ee72c4aa.js",
+    "main.css": "./static/css/main.22ff3c7c.css",
+    "main.js": "./static/js/main.be8ff431.js",
     "static/media/b_d.jpg": "./static/media/b_d.89fddc527a0c1383fb10.jpg",
     "static/media/bg_contactForm.jpg": "./static/media/bg_contactForm.8ed3625cdebd9adbb76c.jpg",
     "static/media/resume-jasonsmith-01_2024.pdf": "./static/media/resume-jasonsmith-01_2024.f6b7977bc5c72ac1943e.pdf",
@@ -19,11 +19,11 @@
     "static/media/loader-o-yellow.gif": "./static/media/loader-o-yellow.abe59b1aab08249d4a65.gif",
     "static/media/BebasNeue-webfont.eot": "./static/media/BebasNeue-webfont.23b4c82415107a88ee01.eot",
     "index.html": "./index.html",
-    "main.4bd96159.css.map": "./static/css/main.4bd96159.css.map",
-    "main.ee72c4aa.js.map": "./static/js/main.ee72c4aa.js.map"
+    "main.22ff3c7c.css.map": "./static/css/main.22ff3c7c.css.map",
+    "main.be8ff431.js.map": "./static/js/main.be8ff431.js.map"
   },
   "entrypoints": [
-    "static/css/main.4bd96159.css",
-    "static/js/main.ee72c4aa.js"
+    "static/css/main.22ff3c7c.css",
+    "static/js/main.be8ff431.js"
   ]
 }
