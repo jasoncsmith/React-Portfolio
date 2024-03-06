@@ -1,11 +1,13 @@
 import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { useFormik } from 'formik'
+import pickBy from 'lodash/pickBy'
 
 import { createUser } from '../../api/user'
 import { validateForm } from './helpers'
 
 import useModal from '../../hooks/useModal'
+import useManageUser from '../../hooks/useManageUser'
 
 import Field from '../Field'
 import FieldInputTrap from '../FieldInputTrap'
@@ -14,20 +16,27 @@ import FieldTextArea from '../FieldTextArea'
 import Button from '../Button'
 import toasts from '../Toast'
 import Fade from '../Fade'
+import SuccessMessage from './components/SuccessMessage'
 
 import styles from './index.module.scss'
 
 const capitalizeFirstLetter = (str: string) =>
   str.length > 0 ? [str[0].toUpperCase(), ...str.split('').slice(1)].join('') : str
 
-export interface ContactFormModel {
+export interface User {
+  id: number
   firstName: string
   lastName: string
+  fullName: string
   email: string
-  confirmEmail?: string
   company?: string
-  comments: string
 }
+
+export interface ContactFormModel extends Omit<User, 'id' | 'fullName'> {
+  comments: string
+  confirmEmail?: string
+}
+
 interface ModalContent {
   title: string
   content: JSX.Element
@@ -41,31 +50,8 @@ const initialData: ContactFormModel = {
   comments: '',
 }
 
-const SuccessMessage = ({ firstName }: { firstName: string }) => {
-  return (
-    <>
-      <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
-        Hello <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>{firstName}</strong>,
-      </p>
-      <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm leading-5">
-        This form is wired up to a 🔥 <code>Firebase Firestore</code> NoSQL database on the backend and uses
-        the <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>formik</strong> validation library on the
-        client. Source code is available at my{' '}
-        <strong style={{ color: '#eabb00', fontWeight: 'bold' }}>GitHub</strong> repo.{' '}
-        <a
-          className="text-blue-500"
-          href="https://github.com/jasoncsmith/React-Portfolio"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Check it out
-        </a>
-      </p>
-    </>
-  )
-}
-
 const ContactForm = () => {
+  const { setUser } = useManageUser()
   const modal = useModal()
   const formik = useFormik({
     initialValues: initialData,
@@ -81,24 +67,23 @@ const ContactForm = () => {
   })
   const [isWaiting, setIsWaiting] = useState(false)
 
-  const handleSuccess = (firstName: string, newUser: boolean): void => {
+  const showSuccessModal = (name: string, newUser: boolean): void => {
     setMessage({
       title: newUser ? 'Thanks for Visiting!' : 'Welcome Back!',
-      content: <SuccessMessage firstName={capitalizeFirstLetter(firstName)} />,
+      content: <SuccessMessage name={capitalizeFirstLetter(name)} />,
     })
     modal.toggleIsVisible()
-    reset()
   }
 
   const send = async (model: ContactFormModel): Promise<void> => {
+    setIsWaiting(true)
     try {
-      setIsWaiting(true)
       const { data, status } = await createUser(model)
 
       if (status === 200 || status === 201) {
-        const fullName = data?.fullName
-        handleSuccess(fullName, status === 201)
-      } else {
+        showSuccessModal(data.fullName, status === 201)
+        setUser(pickBy(data) as User)
+      } else if (status === 202) {
         // spambot
         toasts.success('Thank you for your comments')
       }
@@ -115,7 +100,7 @@ const ContactForm = () => {
 
   useEffect(() => {
     ref?.current?.focus()
-  }, [ref])
+  }, [])
 
   return (
     <Fade>

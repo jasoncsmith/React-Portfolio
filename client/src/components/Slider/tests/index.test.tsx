@@ -5,12 +5,6 @@ import SliderStore from '../contexts'
 import Slider from '..'
 
 describe('Test Slider Component', () => {
-  const intersectionObserverMock = () => ({
-    observe: () => null,
-    unobserve: () => null,
-  })
-  window.IntersectionObserver = jest.fn().mockImplementation(intersectionObserverMock)
-
   test('renders Slider loader', async () => {
     const { container } = render(<Slider />)
     const { firstChild } = container

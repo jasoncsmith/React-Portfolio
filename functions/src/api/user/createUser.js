@@ -7,12 +7,11 @@ const createUser = async (req, res) => {
   try {
     if (!!confirmEmail) {
       // if this field is filled out a bot did it and we want to
-      // return a 203 so the client handles it silently
-      return res.status(203).json({ code: 'X1' })
+      // return a 202 so the client handles it silently
+      return res.status(202).json({ code: 'X1' })
     }
     // TODO: schema validation, field validation
     const fullName = [firstName, lastName].filter(n => !!n).join(' ')
-
     const userCollection = db.collection('users')
     const querySnapshot = await userCollection.where('email', '==', email).get()
 
@@ -31,7 +30,7 @@ const createUser = async (req, res) => {
           { merge: true }
         )
       )
-      return res.status(200).json({ firstName, lastName, email, comments, company, fullName, exists: true })
+      return res.status(200).json({ firstName, lastName, email, company, fullName, exists: true })
     }
 
     try {
@@ -44,7 +43,7 @@ const createUser = async (req, res) => {
         fullName,
       })
 
-      res.status(201).json({ firstName, lastName, email, comments, company, fullName, id })
+      res.status(201).json({ firstName, lastName, email, company, fullName, id })
     } catch (error) {
       return res.status(500).json({ message: 'Something went wrong.' })
     }

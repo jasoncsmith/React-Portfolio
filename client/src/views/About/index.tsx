@@ -1,7 +1,12 @@
 import Fade from '../../components/Fade'
+import capitalize from 'lodash/capitalize'
+import useManageUser from '../../hooks/useManageUser'
 import './index.scss'
 
 function About() {
+  const { getUser } = useManageUser()
+  const user = getUser()
+
   return (
     <div id="view-about" className="view">
       <header>
@@ -14,6 +19,19 @@ function About() {
       </header>
       <article>
         <Fade>
+          {user && (
+            <p>
+              Welcome Back,{' '}
+              <strong>
+                {user.fullName
+                  ?.split(' ')
+                  .map((name: string) => capitalize(name))
+                  .join(' ')}
+              </strong>
+              .
+            </p>
+          )}
+
           <p>
             <span className="icon--waving">👋</span> My name is <span>Jason Smith</span>, I am a{' '}
             <span>Frontend Engineer</span> living in <span>Denver, CO</span>. I am a builder and a creative.

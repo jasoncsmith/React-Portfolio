@@ -2,7 +2,8 @@
   "root": true,
   "env": {
     "node": false,
-    "browser": true
+    "browser": true,
+    "jest/globals": true
   },
   "globals": {
     "google": true,
@@ -19,16 +20,18 @@
       "files": ["*.{ts,tsx}"],
       "parser": "@typescript-eslint/parser",
       "plugins": ["@typescript-eslint"],
-      "extends": ["plugin:@typescript-eslint/recommended"] // needed for ts
+      "extends": ["plugin:@typescript-eslint/recommended"], // needed for ts
+      "rules": {
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-explicit-any": "warn"
+      }
     }
   ],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "warn",
     "no-unused-vars": "warn",
     "no-undef": 2, // undefined var in code
     "no-undefined": 0, // comparisons to undefined
-    "no-debugger": 2,
-    "@typescript-eslint/no-explicit-any": 1,
+    "no-debugger": 1,
     "no-unreachable": 1,
     "no-extra-semi": 1,
     "no-mixed-spaces-and-tabs": 1,
