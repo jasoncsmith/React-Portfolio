@@ -3,7 +3,7 @@
   "env": {
     "node": false,
     "browser": true,
-    "jest/globals": true
+    "jest": true
   },
   "globals": {
     "google": true,
