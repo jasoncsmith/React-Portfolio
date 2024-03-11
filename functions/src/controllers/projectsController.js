@@ -1,6 +1,6 @@
-import db from '../../db.js'
+import db from '../db.js'
 
-const projects = async (req, res) => {
+const getProjects = async (req, res) => {
   try {
     const projects = []
     const refProjects = db.collection('projects')
@@ -13,4 +13,4 @@ const projects = async (req, res) => {
   }
 }
 
-export default projects
+export default getProjects

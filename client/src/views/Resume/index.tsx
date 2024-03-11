@@ -1,6 +1,6 @@
 import useResizeObserver from 'use-resize-observer'
 
-import pdf from '../../assets/docs/resume-jasonsmith-01_2024.pdf'
+import pdf from '../../assets/docs/resume-jasonsmith_01-2024.pdf'
 import Document from '../../components/Document'
 import Button from '../../components/Button'
 import Fade from '../../components/Fade'

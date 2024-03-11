@@ -1,3 +1,3 @@
 import client from '.'
 
-export const getProjects = () => client.get(`/v1/projects`)
+export const getProjects = () => client.get(`api/v1/projects`)

@@ -1,4 +1,4 @@
-import db from '../../db.js'
+import db from '../db.js'
 // import { log, info, debug, warn, error, write } from 'firebase-functions/logger'
 
 const createUser = async (req, res) => {

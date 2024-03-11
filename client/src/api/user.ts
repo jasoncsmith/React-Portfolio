@@ -8,4 +8,4 @@ interface UserResponse extends User {
 }
 
 export const createUser = (data: ContactFormModel): Promise<AxiosResponse<UserResponse>> =>
-  client.post(`/v1/user`, data)
+  client.post(`api/v1/user`, data)
