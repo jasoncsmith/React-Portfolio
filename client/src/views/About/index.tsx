@@ -1,6 +1,6 @@
 import Fade from '../../components/Fade'
 import capitalize from 'lodash/capitalize'
-import { useLocalStorage } from '../../hooks/useManageUser'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { User } from '../../components/ContactForm'
 import './index.scss'
 

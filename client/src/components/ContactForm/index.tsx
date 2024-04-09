@@ -8,7 +8,7 @@ import { createUser } from '../../api/user'
 import { validateForm } from './helpers'
 
 import useModal from '../../hooks/useModal'
-import { useLocalStorage } from '../../hooks/useManageUser'
+import { useLocalStorage } from '../../hooks/useLocalStorage'
 
 import Field from '../Field'
 import FieldInputTrap from '../FieldInputTrap'
