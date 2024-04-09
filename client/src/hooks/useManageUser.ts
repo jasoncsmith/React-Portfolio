@@ -1,16 +1,14 @@
-import { User } from '../components/ContactForm'
+import { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { getStorageItem, setStorageItem } from '../utilities/storage'
 
-const useManageUser = () => {
-  function setUser(user: User) {
-    setStorageItem('user', user)
-  }
+export const useLocalStorage = <T>(key: string): [T, Dispatch<SetStateAction<T>>] => {
+  const [data, setData] = useState<T>(() => getStorageItem(key))
 
-  function getUser(): User {
-    return getStorageItem('user')
-  }
+  useEffect(() => {
+    setStorageItem(key, data)
+  }, [data])
 
-  return { getUser, setUser }
+  return [data, setData]
 }
 
-export default useManageUser
+export default useLocalStorage

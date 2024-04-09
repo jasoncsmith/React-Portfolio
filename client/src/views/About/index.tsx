@@ -1,11 +1,11 @@
 import Fade from '../../components/Fade'
 import capitalize from 'lodash/capitalize'
-import useManageUser from '../../hooks/useManageUser'
+import { useLocalStorage } from '../../hooks/useManageUser'
+import { User } from '../../components/ContactForm'
 import './index.scss'
 
 function About() {
-  const { getUser } = useManageUser()
-  const user = getUser()
+  const [user] = useLocalStorage<User>('user')
 
   return (
     <div id="view-about" className="view">

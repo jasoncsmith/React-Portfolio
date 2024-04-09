@@ -8,7 +8,7 @@ import { createUser } from '../../api/user'
 import { validateForm } from './helpers'
 
 import useModal from '../../hooks/useModal'
-import useManageUser from '../../hooks/useManageUser'
+import { useLocalStorage } from '../../hooks/useManageUser'
 
 import Field from '../Field'
 import FieldInputTrap from '../FieldInputTrap'
@@ -56,10 +56,10 @@ const populateUserData = (user: User) => {
 }
 
 const ContactForm = () => {
-  const { setUser, getUser } = useManageUser()
+  const [user, setUser] = useLocalStorage<User>('user')
   const modal = useModal()
   const formik = useFormik({
-    initialValues: populateUserData(getUser()),
+    initialValues: populateUserData(user),
     validate: validateForm,
     onSubmit: values => send(values),
     enableReinitialize: true, // will fill in latest vals after reset
