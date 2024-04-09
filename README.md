@@ -10,7 +10,7 @@ Source code for my React powered online portfolio.
 - Custom-Built Responsive Carousel
 - Responsive Design
 - react-pdf resume rendering
-- react-icons
+- react-icons 
 
 # To View
 
