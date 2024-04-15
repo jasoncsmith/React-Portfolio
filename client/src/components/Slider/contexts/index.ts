@@ -1,7 +1,7 @@
 import { makeObservable, computed, observable, action } from 'mobx'
 import { createContext, useContext } from 'react'
-import { getProjects } from '../../../api/projects'
-import toasts from '../../Toast'
+// import { getProjects } from '../../../api/projects'
+// import toasts from '../../Toast'
 
 import { DURATION_CAPTION, DURATION_SLIDE_BUFFER, SLIDE_INTERVAL } from '../constants'
 
