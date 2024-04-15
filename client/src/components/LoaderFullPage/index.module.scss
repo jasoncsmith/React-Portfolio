@@ -13,10 +13,11 @@
 
 // All CSS by Sonja Strieder, seen here https://codepen.io/sonjastrieder
 
-$Loader-color: colors.$gold;
+$Loader-color: #333;
 $Loader-size: 14.6rem;
 $Loader-offset: 1.7rem;
 $Loader-timing: ease-in-out;
+$speed: 1.3s;
 
 .loader {
     position: relative;
@@ -32,7 +33,7 @@ $Loader-timing: ease-in-out;
         content: "";
         position: absolute;
         border-radius: 50%;
-        animation-duration: 1.8s;
+        animation-duration: $speed;
         animation-iteration-count: infinite;
         animation-timing-function: $Loader-timing;
         filter: drop-shadow(0 0 $Loader-offset/2.25 rgba($Loader-color, 0.75));

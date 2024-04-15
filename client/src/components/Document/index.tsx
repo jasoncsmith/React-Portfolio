@@ -1,6 +1,6 @@
 import { Document, Page, pdfjs, DocumentProps } from 'react-pdf'
-
 import { useState } from 'react'
+import classNames from 'classnames'
 
 import Loader from '../Loader'
 
@@ -12,16 +12,19 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/l
 
 interface DocProps extends DocumentProps {
   width: number
+  className?: string
 }
 
-const _Document = ({ width, file }: DocProps) => {
+const _Document = ({ width, file, className = '' }: DocProps) => {
   const [numPages, setNumPages] = useState(0)
 
   return (
     <Document
       file={file}
-      // className={styles['pdf-document']}
-      loading={<Loader />}
+      className={classNames({
+        [className]: !!className,
+      })}
+      loading={<Loader className={styles['pdf-loader']} />}
       onLoadSuccess={({ numPages }) => setNumPages(numPages)}
     >
       {[...Array(numPages)].map((_, i) => (
