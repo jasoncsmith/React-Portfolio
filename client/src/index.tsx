@@ -12,13 +12,13 @@ const About = lazy(() => import('./views/About'))
 const Contact = lazy(() => import('./views/Contact'))
 const Resume = lazy(() => import('./views/Resume'))
 
-import Loader from './components/Loader'
+import LoaderFullPage from './components/LoaderFullPage'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 
 root.render(
   <StrictMode>
-    <Suspense fallback={<Loader variant="full-page" />}>
+    <Suspense fallback={<LoaderFullPage />}>
       <QueryClientProvider client={new QueryClient({})}>
         <ReactQueryDevtools initialIsOpen={false} />
         <BrowserRouter>
