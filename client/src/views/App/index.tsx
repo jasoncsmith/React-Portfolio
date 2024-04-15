@@ -8,8 +8,6 @@ import UIStore, { UIStoreContext } from '../../contexts/ui'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
-import './index.scss'
-
 export default function App() {
   const { ref, width = 1 } = useResizeObserver<HTMLDivElement>()
   const [width_, setWidth_] = useState('100%')

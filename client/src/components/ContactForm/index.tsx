@@ -2,13 +2,14 @@ import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { useFormik } from 'formik'
 import pickBy from 'lodash/pickBy'
+import pick from 'lodash/pick'
 import omit from 'lodash/omit'
 
 import { createUser } from '../../api/user'
 import { validateForm } from './helpers'
 
 import useModal from '../../hooks/useModal'
-import { useLocalStorage } from '../../hooks/useLocalStorage'
+import useLocalStorage from '../../hooks/useLocalStorage'
 
 import Field from '../Field'
 import FieldInputTrap from '../FieldInputTrap'
@@ -51,48 +52,43 @@ const initialData: ContactFormModel = {
   comments: '',
 }
 
-const populateUserData = (user: User) => {
-  return user ? { ...initialData, ...user } : initialData
-}
-
 const ContactForm = () => {
-  const [user, setUser] = useLocalStorage<User>('user')
+  const ref = useRef<HTMLInputElement>(null)
+  const refTextArea = useRef<HTMLTextAreaElement>(null)
+  const [isWaiting, setIsWaiting] = useState(false)
+  const [msg, setMessage] = useState<ModalContent>({
+    title: '',
+    content: <></>,
+  })
+
   const modal = useModal()
+  const [user, setUser] = useLocalStorage<User | null>('user')
   const formik = useFormik({
-    initialValues: populateUserData(user),
+    initialValues: { ...initialData, ...pick(user, 'firstName', 'lastName', 'email', 'company') },
     validate: validateForm,
     onSubmit: values => send(values),
     enableReinitialize: true, // will fill in latest vals after reset
   })
 
-  const ref = useRef<HTMLInputElement>(null)
-  const [msg, setMessage] = useState<ModalContent>({
-    title: '',
-    content: <></>,
-  })
-  const [isWaiting, setIsWaiting] = useState(false)
-
-  const showSuccessModal = (name: string, newUser: boolean): void => {
-    setMessage({
-      title: newUser ? 'Thanks for Visiting!' : 'Welcome Back!',
-      content: <SuccessMessage name={capitalizeFirstLetter(name)} />,
-    })
-    modal.toggleIsVisible()
+  function handleSuccess(status: number, data: User) {
+    if (status === 200 || status === 201) {
+      setMessage({
+        title: status === 201 ? 'Thanks for Visiting!' : 'Welcome Back!',
+        content: <SuccessMessage name={capitalizeFirstLetter(data.fullName)} />,
+      })
+      modal.toggleIsVisible()
+      setUser(omit(pickBy(data), 'exists') as User)
+    } else if (status === 202) {
+      // spambot
+      toasts.success('Thank you for your comments')
+    }
   }
 
   const send = async (model: ContactFormModel): Promise<void> => {
     setIsWaiting(true)
     try {
       const { data, status } = await createUser(model)
-
-      if (status === 200 || status === 201) {
-        showSuccessModal(data.fullName, status === 201)
-        setUser(omit(pickBy(data), 'exists') as User)
-      } else if (status === 202) {
-        // spambot
-        toasts.success('Thank you for your comments')
-      }
-
+      handleSuccess(status, data)
       formik.handleReset(null)
     } catch (error: unknown) {
       toasts.error('Sorry, there was an error submitting this form.')
@@ -102,18 +98,12 @@ const ContactForm = () => {
   }
 
   useEffect(() => {
-    ref?.current?.focus()
+    user ? refTextArea.current?.focus() : ref.current?.focus()
   }, [])
 
   return (
     <Fade>
-      <form
-        // action="/webservices/form.php"
-        // method="post"
-        autoFocus
-        onSubmit={formik.handleSubmit}
-        className={styles['contact-form']}
-      >
+      <form autoFocus onSubmit={formik.handleSubmit} className={styles['contact-form']}>
         <div className={styles['contact-form__column']}>
           <div className={styles['contact-form__group']}>
             <Field
@@ -195,6 +185,7 @@ const ContactForm = () => {
           <FieldTextArea
             id="comments"
             name="comments"
+            ref={refTextArea}
             placeholder="Greetings, questions, comments...*"
             rows={7}
             cols={37}

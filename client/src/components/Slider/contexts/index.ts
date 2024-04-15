@@ -165,21 +165,19 @@ class SliderStore {
     this.setIsPlaying(true)
   }
 
-  fetchSlides = async () => {
-    try {
-      const { data } = await getProjects()
-      this.setSlides(data?.projects)
-    } catch (error) {
-      toasts.error('There was an issue retrieving projects')
-    }
-  }
+  // fetchSlides = async () => {
+  //   try {
+  //     const { data } = await getProjects()
+  //     this.setSlides(data?.projects)
+  //   } catch (error) {
+  //     toasts.error('There was an issue retrieving projects')
+  //   }
+  // }
 
   @action.bound
-  async init() {
-    if (this.slides?.length === 0) {
-      await this.fetchSlides()
-      this.play()
-    }
+  async init(slides: Project[]) {
+    this.setSlides(slides)
+    this.play()
   }
 
   @action.bound

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { observer } from 'mobx-react'
 
+import { getProjects } from '../../api/projects'
 import SliderContainer from './components/SliderContainer'
 import CaptionContainer from './components/CaptionContainer'
 import ViewPort from './components/ViewPort'
@@ -15,12 +17,21 @@ import styles from './index.module.scss'
 
 function Slider() {
   const [store] = useState(() => new SliderStore())
-  useEffect(() => {
-    store.init()
-    return () => store.destroy()
-  }, [store])
+  const { data, isLoading } = useQuery({
+    queryKey: ['projects'],
+    queryFn: getProjects,
+  })
 
-  if (!store.slides?.length) {
+  const projects = data?.data?.projects
+
+  useEffect(() => {
+    if (projects) {
+      store.init(projects)
+      return () => store.destroy()
+    }
+  }, [store, projects?.length])
+
+  if (isLoading) {
     return <Loader className={styles.loader} />
   }
 
