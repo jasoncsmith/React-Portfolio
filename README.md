@@ -7,6 +7,7 @@ Source code for my React powered online portfolio.
 - React Functional Components
 - React Query
 - React Router
+- Typescript
 - Lazy Loading
 - MobX State Management
 - Firebase Cloud Functions
