@@ -7,6 +7,7 @@ Source code for my React powered online portfolio.
 - React Functional Components
 - React Query
 - React Router
+- Typescript
 - Lazy Loading
 - MobX State Management
 - Firebase Cloud Functions
@@ -19,7 +20,7 @@ Source code for my React powered online portfolio.
 
 # To View
 
-Click the link: https://jasoncsmith.github.io/React-Portfolio/#/about
+Click the link: https://jasoncsmith.tech
 
 # To Do
 
