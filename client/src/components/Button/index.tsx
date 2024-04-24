@@ -14,13 +14,14 @@ type LinkProps = {
 
 type ButtonProps = {
   buttonType: 'button'
-  type: 'button' | 'submit'
+  type?: 'button' | 'submit'
   isLoading?: boolean
   disabled?: boolean
 }
 
 interface ComponentProps extends HTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
-  children: string
+  children?: string
+  variant?: 'primary' | 'secondary' | 'ghost'
   iconName?: IconProps['iconName']
   className?: string
   isLoading?: boolean
@@ -31,6 +32,7 @@ const Button = ({
   children = '',
   className = '',
   buttonType = 'button',
+  variant = 'primary',
   isLoading = false,
   iconName,
   ...props
@@ -41,13 +43,14 @@ const Button = ({
       className={classNames({
         [styles.button]: true,
         [styles['button--is-loading']]: isLoading,
+        [styles[`button--${variant}`]]: variant,
         [className]: !!className,
       })}
       {...props}
     >
       {isLoading && <Loader className={styles.button__loader} />}
       {!!iconName && <Icon iconName={iconName} />}
-      <span className={styles.button__text}>{children}</span>
+      {children && <span className={styles.button__text}>{children}</span>}
     </Component>
   )
 }
