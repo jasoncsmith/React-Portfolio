@@ -1,4 +1,4 @@
-import { ContactFormModel } from '.'
+import { ContactFormModel } from '../ContactFormController'
 
 interface FormError {
   firstName: string

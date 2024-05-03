@@ -1,7 +1,7 @@
 import Fade from '../../components/Fade'
 import capitalize from 'lodash/capitalize'
 import useLocalStorage from '../../hooks/useLocalStorage'
-import { User } from '../../components/ContactForm'
+import { User } from '../../components/ContactFormController'
 import './index.scss'
 
 function About() {
@@ -52,7 +52,8 @@ function About() {
 
         <Fade>
           <p>
-            Periodically, I rebuild this site with my latest skills and technologies. Now featuring functional{' '}
+            This site serves as a side project to foster continuous improvement as well as a portfolio. I try
+            to keep it updated with new skills and technologies as I learn them. Featuring functional{' '}
             <code>React</code> components, <code>MobX</code> for state management along with{' '}
             <code>NodeJs</code> and <code>Firebase</code> <span className="icon--flickering">🔥</span> on the
             backend. The graphics are original and 10 years old. The layout uses a mobile first approach and

@@ -1,11 +1,6 @@
 import { AxiosResponse } from 'axios'
 import client from '.'
-import { ContactFormModel, User } from '../components/ContactForm'
+import { User, ContactFormModel } from '../components/ContactFormController'
 
-interface UserResponse extends User {
-  exists: boolean
-  fullName: string
-}
-
-export const createUser = (data: ContactFormModel): Promise<AxiosResponse<UserResponse>> =>
+export const createUser = (data: ContactFormModel): Promise<AxiosResponse<User>> =>
   client.post(`api/v1/users`, data)

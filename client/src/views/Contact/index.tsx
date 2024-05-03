@@ -1,4 +1,4 @@
-import ContactForm from '../../components/ContactForm'
+import ContactFormController from '../../components/ContactFormController'
 
 import './index.scss'
 
@@ -10,7 +10,7 @@ export default function Contact(): JSX.Element {
       </header>
 
       <section>
-        <ContactForm />
+        <ContactFormController />
       </section>
     </div>
   )
