@@ -33,6 +33,7 @@ const initialData: ContactFormModel = {
   email: '',
   company: '',
   comments: '',
+  confirmEmail: '',
 }
 
 const ContactFormController = () => {

@@ -9,7 +9,7 @@ function NavTrigger({
 }: {
   isActive: boolean
   onClick: (e: React.MouseEvent) => void
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <button
       type="button"

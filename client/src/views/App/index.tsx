@@ -1,4 +1,5 @@
 // root route" since the rest of routes will render inside of it
+import React from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect, useLayoutEffect, useState } from 'react'
 import useResizeObserver from 'use-resize-observer'

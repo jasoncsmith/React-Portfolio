@@ -6,7 +6,7 @@ const useLocalStorage = <T>(key: string, initialState: T | null = null): [T, Dis
 
   useEffect(() => {
     setStorageItem(key, data)
-  }, [data])
+  }, [key, data])
 
   return [data, setData]
 }

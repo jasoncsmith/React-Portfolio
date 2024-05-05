@@ -89,7 +89,7 @@ function ModalBody({ children, closeOnEsc, closeOnOutsideClick }: ModalBodyProps
   const ref = useRef(null)
 
   useOnOutsideClick<HTMLDivElement>(ref, close, closeOnOutsideClick)
-  useOnKeyCode<HTMLDivElement>(ref, close, closeOnEsc ? 'Escape' : '')
+  useOnKeyCode(close, closeOnEsc ? 'Escape' : '')
 
   return (
     <div

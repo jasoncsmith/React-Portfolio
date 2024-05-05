@@ -1,8 +1,8 @@
+import React from 'react'
 import ContactFormController from '../../components/ContactFormController'
 
 import './index.scss'
-
-export default function Contact(): JSX.Element {
+export default function Contact(): React.JSX.Element {
   return (
     <div id="view-contact" className="view view-contact">
       <header className="view__header">
