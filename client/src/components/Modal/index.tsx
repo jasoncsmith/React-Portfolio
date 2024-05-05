@@ -6,7 +6,7 @@ import { ModalId, ModalProvider, useModalContext } from './store'
 
 import { ModalCloseWarning } from './components/ModalWarning'
 import { ModalOpener, ModalCloser, ModalTitle, ModalContent } from './components/ModalContent'
-import Fade from '../Fade'
+import Fade from '../Layout/Fade'
 
 const defaults = {
   closeOnEscape: true,

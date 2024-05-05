@@ -12,7 +12,7 @@ export function ModalCloser() {
     <Button
       onClick={close}
       buttonType="button"
-      className={`${styles['modal__btn-close']} stroke-white hover:bg-slate-600 absolute top-3 right-3 rounded-md text-amber-400 p-0`}
+      className={`${styles['modal__btn-close']} stroke-white hover:bg-slate-600 top-3 right-3 rounded-md text-amber-400 p-0`}
       iconName="IoMdClose"
       variant="ghost"
     />

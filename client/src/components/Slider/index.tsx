@@ -11,7 +11,7 @@ import Controls from './components/Controls'
 import Nav from './components/Nav'
 import SliderStore, { SliderStoreContext } from './contexts'
 import Loader from '../Loader'
-import Fade from '../Fade'
+import Fade from '../Layout/Fade'
 
 import styles from './index.module.scss'
 

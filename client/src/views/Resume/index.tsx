@@ -4,7 +4,7 @@ import pdf from '../../assets/docs/jasonsmith-frontend.pdf'
 
 import Document from '../../components/Document'
 import Button from '../../components/Button'
-import Fade from '../../components/Fade'
+import Fade from '../../components/Layout/Fade'
 
 import styles from './index.module.scss'
 

@@ -1,4 +1,4 @@
-import Fade from '../../components/Fade'
+import Fade from '../../components/Layout/Fade'
 import capitalize from 'lodash/capitalize'
 import useLocalStorage from '../../hooks/useLocalStorage'
 import { User } from '../../components/ContactFormController'

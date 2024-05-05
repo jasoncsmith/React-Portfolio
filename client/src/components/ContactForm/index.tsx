@@ -6,7 +6,7 @@ import FieldInputTrap from '../FieldInputTrap'
 import FieldLabel from '../FieldLabel'
 import FieldTextArea from '../FieldTextArea'
 import Button from '../Button'
-import Fade from '../Fade'
+import Fade from '../Layout/Fade'
 
 import { ContactFormModel } from '../ContactFormController'
 

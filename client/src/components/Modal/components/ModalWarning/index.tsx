@@ -3,7 +3,7 @@ import Button from '../../../Button'
 import Inline from '../../../Layout/Inline'
 import styles from './index.module.scss'
 import { useModalContext } from '../../store'
-import Fade from '../../../Fade'
+import Fade from '../../../Layout/Fade'
 
 export function DefaultWarnMessage() {
   return <h5 className="text-lg text-white text-center mb-8">You will lose any unsaved changes. Continue?</h5>
