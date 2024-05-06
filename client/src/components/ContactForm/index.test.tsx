@@ -1,6 +1,8 @@
+import '@testing-library/jest-dom'
 import { render } from '@testing-library/react'
-import ContactForm from '.'
 import { ContactFormModel } from '../ContactFormController'
+
+import ContactForm from '.'
 
 describe('Contact Form tests', () => {
   const initialValues: ContactFormModel = {
@@ -10,17 +12,6 @@ describe('Contact Form tests', () => {
     company: '',
     comments: '',
   }
-
-  beforeEach(() => {
-    // TODO: global setUpTest.js IntersectionObserver isn't available in it() scope, why
-    const mockIntersectionObserver = jest.fn()
-    mockIntersectionObserver.mockReturnValue({
-      observe: () => null,
-      unobserve: () => null,
-      disconnect: () => null,
-    })
-    window.IntersectionObserver = mockIntersectionObserver
-  })
 
   it('should focus first name field when rendered', async () => {
     const useFormik = jest.fn().mockImplementation(props => ({

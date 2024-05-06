@@ -61,12 +61,12 @@ function ModalWindow({
 
   useEffect(() => {
     externalOpen && setModalKey(modalId)
-  }, [externalOpen])
+  }, [externalOpen, setModalKey, modalId])
 
   useEffect(() => {
     // once modal is closed, reset external opener so it can be trigger again
     !modalKey && externalReset?.(false)
-  }, [modalKey])
+  }, [modalKey, externalReset])
 
   if (modalKey !== modalId) {
     return null

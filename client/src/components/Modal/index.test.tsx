@@ -1,4 +1,5 @@
-import { act, render, screen } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import Modal from '.'
@@ -15,10 +16,9 @@ describe('Tests for modal', () => {
       </Modal>
     )
 
+    const user = userEvent.setup()
     const btn = screen.getByText(/click me/i)
-    await act(async () => {
-      userEvent.click(btn)
-    })
+    await user.click(btn)
 
     expect(screen.getByText(/this is modal content/i)).toBeInTheDocument()
   })
@@ -49,6 +49,8 @@ describe('Tests for modal', () => {
 
   it('Modal should warn before closing', async () => {
     const modalId = 'test'
+    const user = userEvent.setup()
+
     render(
       <Modal warnBeforeClose={[modalId]}>
         <Modal.ModalWindow modalId={modalId} externalOpen={true} externalReset={() => {}}>
@@ -59,9 +61,8 @@ describe('Tests for modal', () => {
     )
 
     expect(screen.getByText(/this is modal content/i)).toBeInTheDocument()
-    await act(async () => {
-      userEvent.click(screen.getByRole('presentation'))
-    })
+    await user.click(screen.getByRole('presentation'))
+
     // TODO: figure out why jest.useFakeTimers(), jest.advanceTimersByTime(300) does not work
     setTimeout(() => {
       expect(screen.queryByText(/you will lose any unsaved changes. continue\?/i)).toBeInTheDocument()
