@@ -1,21 +1,22 @@
-import { render } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import { render, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { act } from 'react-dom/test-utils'
 
 import { SLIDE_INTERVAL } from '../constants'
+import { getProjects } from '../../../api/projects'
 import SliderStore from '../contexts'
 import Slider from '..'
-import { getProjects } from '../../../api/projects'
 
 describe('Test Slider Component', () => {
   test('renders Slider loader', async () => {
-    const { container } = render(
+    const { getByRole, getByLabelText } = render(
       <QueryClientProvider client={new QueryClient({})}>
         <Slider />
       </QueryClientProvider>
     )
-    const { firstChild } = container
-    expect(firstChild).toHaveClass('loader-container')
+
+    expect(getByRole('alert')).toBeInTheDocument()
+    expect(getByLabelText('Loading')).toBeInTheDocument()
   })
 
   test('slider store receive 7 slides and start playing on instantiation', async () => {
@@ -24,7 +25,7 @@ describe('Test Slider Component', () => {
 
     const data = await getProjects()
 
-    await act(async () => store.init(data.data.projects))
+    await waitFor(() => store.init(data.data.projects))
     expect(store.numOfSlides).toEqual(7)
     expect(store.isAtStart).toEqual(true)
     expect(store.prevIndex).toBe(6)
@@ -33,7 +34,7 @@ describe('Test Slider Component', () => {
     expect(store.isPlaying).toEqual(true)
     expect(store.index).toBeGreaterThan(0)
 
-    act(() => store.goTo(6))
+    waitFor(() => store.goTo(6))
     expect(store.isAtEnd).toBe(true)
     expect(store.nextIndex).toBe(0)
   })

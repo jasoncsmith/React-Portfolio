@@ -9,7 +9,7 @@ import NavItem from './components/NavItem'
 
 import styles from './index.module.scss'
 
-function Nav(): JSX.Element {
+function Nav(): React.JSX.Element {
   const { isNavOpen, setIsNavOpen } = useUIStoreContext()
 
   function handleClick(e: React.MouseEvent) {

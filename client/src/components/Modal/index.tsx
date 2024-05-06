@@ -61,12 +61,12 @@ function ModalWindow({
 
   useEffect(() => {
     externalOpen && setModalKey(modalId)
-  }, [externalOpen])
+  }, [externalOpen, setModalKey, modalId])
 
   useEffect(() => {
     // once modal is closed, reset external opener so it can be trigger again
     !modalKey && externalReset?.(false)
-  }, [modalKey])
+  }, [modalKey, externalReset])
 
   if (modalKey !== modalId) {
     return null
@@ -89,7 +89,7 @@ function ModalBody({ children, closeOnEsc, closeOnOutsideClick }: ModalBodyProps
   const ref = useRef(null)
 
   useOnOutsideClick<HTMLDivElement>(ref, close, closeOnOutsideClick)
-  useOnKeyCode<HTMLDivElement>(ref, close, closeOnEsc ? 'Escape' : '')
+  useOnKeyCode(close, closeOnEsc ? 'Escape' : '')
 
   return (
     <div

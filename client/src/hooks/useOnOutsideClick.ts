@@ -25,10 +25,10 @@ export const useOnOutsideClick = <T extends HTMLElement>(
     return () => {
       document.removeEventListener('click', closeOnClick, true)
     }
-  }, [cb])
+  }, [ref, cb, closeOnOutsideClick])
 }
 
-export const useOnKeyCode = <T extends HTMLElement>(ref: RefObject<T>, cb: () => void, buttonCode = '') => {
+export const useOnKeyCode = (cb: () => void, buttonCode = '') => {
   useEffect(() => {
     function closeOnKeyUp(e: KeyboardEvent) {
       if (e.code === buttonCode) {
@@ -41,5 +41,5 @@ export const useOnKeyCode = <T extends HTMLElement>(ref: RefObject<T>, cb: () =>
     return () => {
       document.removeEventListener('keyup', closeOnKeyUp, true)
     }
-  }, [cb])
+  }, [cb, buttonCode])
 }

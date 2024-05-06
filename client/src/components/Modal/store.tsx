@@ -10,7 +10,7 @@ interface ModalContextProps {
   warn: boolean
 }
 
-interface ModalProvider {
+interface ModalProviderProps {
   children: ReactNode
   // if warnBeforeClose is supplied then a Modal.ModalCloseWarning component must be passed as children
   // otherwise user will be stuck
@@ -29,7 +29,7 @@ export const useModalContext = () => {
   return context
 }
 
-export const ModalProvider = ({ children, warnBeforeClose }: ModalProvider) => {
+export const ModalProvider = ({ children, warnBeforeClose }: ModalProviderProps) => {
   const [modalKey, setModalKey] = useState<ModalId>('')
   const [warn, setWarn] = useState(false)
 

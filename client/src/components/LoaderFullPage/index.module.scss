@@ -26,8 +26,8 @@ $speed: 1.3s;
     justify-content: center;
     width: 100%;
     max-width: $Loader-size;
-    margin-top: $Loader-size/2;
-    margin-bottom: $Loader-size/2;
+    margin-top: calc($Loader-size / 2);
+    margin-bottom: calc($Loader-size / 2);
     &:before,
     &:after {
         content: "";
@@ -36,7 +36,7 @@ $speed: 1.3s;
         animation-duration: $speed;
         animation-iteration-count: infinite;
         animation-timing-function: $Loader-timing;
-        filter: drop-shadow(0 0 $Loader-offset/2.25 rgba($Loader-color, 0.75));
+        filter: drop-shadow(0 0 calc($Loader-offset / 2.25) rgba($Loader-color, 0.75));
     }
     &:before {
         width: 100%;

@@ -1,3 +1,4 @@
+import React from 'react'
 import { observer } from 'mobx-react'
 
 import MenuItem from '../MenuItem'
@@ -12,7 +13,7 @@ const Menu = () => {
   return (
     <div className={styles.slider__menu}>
       {items?.map(
-        (t: Project, idx: number): JSX.Element => (
+        (t: Project, idx: number): React.JSX.Element => (
           <MenuItem
             key={`mi-${t.id}`}
             isActive={index === idx}

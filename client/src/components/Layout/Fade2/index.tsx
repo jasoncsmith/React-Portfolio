@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import './index.scss'
 /**
  * accredation: https://czaplinski.io/blog/super-easy-animation-with-react-hooks/
