@@ -38,6 +38,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
+    "vite-bundle-analyzer": "^0.9.4",
     "vite-plugin-style-import": "^2.0.0"
   },
   "dependencies": {

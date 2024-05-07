@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 export const urls = {
   linkedin: 'https://www.linkedin.com/in/jasoncsmithweb/',
-  gitHub: 'https://github.com/jasoncsmith/',
+  gitHub: 'https://github.com/jasoncsmith/React-Portfolio',
 }
 
 function Footer() {

@@ -1,12 +1,35 @@
 import React from 'react'
 import { IconBaseProps } from 'react-icons'
-import * as Bs from 'react-icons/bs'
-import * as io5 from 'react-icons/io5'
-import * as io from 'react-icons/io'
-import * as fa from 'react-icons/fa'
 // TODO: monitor file size and optimize if necessary
 // npm install @react-icons/all-files --save -> import { FaBeer } from "@react-icons/all-files/fa/FaBeer";
-const IconSet = { ...Bs, ...io5, ...io, ...fa }
+import { IoMdClose } from 'react-icons/io'
+import {
+  IoExitOutline,
+  IoChevronBack,
+  IoChevronForward,
+  IoCogOutline,
+  IoMailOutline,
+  IoDocumentOutline,
+  IoShareSocialOutline,
+  IoLayersOutline,
+} from 'react-icons/io5'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { BsDownload } from 'react-icons/bs'
+
+const IconSet = {
+  IoShareSocialOutline,
+  IoLayersOutline,
+  IoDocumentOutline,
+  IoMailOutline,
+  IoCogOutline,
+  IoMdClose,
+  IoExitOutline,
+  IoChevronBack,
+  IoChevronForward,
+  FaGithub,
+  FaLinkedin,
+  BsDownload,
+}
 
 export interface IconProps extends IconBaseProps {
   iconName: keyof typeof IconSet

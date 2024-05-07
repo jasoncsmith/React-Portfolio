@@ -21,3 +21,5 @@ yarn-error.log*
 build
 __docs/after-lazy.jpg
 __docs/before-lazy.jpg
+client/src/assets/docs/vite-after.jpg
+client/src/assets/docs/vite-before-build.jpg
