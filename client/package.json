@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest",
+    "test": "jest --watch",
     "serve:localBuild": "node local-server/index.js"
   },
   "devDependencies": {
@@ -20,7 +20,7 @@
     "@types/firebase": "~3.2.1",
     "@types/jest": "^29.5.12",
     "@types/lodash": "^4.14.202",
-    "@types/react": "^18.2.66",
+    "@types/react": "^18.3.1",
     "@types/react-dom": "^18.2.22",
     "@types/react-pdf": "^6.2.0",
     "@types/uuid": "^9.0.7",
@@ -57,8 +57,8 @@
     "mobx-react": "9.1.0",
     "path": "^0.12.7",
     "postcss": "^8.4.38",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-icons": "^4.9.0",
     "react-pdf": "7.7.0",
     "react-router-dom": "^6.11.2",

@@ -2,7 +2,7 @@ import React from 'react'
 import { IconBaseProps } from 'react-icons'
 // TODO: monitor file size and optimize if necessary
 // npm install @react-icons/all-files --save -> import { FaBeer } from "@react-icons/all-files/fa/FaBeer";
-import { IoMdClose } from 'react-icons/io'
+// @react-icons/all-files had no difference compoared to current.
 import {
   IoExitOutline,
   IoChevronBack,
@@ -13,6 +13,7 @@ import {
   IoShareSocialOutline,
   IoLayersOutline,
 } from 'react-icons/io5'
+import { IoMdClose } from 'react-icons/io'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { BsDownload } from 'react-icons/bs'
 

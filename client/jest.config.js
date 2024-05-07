@@ -8,7 +8,7 @@ const config = {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$': '<rootDir>/tests/mocks/fileMock.js',
     '\\.(css|scss)$': '<rootDir>/tests/mocks/styleMock.js',
   },
-  collectCoverage: true,
+  collectCoverage: false,
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
   coverageDirectory: 'coverage',
 }
