@@ -5,7 +5,7 @@ const Four04 = () => {
   const error = useRouteError()
 
   const msg = isRouteErrorResponse(error)
-    ? error.error?.message || error.statusText
+    ? error.statusText || 'Unknown Error'
     : error instanceof Error
     ? error.message
     : 'Unknown Error'
