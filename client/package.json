@@ -11,6 +11,9 @@
     "test": "jest --watch",
     "serve:localBuild": "node local-server/index.js"
   },
+  "engines": {
+    "node": "18.20.2"
+  },
   "devDependencies": {
     "@babel/preset-react": "^7.24.1",
     "@tanstack/eslint-plugin-query": "^5.28.11",
@@ -41,7 +44,7 @@
     "vite-plugin-style-import": "^2.0.0"
   },
   "dependencies": {
-    "@react-pdf/renderer": "^3.1.17",
+    "@react-pdf/renderer": "^3.4.4",
     "@tanstack/react-query": "^5.29.2",
     "@tanstack/react-query-devtools": "^5.29.2",
     "autoprefixer": "^10.4.14",
@@ -59,7 +62,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^4.9.0",
-    "react-pdf": "7.7.0",
+    "react-pdf": "^8.0.2",
     "react-router-dom": "^6.11.2",
     "react-toastify": "^10.0.4",
     "sass": "^1.62.1",
