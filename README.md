@@ -4,14 +4,16 @@ Source code for my React powered online portfolio.
 
 # Features
 
+- Typescript
 - React Functional Components
 - React Query
 - React Router
-- Typescript
-- Lazy Loading
 - MobX State Management
-- Firebase Cloud Functions
+- Firebase Serverless Function {onReeust}
+- Express to handle route requests
 - Firebase Firestore NoSQL DB
+- express-validation
+- Lazy Loading
 - Modular SCSS
 - Custom-Built Responsive Carousel
 - Responsive Design
@@ -20,7 +22,7 @@ Source code for my React powered online portfolio.
 
 # To View
 
-Click the link: https://jasoncsmith.tech
+Click the link: https://www.jasoncsmith.tech
 
 # To Do
 
