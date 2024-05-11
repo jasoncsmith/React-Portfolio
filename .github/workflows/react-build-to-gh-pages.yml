@@ -25,6 +25,11 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Remove node_modules and package-lock.json
+        run: |
+          rm -rf node_modules
+          rm package-lock.json
+
       - name: Install dependencies
         run: |
           cd client
