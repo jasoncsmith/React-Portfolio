@@ -12,7 +12,7 @@
     "serve:localBuild": "node local-server/index.js"
   },
   "engines": {
-    "node": "18.20.2"
+    "node": "18"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.1",
