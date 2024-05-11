@@ -21,6 +21,7 @@ const createUser = async (req, res) => {
   try {
     const userCollection = db.collection('users')
     const querySnapshot = await userCollection.where('email', '==', email).get()
+    const fullName = [firstName, lastName].join(' ')
 
     if (!querySnapshot.empty) {
       // TODO: DO WE HAVE TO USE LOOP? BETTER?
@@ -32,28 +33,25 @@ const createUser = async (req, res) => {
             lastName,
             comments,
             company,
-            fullName: [firstName, lastName].join(' '),
+            fullName,
           },
           { merge: true }
         )
       )
+
       return res.status(200).json({ firstName, lastName, email, company, fullName })
     }
 
-    try {
-      const { id } = await userCollection.add({
-        firstName,
-        lastName,
-        email,
-        comments,
-        company,
-        fullName,
-      })
+    const { id } = await userCollection.add({
+      firstName,
+      lastName,
+      email,
+      comments,
+      company,
+      fullName,
+    })
 
-      res.status(201).json({ firstName, lastName, email, company, fullName, id })
-    } catch (error) {
-      return res.status(500).json({ message: 'Something went wrong.' })
-    }
+    res.status(201).json({ firstName, lastName, email, company, fullName, id })
   } catch (error) {
     return res.status(500).json({ message: 'Something went wrong.' })
   }

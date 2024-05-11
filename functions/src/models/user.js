@@ -36,13 +36,13 @@ const userSchema = checkSchema({
     },
   },
   company: {
-    optional: true,
-    trim: true,
-    escape: true,
+    optional: { options: { checkFalsy: true } },
     isLength: {
       options: { min: 2 },
       errorMessage: 'Company should have at least 2 chars',
     },
+    trim: true,
+    escape: true,
   },
   confirmEmail: {
     optional: true,
