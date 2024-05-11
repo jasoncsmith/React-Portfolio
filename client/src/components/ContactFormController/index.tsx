@@ -72,8 +72,16 @@ const ContactFormController = () => {
       const { data, status } = await createUser(payload)
       handleSuccess(status, omit(data))
       formik.handleReset(null)
-    } catch (error: unknown) {
-      toasts.error('Sorry, there was an error submitting this form.')
+    } catch (err: any) {
+      const errMsg = err?.response?.data?.error || ''
+      const formattedErrMsg = Array.isArray(errMsg) ? errMsg.join(', ') : errMsg
+
+      toasts.error(
+        ['Sorry, there was an error submitting this form.', formattedErrMsg ? `"${formattedErrMsg}"` : '']
+          .filter(str => !!str)
+          .join(' - ')
+          .slice(0, 160)
+      )
     } finally {
       setIsWaiting(false)
     }

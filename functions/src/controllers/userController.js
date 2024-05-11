@@ -14,7 +14,7 @@ const createUser = async (req, res) => {
 
   if (!validationErrors.isEmpty()) {
     return res.status(400).json({
-      errors: validationErrors.errors.map(err => err.msg),
+      error: validationErrors.errors.map(err => err.msg),
     })
   }
 
