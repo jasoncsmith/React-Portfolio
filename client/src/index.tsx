@@ -6,13 +6,13 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import LoaderFullPage from './components/LoaderFullPage'
 
 import './index.scss'
-import Four04 from './pages/Four04'
 
 const App = lazy(() => import('./App'))
 const Work = lazy(() => import('./pages/Work'))
 const About = lazy(() => import('./pages/About'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Resume = lazy(() => import('./pages/Resume'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 
 const router = createBrowserRouter([
   {
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: '*',
-        element: <Four04 />,
+        element: <NotFound />,
       },
     ],
   },

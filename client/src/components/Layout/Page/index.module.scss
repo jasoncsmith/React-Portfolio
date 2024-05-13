@@ -3,23 +3,18 @@
 
 .page__header {
     z-index: 30;
-    padding: 10px 0;
+    padding: 10px;
     text-align: center;
-    // border-bottom: 1px solid #333;
 
     @include mixins.breakpointMin(715px) {
-        padding: 35px 0;
+        padding: 35px 10px;
     }
 
     h1 {
         font-family: "BebasNeueRegular", Arial, sans-serif;
         color: colors.$teal;
+        font-size: 50px;
         line-height: 1;
-        font-size: 36px;
-
-        @include mixins.breakpointMin(630px) {
-            font-size: 50px;
-        }
     }
 
     .header__tagline {
