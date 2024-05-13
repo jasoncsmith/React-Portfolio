@@ -34,8 +34,9 @@
 }
 
 .page__content {
-    padding: 10px 10px;
+    padding: 10px;
+
     @include mixins.breakpointMin(715px) {
-        padding: 20px 10px;
+        padding: 20px 20px 40px 20px;
     }
 }

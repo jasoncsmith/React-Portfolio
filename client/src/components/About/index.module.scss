@@ -1,32 +1,6 @@
 @use "/src/styles/colors";
 @use "/src/styles/mixins";
 
-.page {
-    background: black url(../../assets/bg/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
-}
-
-.title {
-    position: relative;
-    width: 100%;
-    height: auto;
-    color: #fff;
-    line-height: 0.9;
-    font-size: 55px;
-    font-family: "BebasNeueRegular", Arial, sans-serif;
-
-    &__of {
-        position: relative;
-        top: 2px;
-        left: -13px;
-        font-size: 30px;
-        font-weight: normal;
-        font-style: italic;
-        color: #eabb00;
-        font-family: "Lobster13Regular", Arial, Helvetica;
-        text-shadow: -5px 4px 3px #000;
-    }
-}
-
 .about {
     max-width: 690px;
     padding: 20px;
@@ -80,4 +54,10 @@
         position: relative;
         transform-origin: center bottom;
     }
+}
+
+.gitHub {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 24px;
 }

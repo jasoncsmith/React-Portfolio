@@ -1,16 +1,22 @@
-#error-404 {
-    padding: 70px 10px 20px 10px;
+.four-oh-four {
+    padding: 70px 0 0 0;
 
     color: #fff;
     text-align: center;
     font-size: 16px;
     padding: 100px;
+
     h1 {
         font-size: 128px;
         margin-bottom: 50px;
         font-weight: bold;
     }
+
     p {
         font-size: 18px;
+    }
+
+    button {
+        margin: 20px auto;
     }
 }

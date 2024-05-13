@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
+import classNames from 'classnames'
+
 import Icon from '../../Icon'
 import styles from './index.module.scss'
-import classNames from 'classnames'
 
 export const urls = {
   linkedin: 'https://www.linkedin.com/in/jasoncsmithweb/',
