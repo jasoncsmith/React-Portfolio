@@ -1,8 +1,9 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import classNames from 'classnames'
 import Icon from '../../../Icon'
+
 import styles from './index.module.scss'
-import React from 'react'
 
 interface NavItemProps {
   className?: string
