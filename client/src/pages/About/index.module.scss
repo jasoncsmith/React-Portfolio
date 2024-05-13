@@ -1,6 +1,18 @@
 @use "/src/styles/colors";
 @use "/src/styles/mixins";
 
+@font-face {
+    font-family: "Lobster13Regular";
+    src:
+        local(Lobster13Regular),
+        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.woff2") format("woff2"),
+        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.woff") format("woff"),
+        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.ttf") format("truetype"),
+        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.svg#Lobster13Regular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
 .page {
     background: black url(../../assets/bg/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
 }
