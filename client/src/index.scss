@@ -1,4 +1,5 @@
 @use "./styles/colors";
+@use "./styles/animations";
 @import "./styles/reset";
 
 @tailwind base;
@@ -31,6 +32,7 @@
 
 :root {
     --global-viewport-width: "100%";
+    --global-app-footer-height: 180px;
 }
 
 html {
@@ -64,11 +66,4 @@ code {
 a {
     color: colors.$linkBlue;
     text-decoration: underline;
-}
-
-.view {
-    z-index: 2;
-    width: 100%;
-    height: auto;
-    padding: 0 0 100px 0;
 }

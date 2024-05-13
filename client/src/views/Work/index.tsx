@@ -1,16 +1,16 @@
+import Page from '../../components/Layout/Page'
 import Slider from '../../components/Slider'
 import styles from './index.module.scss'
 
 function Work() {
   return (
-    <div id="view-work" className={styles['view-work']}>
-      <header>
-        <h2>Work</h2>
-        <h5 className="pt-1 text-slate-400">Featuring my Custom-Built Responsive React Carousel</h5>
-      </header>
-
-      <Slider />
-    </div>
+    <Page className={styles.page}>
+      <Page.Header title="Work" tagline="Featuring my Custom-Built Responsive React Carousel" />
+      <Page.Content>
+        <Slider />
+      </Page.Content>
+    </Page>
   )
 }
+
 export default Work

@@ -1,4 +1,5 @@
-import Icon from '../Icon'
+import React, { useEffect, useRef } from 'react'
+import Icon from '../../Icon'
 import styles from './index.module.scss'
 import classNames from 'classnames'
 
@@ -8,8 +9,14 @@ export const urls = {
 }
 
 function Footer() {
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    document.documentElement.style.setProperty('--global-app-footer-height', `${ref.current?.offsetHeight}px`)
+  }, [ref.current?.offsetHeight])
+
   return (
-    <footer className={styles.app__footer}>
+    <footer ref={ref} className={styles.footer}>
       <div className={styles.footer__container}>
         <p className={styles.footer__author}>JASON SMITH</p>
 

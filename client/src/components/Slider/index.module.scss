@@ -12,7 +12,6 @@
 
     @include mixins.breakpointMin(715px) {
         flex-wrap: unset;
-        justify-content: start;
     }
 
     .btn {

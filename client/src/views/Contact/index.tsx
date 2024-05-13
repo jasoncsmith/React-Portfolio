@@ -1,17 +1,16 @@
 import React from 'react'
 import ContactFormController from '../../components/ContactFormController'
+import Page from '../../components/Layout/Page'
 
-import './index.scss'
+import styles from './index.module.scss'
+
 export default function Contact(): React.JSX.Element {
   return (
-    <div id="view-contact" className="view view-contact">
-      <header className="view__header">
-        <h2>Contact Me</h2>
-      </header>
-
-      <section>
+    <Page className={styles.page}>
+      <Page.Header title="Contact Me" />
+      <Page.Content>
         <ContactFormController />
-      </section>
-    </div>
+      </Page.Content>
+    </Page>
   )
 }

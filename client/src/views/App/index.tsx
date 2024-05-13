@@ -6,12 +6,15 @@ import useResizeObserver from 'use-resize-observer'
 import { ToastContainer } from 'react-toastify'
 import UIStore, { UIStoreContext } from '../../contexts/ui'
 
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import Header from '../../components/Layout/Header'
+import Footer from '../../components/Layout/Footer'
+import Main from '../../components/Layout/Main'
+import Logo from '../../components/Logo'
+import Nav from '../../components/Nav'
 
 export default function App() {
-  const { ref, width = 1 } = useResizeObserver<HTMLDivElement>()
-  const [width_, setWidth_] = useState('100%')
+  const { ref, width: observerWidth = 1 } = useResizeObserver<HTMLDivElement>()
+  const [width, setWidth] = useState('100%')
   const { pathname } = useLocation()
 
   useLayoutEffect(() => {
@@ -19,17 +22,20 @@ export default function App() {
   }, [pathname])
 
   useEffect(() => {
-    setWidth_(`${width}px`)
-  }, [width])
+    setWidth(`${observerWidth}px`)
+  }, [observerWidth])
 
   return (
     <UIStoreContext.Provider value={UIStore}>
-      <div ref={ref} className="app" style={{ '--global-viewport-width': width_ } as React.CSSProperties}>
-        <Header />
-        <main className="app__content">
+      <div ref={ref} className="app" style={{ '--global-viewport-width': width } as React.CSSProperties}>
+        <Header>
+          <Logo />
+          <Nav />
+        </Header>
+        <Main>
           <ToastContainer />
           <Outlet />
-        </main>
+        </Main>
         <Footer />
       </div>
     </UIStoreContext.Provider>

@@ -15,6 +15,7 @@ export default function Loader({ className = '' }: { className?: string; variant
         className={classNames({
           [styles.loader]: true,
           [className]: !!className,
+          ['--rotating']: true,
         })}
       />
     </div>

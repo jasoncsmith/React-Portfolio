@@ -1,10 +1,10 @@
-.app__footer {
+.footer {
     width: 100%;
     padding: 30px;
     background-color: rgb(17, 17, 17);
     border-top: 2px solid #111;
 
-    .footer__author {
+    &__author {
         height: auto;
         text-align: right;
         color: #fff;
@@ -12,7 +12,7 @@
         font-family: "BebasNeueRegular", Arial, sans-serif;
     }
 
-    .footer__nav {
+    &__nav {
         display: flex;
         justify-content: flex-end;
         width: 100%;
@@ -21,7 +21,7 @@
         padding: 10px 0 0 0;
     }
 
-    .footer__link {
+    &__link {
         width: 40px;
         height: 40px;
         display: inline-block;
@@ -31,13 +31,13 @@
         border-radius: 4px;
     }
 
-    .footer__link svg {
+    &__link svg {
         width: 40px;
         height: 40px;
         color: #0a66c2;
     }
 
-    .footer__link-linkedin:hover {
+    &__link-linkedin:hover {
         background: #fff;
         svg {
             color: #3f7b9f;
@@ -45,7 +45,7 @@
         }
     }
 
-    .footer__link-gitHub {
+    &__link-gitHub {
         background: #000;
         border-radius: 50%;
 
@@ -54,14 +54,14 @@
         }
     }
 
-    .footer__link-gitHub:hover {
+    &__link-gitHub:hover {
         background: #fff;
         svg {
             color: #3f7b9f;
         }
     }
 
-    .footer__copyright {
+    &__copyright {
         position: relative;
         width: 100%;
         margin: 0;
@@ -69,7 +69,7 @@
         color: #555;
     }
 
-    .footer__container {
+    &__container {
         max-width: 1000px;
         margin: 0 auto;
     }

@@ -1,57 +1,35 @@
 @use "/src/styles/mixins";
 @use "/src/styles/colors";
 
-.view-resume {
-    padding: 70px 10px 20px 10px; // TODO: componentize this
+.page {
     background: url("../../assets/bg/bg_main_projects_header.jpg") no-repeat 0 0;
-    min-height: 100vh;
+}
 
-    .view__header {
-        // TODO: componentize this
-        padding: 35px 0;
-        z-index: 30;
-        text-align: center;
-        border-bottom: 1px solid #333;
+.document-viewer {
+    width: 100%;
+    max-width: 612px;
+    min-height: 100vh;
+    margin: 0 auto;
+
+    &__button {
+        width: 100%;
+        font-size: 22px;
+        margin: 0 0 16px 0;
 
         @include mixins.breakpointMin(715px) {
-            padding: 35px 0;
-            margin-bottom: 50px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
+}
 
-    h2 {
-        font-size: 50px;
-        line-height: 1;
-        font-family: "BebasNeueRegular", Arial, sans-serif;
-        color: colors.$teal;
-    }
-
-    .document-viewer {
-        width: 100%;
-        max-width: 612px;
-        min-height: 100vh;
-        margin: 0 auto;
-
-        &__button {
-            width: 100%;
-            font-size: 22px;
-            margin: 16px 0;
-
-            @include mixins.breakpointMin(715px) {
-                width: 50%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-    }
-
-    .react-pdf-viewer {
-        border: 1px solid #333;
-        min-height: calc(100vh - 400px);
-        background: rgba(#000, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
+.react-pdf-viewer {
+    border: 1px solid #333;
+    min-height: calc(100vh - 400px);
+    background: rgba(#000, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }

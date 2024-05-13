@@ -1,13 +1,12 @@
+import React from 'react'
 import { observer } from 'mobx-react'
 import classNames from 'classnames'
 
-import { useUIStoreContext } from '../../contexts/ui'
+import { useUIStoreContext } from '../../../contexts/ui'
 
-import Nav from '../Nav'
 import styles from './index.module.scss'
-import Logo from '../Logo'
 
-function Header() {
+function Header({ children }: { children: React.ReactNode }) {
   const { isNavOpen, shouldHideHeader, scrollY } = useUIStoreContext()
 
   return (
@@ -17,8 +16,7 @@ function Header() {
         [styles['app__header--solid-bg']]: isNavOpen || scrollY > 150,
       })}
     >
-      <Logo />
-      <Nav />
+      {children}
     </header>
   )
 }

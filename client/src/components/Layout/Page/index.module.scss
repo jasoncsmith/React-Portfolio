@@ -1,0 +1,41 @@
+@use "/src/styles/mixins";
+@use "/src/styles/colors";
+
+.page__header {
+    z-index: 30;
+    padding: 10px 0;
+    text-align: center;
+    // border-bottom: 1px solid #333;
+
+    @include mixins.breakpointMin(715px) {
+        padding: 35px 0;
+    }
+
+    h1 {
+        font-family: "BebasNeueRegular", Arial, sans-serif;
+        color: colors.$teal;
+        line-height: 1;
+        font-size: 36px;
+
+        @include mixins.breakpointMin(630px) {
+            font-size: 50px;
+        }
+    }
+
+    .header__tagline {
+        padding-top: 1px;
+        color: #8895bd;
+        font-size: 12px;
+
+        @include mixins.breakpointMin(630px) {
+            font-size: 16px;
+        }
+    }
+}
+
+.page__content {
+    padding: 10px 10px;
+    @include mixins.breakpointMin(715px) {
+        padding: 20px 10px;
+    }
+}

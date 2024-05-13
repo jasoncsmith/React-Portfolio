@@ -1,8 +1,9 @@
 import React from 'react'
 import classNames from 'classnames'
+import { observer } from 'mobx-react'
 
 import { useUIStoreContext } from '../../contexts/ui'
-import { urls } from '../Footer'
+import { urls } from '../Layout/Footer'
 
 import NavTrigger from './components/NavTrigger'
 import NavItem from './components/NavItem'
@@ -21,6 +22,7 @@ function Nav(): React.JSX.Element {
   return (
     <nav className={styles['app-nav']}>
       <NavTrigger isActive={isNavOpen} onClick={handleClick} />
+
       <div
         onClick={handleClick}
         className={classNames(styles['app-nav__wrapper'], {
@@ -52,5 +54,4 @@ function Nav(): React.JSX.Element {
     </nav>
   )
 }
-
-export default Nav
+export default observer(Nav)
