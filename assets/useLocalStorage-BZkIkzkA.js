@@ -1,0 +1,1 @@
+import{r as o}from"./index-Dzq9vl4l.js";const s=t=>{try{const r=window.localStorage.getItem(t);return r&&JSON.parse(r)}catch{return null}},c=(t,r)=>{try{window.localStorage.setItem(t,JSON.stringify(r))}catch{return}},u=(t,r=null)=>{const[e,a]=o.useState(()=>s(t)||r);return o.useEffect(()=>{c(t,e)},[t,e]),[e,a]};export{u};
