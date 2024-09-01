@@ -4,6 +4,8 @@
   "singleQuote": true,
   "trailingComma": "es5",
   "arrowParens": "avoid",
+  "htmlWhitespaceSensitivity": "ignore",
+  "j_comment_on_htmlWhitespaceSensitivity": "// stops </a wrapping tag here>",
   "overrides": [
     {
       "files": "*.scss",

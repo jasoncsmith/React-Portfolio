@@ -9,13 +9,16 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "jest --watch",
-    "serve:localBuild": "node local-server/index.js"
+    "serve:localBuild": "node local-server/index.js",
+    "tailwind:build": "npx tailwindcss -i src/styles/tailwind/input.css -o src/styles/tailwind/output.css --minify",
+    "tailwind:watch": "npx tailwindcss -i src/styles/tailwind/input.css -o src/styles/tailwind/output.css --watch --minify"
   },
   "engines": {
     "node": "18"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.1",
+    "@faker-js/faker": "^8.4.1",
     "@tanstack/eslint-plugin-query": "^5.28.11",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.6",

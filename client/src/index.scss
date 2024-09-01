@@ -1,10 +1,7 @@
 @use "./styles/colors";
 @use "./styles/animations";
+@import url(./styles/tailwind/input.css);
 @import "./styles/reset";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @font-face {
     font-family: "BebasNeueRegular";
@@ -33,7 +30,7 @@ body {
     position: relative;
     font-family: Arial;
     background-color: #000;
-
+    font-size: 16px;
     & * {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
