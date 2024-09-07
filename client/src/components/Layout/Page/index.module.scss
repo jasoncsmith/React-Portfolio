@@ -1,6 +1,10 @@
 @use "/src/styles/mixins";
 @use "/src/styles/colors";
 
+.page {
+    position: relative;
+}
+
 .page__header {
     z-index: 30;
     padding: 10px;

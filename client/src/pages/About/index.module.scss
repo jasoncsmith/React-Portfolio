@@ -23,8 +23,14 @@
     height: auto;
     color: #fff;
     line-height: 0.9;
-    font-size: 55px;
+    font-size: 120px;
     font-family: "BebasNeueRegular", Arial, sans-serif;
+
+    // background: url(../../assets/bg/bg-la.jpg) 0 0 / cover no-repeat;
+    // color: #de466c;
+    // background-clip: text;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
 
     &__of {
         position: relative;
@@ -36,5 +42,13 @@
         color: #eabb00;
         font-family: "Lobster13Regular", Arial, Helvetica;
         text-shadow: -5px 4px 3px #000;
+
+        display: none;
+    }
+
+    &__caption {
+        font-size: 14px;
+        color: #ccc;
+        font-family: monospace;
     }
 }

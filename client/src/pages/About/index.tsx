@@ -1,5 +1,6 @@
 import Page from '../../components/Layout/Page'
 import AboutMe from '../../components/About'
+import StarField from '../../components/Starfield'
 
 import styles from './index.module.scss'
 
@@ -9,14 +10,16 @@ function About() {
       <Page.Header
         title={
           <span className={styles.title}>
-            <strong className="caption">Portfolio</strong>
+            <strong className={styles.title__caption}>Portfolio</strong>
             <span className={styles.title__of}> of </span>
             <br />
-            <strong className="name">Jason Smith</strong>
+            <strong className={styles.tite__name}>Jason Smith</strong>
           </span>
         }
       />
+
       <Page.Content>
+        <StarField />
         <AboutMe />
       </Page.Content>
     </Page>
