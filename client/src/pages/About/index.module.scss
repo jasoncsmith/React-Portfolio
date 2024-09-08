@@ -18,11 +18,7 @@
 }
 
 .title {
-    position: relative;
-    width: 100%;
-    height: auto;
     color: #fff;
-    line-height: 0.9;
     font-size: 120px;
     font-family: "BebasNeueRegular", Arial, sans-serif;
 
@@ -46,9 +42,32 @@
         display: none;
     }
 
+    &__name {
+        display: inline-block;
+    }
+
     &__caption {
+        display: block;
         font-size: 14px;
         color: #ccc;
         font-family: monospace;
+        color: #ccc;
+        font-weight: bold;
+        @media (min-width: 485px) {
+            text-align: left;
+        }
+    }
+
+    &__profession {
+        display: block;
+
+        font-size: 14px;
+        color: #ccc;
+        font-family: monospace;
+        color: colors.$gold;
+
+        @media (min-width: 485px) {
+            text-align: right;
+        }
     }
 }

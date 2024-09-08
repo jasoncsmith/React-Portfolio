@@ -1,0 +1,12 @@
+.lake {
+    width: 1000px;
+    height: 330px;
+    background: url(../../../../assets/bg/bg-home-lake.jpg);
+    margin: 0 auto;
+    position: relative;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: 1;
+}

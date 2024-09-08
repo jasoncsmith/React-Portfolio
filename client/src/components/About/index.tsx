@@ -12,7 +12,7 @@ function AboutMe() {
 
   return (
     <article className={styles.about}>
-      <Fade>
+      {/* <Fade>
         {user && (
           <p>
             Welcome Back,{' '}
@@ -31,7 +31,7 @@ function AboutMe() {
           <span>Jason Smith</span>, I am a <span>Frontend</span> leaning <span>FullStack Engineer</span>{' '}
           living in <span>Denver, CO</span>. I have been building web-applications for about 13 years.
         </p>
-      </Fade>
+      </Fade> */}
 
       <Fade>
         <p>

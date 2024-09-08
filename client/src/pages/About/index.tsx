@@ -3,6 +3,7 @@ import AboutMe from '../../components/About'
 import StarField from '../../components/Starfield'
 
 import styles from './index.module.scss'
+import Lake from '../../components/About/components/Lake'
 
 function About() {
   return (
@@ -10,10 +11,12 @@ function About() {
       <Page.Header
         title={
           <span className={styles.title}>
-            <strong className={styles.title__caption}>Portfolio</strong>
-            <span className={styles.title__of}> of </span>
-            <br />
-            <strong className={styles.tite__name}>Jason Smith</strong>
+            {/* <span className={styles.title__of}> of </span> */}
+            <span className={styles.title__name}>
+              <strong className={styles.title__caption}>Portfolio</strong>
+              Jason Smith
+              <strong className={styles.title__profession}>Frontend Developer</strong>
+            </span>
           </span>
         }
       />
@@ -21,6 +24,7 @@ function About() {
       <Page.Content>
         <StarField />
         <AboutMe />
+        <Lake />
       </Page.Content>
     </Page>
   )
