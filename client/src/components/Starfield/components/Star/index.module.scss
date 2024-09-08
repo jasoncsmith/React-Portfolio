@@ -15,26 +15,21 @@
     background-color: yellow;
     box-shadow: 0 0px 10px 3px yellow;
     left: 18%;
-    top: 92%;
+    top: 47%;
     width: 1px;
     height: 1px;
     animation-duration: 1s;
 }
 
 .star:nth-child(3) {
-    background-color: red;
-    left: 90%;
-    top: 80%;
-    animation-duration: 2s;
-}
-.star:nth-child(3) {
     width: 3px;
     height: 3px;
     background-color: #737373;
     animation-duration: 3s;
     left: 35%;
-    top: 40%;
+    top: 30%;
 }
+
 .star:nth-child(4) {
     background-color: #356875;
     color: #356875;
@@ -52,7 +47,7 @@
     box-shadow: 0 0 5px 4px #cecece;
     border: 2px solid #cecece;
     background: #cecece;
-    left: 70px;
+    left: 84%;
     top: 170px;
     animation-duration: 4s;
 }
