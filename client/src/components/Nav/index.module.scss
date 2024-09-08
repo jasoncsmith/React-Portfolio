@@ -6,6 +6,7 @@ $width: 1000px;
 .app-nav {
     display: flex;
     align-items: center;
+
     &__wrapper {
         position: fixed;
         top: 70px;
@@ -51,9 +52,11 @@ $width: 1000px;
             height: auto;
             position: static;
             flex-direction: row;
-            border: 2px solid #333;
+            gap: 8px;
+            padding: 8px;
+            // border: 2px solid #333;
 
-            box-shadow: 0 1px 5px #000;
+            // box-shadow: 0 1px 5px #000;
 
             // overwrite mobile nav-closed styles
             transform: translateX(0);

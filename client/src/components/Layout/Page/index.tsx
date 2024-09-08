@@ -9,15 +9,16 @@ interface HeaderProps {
   children?: React.ReactNode
   title: string | React.ReactNode
   tagline?: string
+  className?: string
 }
 
 function Page({ children, className = '' }: PageProps) {
   return <div className={`${styles.page} ${className}`}>{children}</div>
 }
 
-function Header({ children, title, tagline }: HeaderProps) {
+function Header({ children, title, tagline, className = '' }: HeaderProps) {
   return (
-    <div className={styles.page__header}>
+    <div className={`${styles.page__header} ${className}`}>
       <h1>{title}</h1>
       {!!tagline && <h5 className={styles.header__tagline}>{tagline}</h5>}
       {children}

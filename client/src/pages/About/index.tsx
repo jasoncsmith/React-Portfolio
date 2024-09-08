@@ -9,13 +9,16 @@ function About() {
   return (
     <Page className={styles.page}>
       <Page.Header
+        className={styles.page__header}
         title={
           <span className={styles.title}>
             {/* <span className={styles.title__of}> of </span> */}
             <span className={styles.title__name}>
-              <strong className={styles.title__caption}>Portfolio</strong>
+              <strong className={styles.title__caption}>
+                Portfolio <span className={styles.title__of}>of</span>
+              </strong>
               Jason Smith
-              <strong className={styles.title__profession}>Frontend Developer</strong>
+              <strong className={styles.title__profession}>Fullstack Developer</strong>
             </span>
           </span>
         }

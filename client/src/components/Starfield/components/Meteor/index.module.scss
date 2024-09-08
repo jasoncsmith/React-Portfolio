@@ -1,0 +1,38 @@
+.meteor {
+    width: 6px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0px 10px 3px #fff;
+    position: absolute;
+    left: 100%;
+    top: 0;
+
+    animation: trajectory-diagonal-left 10s 1s linear;
+    // animation-iteration-count: 3;
+}
+
+.--up {
+    animation: up 4s infinite;
+}
+
+@keyframes trajectory-diagonal-left {
+    0% {
+        top: 0%;
+        left: 80%;
+        transform: rotate(0);
+    }
+    90% {
+        opacity: 1;
+    }
+    95% {
+        // opacity: 0;
+    }
+
+    100% {
+        top: 100%;
+        left: 45%;
+        transform: rotate(360deg);
+        opacity: 0;
+    }
+}

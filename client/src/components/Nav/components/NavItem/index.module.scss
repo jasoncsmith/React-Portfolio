@@ -9,12 +9,15 @@
     gap: 12px;
     padding: 20px;
     font-size: 24px;
-    color: #ddd;
+    color: #b1b1b1;
     text-decoration: none;
     background-color: #111;
     font-family: "BebasNeueRegular", Arial, sans-serif;
     line-height: 1;
-
+    transition:
+        background 0.3s ease-in-out,
+        color 0.2s ease-in-out;
+    border: 1px solid #323232;
     &__wrap {
         display: flex;
         gap: 12px;
@@ -29,12 +32,13 @@
     @include mixins.breakpointMin(630px) {
         width: 25%;
         height: 65px;
-        border-left: 1px dotted #333;
-        box-shadow: 0 0 5px rgba(#000, 1) inset;
+        // border-left: 1px dotted #333;
+        // box-shadow: 0 0 5px rgba(#000, 1) inset;
         justify-content: center;
         padding: 0;
         line-height: 65px;
         font-size: 30px;
+        border-radius: 6px;
 
         &--is-offsite {
             display: none;
@@ -42,23 +46,27 @@
     }
 
     &__icon {
+        display: none;
+
         transition: all 150ms;
         position: relative;
         top: -2px;
     }
 
     &:hover {
-        .nav-item__icon {
-            color: colors.$gold;
-            transform: scale(1.2);
-        }
+        background-color: #222;
+        color: #fff;
+        // .nav-item__icon {
+        //     color: colors.$gold;
+        //     transform: scale(1.2);
+        // }
 
-        .nav-item__icon--IoCogOutline {
-            transform: rotate(60deg) scale(1.2);
-        }
-        .nav-item__icon--IoShareSocialOutline {
-            transform: rotate(-8deg) scale(1.2);
-        }
+        // .nav-item__icon--IoCogOutline {
+        //     transform: rotate(60deg) scale(1.2);
+        // }
+        // .nav-item__icon--IoShareSocialOutline {
+        //     transform: rotate(-8deg) scale(1.2);
+        // }
     }
 
     &--is-active {
@@ -69,33 +77,33 @@
         border-radius: 4px;
         cursor: default;
 
-        .nav-item__icon {
-            color: #000;
-        }
+        // .nav-item__icon {
+        //     color: #000;
+        // }
 
         @include mixins.breakpointMin(630px) {
             background-color: #222;
             color: colors.$gold;
             width: 25%;
             margin: 0;
-            text-shadow: 0 1px 3px #000;
-            box-shadow:
-                -8px 0 18px rgba(0, 0, 0, 0.7) inset,
-                8px 0 18px rgba(0, 0, 0, 0.7) inset;
+            // text-shadow: 0 1px 3px #000;
+            // box-shadow:
+            //     -8px 0 18px rgba(0, 0, 0, 0.7) inset,
+            //     8px 0 18px rgba(0, 0, 0, 0.7) inset;
 
-            .nav-item__icon {
-                color: colors.$teal;
-            }
+            // .nav-item__icon {
+            //     color: colors.$teal;
+            // }
         }
 
-        &:hover {
-            .nav-item__icon {
-                transform: none;
-                color: #000;
-                @include mixins.breakpointMin(630px) {
-                    color: colors.$teal;
-                }
-            }
-        }
+        // &:hover {
+        //     .nav-item__icon {
+        //         transform: none;
+        //         color: #000;
+        //         @include mixins.breakpointMin(630px) {
+        //             color: colors.$teal;
+        //         }
+        //     }
+        // }
     }
 }

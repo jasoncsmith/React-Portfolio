@@ -12,12 +12,19 @@
     font-weight: normal;
     font-style: normal;
 }
-
+$titleBreak: 485px;
 .page {
     background: black url(../../assets/bg/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
 }
 
+.page__header {
+    @media (min-width: $titleBreak) {
+        padding-top: 95px;
+    }
+}
+
 .title {
+    display: inline-block;
     color: #fff;
     font-size: 120px;
     font-family: "BebasNeueRegular", Arial, sans-serif;
@@ -29,17 +36,12 @@
     // -webkit-text-fill-color: transparent;
 
     &__of {
-        position: relative;
-        top: 2px;
-        left: -13px;
-        font-size: 30px;
+        font-size: 15px;
         font-weight: normal;
         font-style: italic;
         color: #eabb00;
         font-family: "Lobster13Regular", Arial, Helvetica;
         text-shadow: -5px 4px 3px #000;
-
-        display: none;
     }
 
     &__name {
@@ -53,20 +55,19 @@
         font-family: monospace;
         color: #ccc;
         font-weight: bold;
-        @media (min-width: 485px) {
+        @media (min-width: $titleBreak) {
             text-align: left;
         }
     }
 
     &__profession {
         display: block;
-
-        font-size: 14px;
+        font: bold 16px monospace;
         color: #ccc;
-        font-family: monospace;
         color: colors.$gold;
-
-        @media (min-width: 485px) {
+        margin-top: -10px;
+        @media (min-width: $titleBreak) {
+            margin-right: -10px;
             text-align: right;
         }
     }
