@@ -4,7 +4,7 @@ import Star from './components/Star'
 
 const StarField = () => (
   <div className={styles.starField}>
-    {[...Array(5).keys()].map(_ => (
+    {[...Array(5).keys()].map(() => (
       <Star />
     ))}
   </div>

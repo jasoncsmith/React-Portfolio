@@ -1,14 +1,14 @@
-import capitalize from 'lodash/capitalize'
 import Fade from '../../components/Layout/Fade'
 
-import useLocalStorage from '../../hooks/useLocalStorage'
-import { User } from '../../components/ContactFormController'
+// import capitalize from 'lodash/capitalize'
+// import useLocalStorage from '../../hooks/useLocalStorage'
+// import { User } from '../../components/ContactFormController'
 
 import styles from './index.module.scss'
 import Icon from '../Icon'
 
 function AboutMe() {
-  const [user] = useLocalStorage<User>('user')
+  // const [user] = useLocalStorage<User>('user')
 
   return (
     <article className={styles.about}>
