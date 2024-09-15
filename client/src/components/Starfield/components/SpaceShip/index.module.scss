@@ -1,0 +1,219 @@
+@use "/src/styles/colors";
+$widthPancake: 8px;
+$heightPancake: 8px; // calc($widthPancake / 2);
+
+$widthThreeOrb: 3px;
+$heightThreeOrb: 3px; // calc($widthPancake / 2);
+
+:root {
+    --spaceship-position: 49%;
+
+    @media (min-width: 455px) {
+        --spaceship-position: 21%;
+    }
+}
+
+.spaceShip {
+    width: calc($widthPancake * 3);
+    height: $heightPancake;
+    position: absolute;
+    left: 45%;
+    bottom: 12%;
+    border-radius: calc($widthPancake / 2);
+    opacity: 0;
+
+    animation: trajectory-diagonal-left 5s 1s linear;
+    animation-delay: 11s;
+    // animation-iteration-count: 3;
+}
+
+.orb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $widthPancake;
+    height: $heightPancake;
+    background-color: #b5b5b5;
+    // animation: pulse-glow 1s ease-in-out infinite;
+
+    border-radius: calc($widthPancake / 2);
+    border-bottom: 1px solid #646464;
+    border-top: 1px solid #646464;
+}
+
+.orb:first-child {
+    background-color: colors.$gold;
+    box-shadow: 0 0 13px 3px #fff;
+
+    animation: switch-left 1s linear infinite;
+}
+.orb:nth-child(2) {
+    left: $widthPancake;
+    background-color: #444;
+
+    z-index: 2;
+}
+.orb:last-child {
+    left: calc($widthPancake * 2);
+    background-color: colors.$gold;
+    box-shadow: 0 0 13px 3px colors.$gold;
+
+    animation: switch-right 1s linear infinite;
+}
+
+// -------------------
+
+.spaceShipThreeOrb {
+    width: calc($widthThreeOrb * 6);
+    height: calc($widthThreeOrb * 6);
+    position: absolute;
+    bottom: 12%;
+    left: 45%;
+    opacity: 0;
+    animation:
+        trajectory-diagonal-left 5s linear,
+        rotate 2s linear infinite,
+        pulse-glow 2s ease-in-out infinite;
+    z-index: 5;
+    border-radius: 50%;
+    box-shadow: 0 0 19px 3px rgba(red, 0.8);
+    background-color: rgba(red, 0.2);
+    animation-delay: 15s, 16s, 0s;
+    // animation-iteration-count: 3;
+}
+
+.orbThreeOrb {
+    position: absolute;
+    width: $widthThreeOrb;
+    height: $widthThreeOrb;
+    background-color: colors.$gold;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 1px red;
+}
+
+.orbThreeOrb:first-child {
+    top: -$widthThreeOrb;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.orbThreeOrb:nth-child(2) {
+    left: -0.5px;
+    bottom: 2.5px;
+}
+.orbThreeOrb:last-child {
+    right: -0.5px;
+    bottom: 2.5px;
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 19px 3px rgba(red, 0.8);
+        background-color: rgba(red, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 19px 1px rgba(white, 0.5);
+        background-color: rgba(white, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 19px 3px rgba(red, 0.8);
+        background-color: rgba(red, 0.2);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes trajectory-diagonal-left {
+    0% {
+        bottom: 0%;
+        left: 45%;
+        opacity: 0;
+    }
+    4% {
+        opacity: 1;
+    }
+
+    70% {
+        bottom: var(--spaceship-position);
+        left: 45%;
+    }
+
+    90% {
+        bottom: var(--spaceship-position);
+        left: 45%;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        bottom: 100%;
+        left: 48%;
+        opacity: 0;
+    }
+}
+@keyframes switch-left {
+    0% {
+        left: 0;
+        z-index: 1;
+    }
+    1% {
+        z-index: 4;
+    }
+    25% {
+        left: $widthPancake;
+        z-index: 4;
+    }
+    50% {
+        left: calc($widthPancake * 2);
+        z-index: 4;
+    }
+    51% {
+        left: calc($widthPancake * 2);
+        z-index: 1;
+    }
+    75% {
+        left: $widthPancake;
+        z-index: 1;
+    }
+    100% {
+        left: 0;
+        z-index: 1;
+    }
+}
+@keyframes switch-right {
+    0% {
+        left: calc($widthPancake * 2);
+        z-index: 1;
+    }
+    25% {
+        left: $widthPancake;
+        z-index: 1;
+    }
+    50% {
+        left: 0;
+        z-index: 1;
+    }
+    51% {
+        left: 0;
+        z-index: 3;
+    }
+    75% {
+        left: $widthPancake;
+        z-index: 3;
+    }
+    99% {
+        z-index: 3;
+    }
+    100% {
+        left: calc($widthPancake * 2);
+        z-index: 1;
+    }
+}

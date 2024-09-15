@@ -2,6 +2,7 @@ import styles from './index.module.scss'
 
 import Star from './components/Star'
 import Meteor from './components/Meteor'
+import SpaceShip from './components/SpaceShip'
 
 const StarField = () => (
   <div className={styles.starField}>
@@ -9,6 +10,8 @@ const StarField = () => (
       <Star key={idx} />
     ))}
     <Meteor />
+    <SpaceShip />
+    <SpaceShip type={'three-orb'} />
   </div>
 )
 

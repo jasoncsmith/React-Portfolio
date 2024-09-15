@@ -26,11 +26,9 @@ $titleBreak: 485px;
 .title {
     display: inline-block;
     color: #fff;
-    font-size: 120px;
-    font-family: "BebasNeueRegular", Arial, sans-serif;
-
+    position: relative;
+    z-index: 5;
     // background: url(../../assets/bg/bg-la.jpg) 0 0 / cover no-repeat;
-    // color: #de466c;
     // background-clip: text;
     // -webkit-background-clip: text;
     // -webkit-text-fill-color: transparent;
@@ -46,6 +44,8 @@ $titleBreak: 485px;
 
     &__name {
         display: inline-block;
+        font-family: "BebasNeueRegular", Arial, sans-serif;
+        font-size: 120px;
     }
 
     &__caption {

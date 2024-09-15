@@ -57,7 +57,7 @@ function AboutMe() {
           I have built software in start-up environments for airlines, manufacturing, insurance, and
           automotive sectors. Each project had its unique product vision and technical challenges. I have
           enjoyed the process of research, collaboration, and networking to take the complex and turn it into
-          great looking user-centric functionality.
+          great looking user-centric product.
         </p>
       </Fade>
 

@@ -12,14 +12,11 @@ function About() {
         className={styles.page__header}
         title={
           <span className={styles.title}>
-            {/* <span className={styles.title__of}> of </span> */}
-            <span className={styles.title__name}>
-              <strong className={styles.title__caption}>
-                Portfolio <span className={styles.title__of}>of</span>
-              </strong>
-              Jason Smith
-              <strong className={styles.title__profession}>Fullstack Developer</strong>
-            </span>
+            <strong className={styles.title__caption}>
+              Portfolio <span className={styles.title__of}>of</span>
+            </strong>
+            <span className={styles.title__name}>Jason Smith</span>
+            <strong className={styles.title__profession}>Fullstack Developer</strong>
           </span>
         }
       />
