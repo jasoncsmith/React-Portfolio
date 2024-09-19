@@ -1,9 +1,8 @@
 @use "/src/styles/colors";
-$widthPancake: 8px;
-$heightPancake: 8px; // calc($widthPancake / 2);
 
-$widthThreeOrb: 3px;
-$heightThreeOrb: 3px; // calc($widthPancake / 2);
+$sizeOrbiter: 8px;
+
+$sizeThreeOrb: 3px;
 
 :root {
     --spaceship-position: 49%;
@@ -14,85 +13,79 @@ $heightThreeOrb: 3px; // calc($widthPancake / 2);
 }
 
 .spaceShip {
-    width: calc($widthPancake * 3);
-    height: $heightPancake;
+    display: inline-block;
+    width: calc($sizeOrbiter * 3);
+    height: $sizeOrbiter;
     position: absolute;
     left: 45%;
     bottom: 12%;
-    border-radius: calc($widthPancake / 2);
+    border-radius: calc($sizeOrbiter / 2);
     opacity: 0;
-
-    animation: trajectory-diagonal-left 5s 1s linear;
+    animation: launch 5s 1s linear;
     animation-delay: 11s;
-    // animation-iteration-count: 3;
 }
 
 .orb {
     position: absolute;
     top: 0;
-    left: 0;
-    width: $widthPancake;
-    height: $heightPancake;
-    background-color: #b5b5b5;
-    // animation: pulse-glow 1s ease-in-out infinite;
-
-    border-radius: calc($widthPancake / 2);
-    border-bottom: 1px solid #646464;
-    border-top: 1px solid #646464;
-}
-
-.orb:first-child {
+    width: calc($sizeOrbiter / 2);
+    height: calc($sizeOrbiter / 2);
     background-color: colors.$gold;
-    box-shadow: 0 0 13px 3px #fff;
-
-    animation: switch-left 1s linear infinite;
+    box-shadow: 0 0 5px 1px red;
+    border-radius: 50%;
+}
+.orb:first-child {
+    animation: orbit-left 1.5s linear infinite;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .orb:nth-child(2) {
-    left: $widthPancake;
-    background-color: #444;
+    left: 50%;
+    transform: translateX(-50%);
 
+    background-color: #333;
+    box-shadow: 0 0 5px 1px #fff;
+    width: $sizeOrbiter;
+    height: $sizeOrbiter;
+    border: 1px solid #000;
     z-index: 2;
 }
 .orb:last-child {
-    left: calc($widthPancake * 2);
-    background-color: colors.$gold;
-    box-shadow: 0 0 13px 3px colors.$gold;
-
-    animation: switch-right 1s linear infinite;
+    animation: orbit-right 1.5s linear infinite;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 // -------------------
 
 .spaceShipThreeOrb {
-    width: calc($widthThreeOrb * 6);
-    height: calc($widthThreeOrb * 6);
+    width: calc($sizeThreeOrb * 6);
+    height: calc($sizeThreeOrb * 6);
     position: absolute;
     bottom: 12%;
     left: 45%;
     opacity: 0;
     animation:
-        trajectory-diagonal-left 5s linear,
+        launch 5s linear,
         rotate 2s linear infinite,
         pulse-glow 2s ease-in-out infinite;
+    animation-delay: 18s, 20s, 0s;
     z-index: 5;
     border-radius: 50%;
     box-shadow: 0 0 19px 3px rgba(red, 0.8);
     background-color: rgba(red, 0.2);
-    animation-delay: 15s, 16s, 0s;
-    // animation-iteration-count: 3;
 }
 
 .orbThreeOrb {
     position: absolute;
-    width: $widthThreeOrb;
-    height: $widthThreeOrb;
+    width: $sizeThreeOrb;
+    height: $sizeThreeOrb;
     background-color: colors.$gold;
-    border-radius: 50%;
     box-shadow: 0 0 5px 1px red;
+    border-radius: 50%;
 }
-
 .orbThreeOrb:first-child {
-    top: -$widthThreeOrb;
+    top: -$sizeThreeOrb;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -105,6 +98,61 @@ $heightThreeOrb: 3px; // calc($widthPancake / 2);
     bottom: 2.5px;
 }
 
+@keyframes orbit-left {
+    //purplex
+    0% {
+        left: 0;
+        z-index: 4;
+    }
+    25% {
+        z-index: 4;
+    }
+    50% {
+        left: calc(100% - 4px);
+        z-index: 4;
+    }
+    51% {
+        left: calc(100% - 4px);
+        z-index: 4;
+    }
+    75% {
+        z-index: 1;
+    }
+    99% {
+        z-index: 1;
+    }
+    100% {
+        left: 0;
+        z-index: 1;
+    }
+}
+@keyframes orbit-right {
+    0% {
+        left: calc(100% - 4px);
+        z-index: 1;
+    }
+    25% {
+        z-index: 1;
+    }
+    50% {
+        left: 0;
+        z-index: 1;
+    }
+    51% {
+        left: 0;
+        z-index: 3;
+    }
+    75% {
+        z-index: 3;
+    }
+    99% {
+        z-index: 3;
+    }
+    100% {
+        left: calc(100% - 4px);
+        z-index: 1;
+    }
+}
 @keyframes pulse-glow {
     0% {
         box-shadow: 0 0 19px 3px rgba(red, 0.8);
@@ -119,7 +167,6 @@ $heightThreeOrb: 3px; // calc($widthPancake / 2);
         background-color: rgba(red, 0.2);
     }
 }
-
 @keyframes rotate {
     from {
         transform: rotate(0deg);
@@ -128,8 +175,7 @@ $heightThreeOrb: 3px; // calc($widthPancake / 2);
         transform: rotate(360deg);
     }
 }
-
-@keyframes trajectory-diagonal-left {
+@keyframes launch {
     0% {
         bottom: 0%;
         left: 45%;
@@ -157,63 +203,5 @@ $heightThreeOrb: 3px; // calc($widthPancake / 2);
         bottom: 100%;
         left: 48%;
         opacity: 0;
-    }
-}
-@keyframes switch-left {
-    0% {
-        left: 0;
-        z-index: 1;
-    }
-    1% {
-        z-index: 4;
-    }
-    25% {
-        left: $widthPancake;
-        z-index: 4;
-    }
-    50% {
-        left: calc($widthPancake * 2);
-        z-index: 4;
-    }
-    51% {
-        left: calc($widthPancake * 2);
-        z-index: 1;
-    }
-    75% {
-        left: $widthPancake;
-        z-index: 1;
-    }
-    100% {
-        left: 0;
-        z-index: 1;
-    }
-}
-@keyframes switch-right {
-    0% {
-        left: calc($widthPancake * 2);
-        z-index: 1;
-    }
-    25% {
-        left: $widthPancake;
-        z-index: 1;
-    }
-    50% {
-        left: 0;
-        z-index: 1;
-    }
-    51% {
-        left: 0;
-        z-index: 3;
-    }
-    75% {
-        left: $widthPancake;
-        z-index: 3;
-    }
-    99% {
-        z-index: 3;
-    }
-    100% {
-        left: calc($widthPancake * 2);
-        z-index: 1;
     }
 }
