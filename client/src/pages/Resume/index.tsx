@@ -1,6 +1,6 @@
 import useResizeObserver from 'use-resize-observer'
 
-import pdf from '../../assets/docs/jasonsmith-frontend.pdf'
+import pdf from '../../assets/docs/jasonsmithfullstack.pdf'
 
 import Page from '../../components/Layout/Page'
 import Document from '../../components/Document'
