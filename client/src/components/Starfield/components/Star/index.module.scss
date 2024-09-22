@@ -7,7 +7,7 @@
     position: absolute;
     top: 240px;
     left: 40px;
-    animation: flicker 1.5s infinite;
+    animation: 1.5s infinite flicker;
     // clip-path: circle(50% at 50% 50%);
 }
 
@@ -41,16 +41,27 @@
     //     0 0 0 2px white,
     //     0.3em 0.3em 1em rgb(200 0 0 / 60%);
 }
-.star:nth-child(5) {
-    width: 5px;
-    height: 5px;
-    box-shadow: 0 0 5px 4px #cecece;
-    border: 2px solid #cecece;
-    background: #cecece;
-    left: 84%;
-    top: 170px;
-    animation-duration: 4s;
+// .star:nth-child(5) {
+//     width: 5px;
+//     height: 5px;
+//     box-shadow: 0 0 5px 4px #cecece;
+//     border: 2px solid #cecece;
+//     background: #cecece;
+//     left: 84%;
+//     top: 170px;
+//     animation-duration: 4s;
+// }
+
+.star--simi {
+    @extend .star;
+    animation: 0.1s infinite simi-flicker;
+    animation-duration: 1s;
+
+    box-shadow: 0 0 6px 1px rgba(#fff, 1);
+    top: 86%;
+    left: 53%;
 }
+
 .--up {
     animation: up 4s infinite;
 }
@@ -104,37 +115,20 @@
     }
 }
 
-@keyframes up {
+@keyframes simi-flicker {
     0% {
-        // transform: translateY(100%);
-        top: 100%;
+        background-color: white;
+    }
+    25% {
+        background-color: blue;
+    }
+    50% {
+        background-color: white;
+    }
+    75% {
+        background-color: red;
     }
     100% {
-        // transform: translateY(0);
-        top: 0;
-    }
-}
-@keyframes down {
-    0% {
-        transform: translateY(0%);
-    }
-    100% {
-        transform: translateY(100%);
-    }
-}
-@keyframes left {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-@keyframes right {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(0);
+        background-color: blue;
     }
 }
