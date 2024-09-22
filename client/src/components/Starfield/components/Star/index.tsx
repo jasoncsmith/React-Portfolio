@@ -5,7 +5,7 @@ interface StarProps {
 }
 
 const Star = ({ type }: StarProps) => (
-  <span className={`${styles.star}${type === 'simi' ? styles[' star--simi'] : ''}`}></span>
+  <span className={`${styles.star} ${type === 'simi' ? styles['star--simi'] : ''}`}></span>
 )
 
 export default Star
