@@ -2,9 +2,9 @@
   "private": true,
   "scripts": {
     "start:client": "cd ./client && npm run dev",
-    "start:server": "cd ./functions && npm run serve",
+    "start:server": "cd ./backend && npm run serve",
     "deploy:client": "cd ./client && npm i && npm run build",
-    "deploy:server": "cd ./functions && npm run deploy",
+    "deploy:server": "cd ./backend && npm run deploy",
     "build": "cd ./client && npm run build"
   }
 }
