@@ -1,5 +1,5 @@
 {
-  "name": "functions",
+  "name": "backend",
   "type": "module",
   "scripts": {
     "serve": "firebase emulators:start --only functions",
