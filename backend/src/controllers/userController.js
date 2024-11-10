@@ -1,4 +1,4 @@
-import db from '../db.js'
+import db, { appFirebase } from '../db.js'
 import { validationResult } from 'express-validator'
 // import { log, info, debug, warn, error, write } from 'firebase-functions/logger'
 
@@ -39,7 +39,14 @@ const createUser = async (req, res) => {
         )
       )
 
-      return res.status(200).json({ firstName, lastName, email, company, fullName })
+      return res.status(200).json({
+        firstName,
+        lastName,
+        email,
+        company,
+        fullName,
+        verrySecreet: appFirebase.options.superSecret,
+      })
     }
 
     const { id } = await userCollection.add({
