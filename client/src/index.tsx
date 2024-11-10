@@ -7,8 +7,6 @@ import LoaderFullPage from './components/LoaderFullPage'
 
 import './index.scss'
 
-export const IS_DEBUG = false
-
 const App = lazy(() => import('./App'))
 const Work = lazy(() => import('./pages/Work'))
 const About = lazy(() => import('./pages/About'))
