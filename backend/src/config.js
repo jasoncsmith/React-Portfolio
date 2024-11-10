@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 dotenv.config()
 
-const firebaseConfig = {
+const config = {
   appId: process.env.APP_ID,
   apiKey: process.env.API_KEY,
   projectId: process.env.PROJECT_ID,
@@ -10,7 +10,8 @@ const firebaseConfig = {
   storageBucket: process.env.STORAGE_BUCKET,
   messagingSenderId: process.env.MESSAGING_SENDER_ID,
   measurementId: process.env.MEASUREMENT_ID,
-  superSecret: process.env.SUPER_SECRET_KEY,
+  jwtSecretKey: process.env.JWT_SECRET_KEY,
+  jwtExpires: process.env.JWT_EXPIRES,
 }
 
-export default firebaseConfig
+export default config

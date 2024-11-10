@@ -1,6 +1,6 @@
-import db, { appFirebase } from '../db.js'
 import { validationResult } from 'express-validator'
-// import { log, info, debug, warn, error, write } from 'firebase-functions/logger'
+import { error as logError } from 'firebase-functions/logger'
+import db from '../db.js'
 
 const createUser = async (req, res) => {
   const { firstName, lastName, email, comments, company, confirmEmail } = req.body
@@ -45,7 +45,6 @@ const createUser = async (req, res) => {
         email,
         company,
         fullName,
-        verrySecreet: appFirebase.options.superSecret,
       })
     }
 
@@ -60,6 +59,7 @@ const createUser = async (req, res) => {
 
     res.status(201).json({ firstName, lastName, email, company, fullName, id })
   } catch (error) {
+    logError('J_FOLIO_ERROR', error)
     return res.status(500).json({ message: 'Something went wrong.' })
   }
 }
