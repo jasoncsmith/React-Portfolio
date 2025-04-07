@@ -104,13 +104,13 @@
         @content;
     }
 
-    &:focus + label {
-        // color: colors.$buttonBlueHover;
-    }
+    // &:focus + label {
+    //     // color: colors.$buttonBlueHover;
+    // }
 
-    &--is-invalid + .label {
-        // color: colors.$errorRed !important;
-    }
+    // &--is-invalid + .label {
+    //     // color: colors.$errorRed !important;
+    // }
 }
 
 @mixin breakpointMax($width) {

@@ -1,6 +1,9 @@
 import classNames from 'classnames'
-import { LuLoader2 } from 'react-icons/lu'
+import { LuLoaderCircle } from 'react-icons/lu'
 import styles from './index.module.scss'
+// export declare const LuLoaderCircle: IconType
+// export declare const LuLoaderPinwheel: IconType
+// export declare const LuLoader: IconType
 
 export default function Loader({ className = '' }: { className?: string; variant?: 'full-page' | 'inline' }) {
   return (
@@ -11,7 +14,7 @@ export default function Loader({ className = '' }: { className?: string; variant
         [styles['loader-container']]: true,
       })}
     >
-      <LuLoader2
+      <LuLoaderCircle
         className={classNames({
           [styles.loader]: true,
           [className]: !!className,

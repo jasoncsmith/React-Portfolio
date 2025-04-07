@@ -1,7 +1,10 @@
+@forward "./styles/reset";
+@forward "./styles/animations";
 @use "./styles/colors";
-@use "./styles/animations";
-@import url(./styles/tailwind/input.css);
-@import "./styles/reset";
+
+// apparently need both of these.
+@forward "./styles/tailwind";
+@forward "tailwindcss";
 
 @font-face {
     font-family: "BebasNeueRegular";
@@ -31,6 +34,7 @@ body {
     font-family: Arial;
     background-color: #000;
     font-size: 16px;
+
     & * {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;

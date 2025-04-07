@@ -2,10 +2,10 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "start:client": "cd ./client && npm run dev",
-    "start:server": "cd ./backend && npm run serve",
-    "deploy:client": "cd ./client && npm i && npm run build",
-    "deploy:server": "cd ./backend && npm run deploy",
-    "build": "cd ./client && npm run build"
+    "start:client": "cd ./client && pnpm run dev --open",
+    "start:server": "cd ./backend && pnpm run serve",
+    "deploy:client": "cd ./client && pnpm i && pnpm run build",
+    "deploy:server": "cd ./backend && pnpm run deploy",
+    "build": "cd ./client && pnpm run build"
   }
 }

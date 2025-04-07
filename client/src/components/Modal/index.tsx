@@ -95,7 +95,7 @@ function ModalBody({ children, closeOnEsc, closeOnOutsideClick }: ModalBodyProps
     <div
       role="dialog"
       ref={ref}
-      className="absolute w-11/12 md:w-1/2 top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 dark:bg-slate-800 rounded-lg p-6 ring-1 ring-slate-700 shadow-xl z-50"
+      className="absolute w-11/12 max-w-[500px] top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 dark:bg-slate-800 rounded-lg p-6 ring-1 ring-slate-700 shadow-xl z-50"
     >
       {children}
     </div>
