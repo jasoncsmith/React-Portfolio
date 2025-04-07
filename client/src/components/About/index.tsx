@@ -64,7 +64,7 @@ function AboutMe() {
       <Fade animationToggle={true}>
         <p>
           Would like to call out my <a href="/work">custom-built device responsive carousel</a>, written with{' '}
-          <code>React</code>, <code>MobX</code> and the <code>useResizeObserver</code> hook.
+          <code>React</code> and <code>MobX</code>.
         </p>
       </Fade>
     </article>

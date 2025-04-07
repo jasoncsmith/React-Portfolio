@@ -1,5 +1,3 @@
-import useResizeObserver from 'use-resize-observer'
-
 import pdf from '../../assets/docs/jasonsmithfullstack.pdf'
 
 import Page from '../../components/Layout/Page'
@@ -8,16 +6,29 @@ import Fade from '../../components/Layout/Fade'
 import Button from '../../components/Button'
 
 import styles from './index.module.scss'
+import { useEffect, useState } from 'react'
+
+const formatWidth = (width: number) => (width >= 1000 ? 1000 : width - 32)
 
 function Resume() {
-  const { ref, width = 1 } = useResizeObserver<HTMLDivElement>()
+  const [currentWidth, setCurrentWidth] = useState(formatWidth(window.innerWidth))
+
+  useEffect(() => {
+    const handleResize = () => {
+      setCurrentWidth(formatWidth(window.innerWidth))
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <Page className={styles.page}>
       <Page.Header title="Resume" />
       <Page.Content>
         <Fade>
-          <div ref={ref} className={styles['document-viewer']}>
+          <div className={styles['document-viewer']}>
             <Button
               buttonType="link"
               href={pdf}
@@ -27,7 +38,7 @@ function Resume() {
             >
               Download
             </Button>
-            <Document width={width} file={pdf} className={styles['react-pdf-viewer']} />
+            <Document width={currentWidth} file={pdf} className={styles['react-pdf-viewer']} />
             <Button
               buttonType="link"
               href={pdf}
