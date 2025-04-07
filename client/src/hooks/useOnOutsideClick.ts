@@ -8,7 +8,7 @@ import { RefObject, useEffect } from 'react'
  * @param {boolean} closeOnEscape dictates whether should close on the esc key being pressed
  * @returns {RefObject}
  */
-export const useOnOutsideClick = <T extends HTMLElement>(
+export const useOnOutsideClick = <T extends HTMLElement | null>(
   ref: RefObject<T>,
   cb: () => void,
   closeOnOutsideClick = true

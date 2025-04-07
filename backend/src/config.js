@@ -1,5 +1,7 @@
 import dotenv from 'dotenv'
-dotenv.config({ path: '../.env' })
+import { dirname } from './utils/utils.js'
+
+dotenv.config({ path: dirname(import.meta.url, '/../.env') })
 
 const config = {
   appId: process.env.APP_ID,
@@ -13,5 +15,7 @@ const config = {
   jwtSecretKey: process.env.JWT_SECRET_KEY,
   jwtExpires: process.env.JWT_EXPIRES,
 }
+
+export const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS.toString().split(',')
 
 export default config

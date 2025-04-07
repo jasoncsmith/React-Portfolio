@@ -10,8 +10,8 @@ import axios from 'axios'
 
 const baseURL =
   import.meta.env.VITE_NODE_ENV === 'development'
-    ? 'http://127.0.0.1:5001/portfolio-2d6cd/us-central1/api'
-    : 'https://api-gaxpa6b7ta-uc.a.run.app'
+    ? import.meta.env.VITE_API_URL_DEV
+    : import.meta.env.VITE_API_URL_PROD
 
 const client = axios.create({ baseURL })
 
