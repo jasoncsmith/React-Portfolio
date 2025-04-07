@@ -11,10 +11,8 @@ import Main from './components/Layout/Main'
 import Logo from './components/Logo'
 import Nav from './components/Nav'
 
-const formatWidth = (width: number): string => (width >= 1000 ? 1000 + 'px' : width - 32 + 'px')
-
 export default function App() {
-  const [currentWidth, setCurrentWidth] = useState(formatWidth(window.innerWidth))
+  const [currentWidth, setCurrentWidth] = useState(`${window.innerWidth}px`)
   const { pathname } = useLocation()
 
   useLayoutEffect(() => {
@@ -23,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      setCurrentWidth(formatWidth(window.innerWidth))
+      setCurrentWidth(`${window.innerWidth}px`)
     }
 
     window.addEventListener('resize', handleResize)
