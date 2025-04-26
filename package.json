@@ -6,6 +6,6 @@
     "start:server": "cd ./backend && pnpm run serve",
     "deploy:client": "cd ./client && npm i && npm run build",
     "deploy:server": "cd ./backend && npm run deploy",
-    "build": "cd ./client && pnpm run build"
+    "build": "cd ./client && npm run build"
   }
 }
