@@ -28,3 +28,32 @@ Click the link: https://www.jasoncsmith.tech
 
 - Implement Webpack scss nested BEM to camelCase classNames
 - Restore hide captions functionality
+
+# Firebase (firebase.json)
+
+- 08/09/25, fixed deployment issues
+
+### hosting.public
+
+- Ensure to include the ./ in the public path, as firebase could'nt find the build
+
+### hosting.rewrites:
+
+- Point /api requests to the exported api (app) in backend/src/index.js
+
+```json
+  "hosting": {
+    "public": "./client/build",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "function": "api"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+```
