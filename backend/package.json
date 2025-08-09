@@ -24,7 +24,7 @@
     "express": "^5.1.0",
     "express-rate-limit": "^7.5.1",
     "express-validator": "^7.2.1",
-    "firebase": "^11.10.0",
+    "firebase": "^12.1.0",
     "firebase-admin": "^13.4.0",
     "firebase-auth": "^0.1.2",
     "firebase-functions": "^6.4.0",
