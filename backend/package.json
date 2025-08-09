@@ -4,7 +4,7 @@
   "scripts": {
     "serve": "firebase emulators:start --only functions --project portfolio-2d6cd",
     "shell": "firebase functions:shell",
-    "deploy": "firebase deploy --only functions --project portfolio-2d6cd",
+    "deploy": "firebase deploy --only functions --project portfolio-2d6cd --debug",
     "start": "npm run shell",
     "logs": "firebase functions:log",
     "node:install": "pnpm env use --global --"
