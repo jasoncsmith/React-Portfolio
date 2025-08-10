@@ -1,6 +1,7 @@
 import { validationResult } from 'express-validator'
-import { error as logError } from 'firebase-functions/logger'
+// import { error as logError } from 'firebase-functions/logger'
 import db from '../db.js'
+import logger from '../utils/logger.js'
 
 const createUser = async (req, res) => {
   const { firstName, lastName, email, comments, company, confirmEmail } = req.body
@@ -9,10 +10,13 @@ const createUser = async (req, res) => {
   if (!!confirmEmail) {
     // if this field is filled out a bot did it and we want to
     // return a 202 so the client handles it silently
+    logger.error('honeypot submission caught')
     return res.status(202).json({ message: 'success' })
   }
 
   if (!validationErrors.isEmpty()) {
+    logger.error('Client side validation did not catch field errors')
+
     return res.status(400).json({
       error: validationErrors.errors.map(err => err.msg),
     })
@@ -38,7 +42,7 @@ const createUser = async (req, res) => {
           { merge: true }
         )
       )
-
+      logger.info('User updated email address or comment')
       return res.status(200).json({
         firstName,
         lastName,
@@ -57,9 +61,10 @@ const createUser = async (req, res) => {
       fullName,
     })
 
+    logger.info('New user created')
     res.status(201).json({ firstName, lastName, email, company, fullName, id })
   } catch (error) {
-    logError('J_FOLIO_ERROR', error)
+    logger.error('error saving user to database: ' + error.message)
     return res.status(500).json({ message: 'Something went wrong.' })
   }
 }

@@ -1,45 +1,66 @@
 # Portfolio Site
 
-Source code for my React powered online portfolio.
+Source code for my Express/Firebase/React powered online portfolio.
+
+# URL: https://www.jasoncsmith.tech
 
 # Features
 
 - Typescript
+- Express Application
+- express-validator
+- serverside error logging
+- log file rotation
+- log file sensitive info redaction
+- custom OWASP csrf header protection
+
+- Firebase Serverless Functions
+- Firebase Firestore NoSQL DB
+
 - React Functional Components
 - React Query
 - React Router
 - MobX State Management
-- Firebase Serverless Function {onReeust}
-- Express to handle route requests
-- Firebase Firestore NoSQL DB
-- express-validation
 - Lazy Loading
 - Modular SCSS
 - Custom-Built Responsive Carousel
 - Responsive Design
 - react-pdf resume rendering
-- react-icons
-
-# To View
-
-Click the link: https://www.jasoncsmith.tech
 
 # To Do
 
-- Implement Webpack scss nested BEM to camelCase classNames
-- Restore hide captions functionality
+- Implement standardized serverside error handling
+- Implement typescript on backend (firebase deployment)
 
-# Firebase (firebase.json)
+# To run locally
 
-- 08/09/25, fixed deployment issues
+## After Firebase local set-up
 
-### hosting.public
+- `cd ./client && pnpm run dev`
+- `cd ./backend && pnpm run serve`
 
-- Ensure to include the ./ in the public path, as firebase could'nt find the build
+## Firebase set-up (first time only)
 
-### hosting.rewrites:
+Must install firebase-tools globally
+`pnpm add --global firebase-tools`
 
-- Point /api requests to the exported api (app) in backend/src/index.js
+Then authenticate to firebase cloud
+`firebase login`
+
+- follow browser based prompts
+
+`firebase init`
+Then select options:
+
+- Emulators: Set up local emulators for Firebase products
+- Functions Emulator
+- Firestore Emulator
+
+# Notable bug fixes:
+
+## Firebase deployment (firebase.json)
+
+- 08/09/25, updated firebase packages
 
 ```json
   "hosting": {
@@ -57,3 +78,11 @@ Click the link: https://www.jasoncsmith.tech
     ]
   }
 ```
+
+### hosting.public
+
+- Ensure to include the `./` in the public path, as firebase could'nt find the build
+
+### hosting.rewrites:
+
+- Point /api requests to the exported api (app) in `backend/src/index.js`

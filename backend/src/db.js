@@ -4,9 +4,6 @@ import config from './config.js'
 
 // Running node 22 for firebase
 export const appFirebase = initializeApp(config)
-
 // console.log('|| ------------------------->', appFirebase.name)
 
-const db = getFirestore()
-
-export default db
+export default getFirestore()

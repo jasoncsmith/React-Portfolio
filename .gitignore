@@ -26,3 +26,5 @@ client/src/assets/docs/vite-before-build.jpg
 
 pnpm-lock.yaml
 client/package-lock.json
+**/app.log.*
+**/app.log
