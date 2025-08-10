@@ -4,16 +4,17 @@ name: folio to GH Pages deploy
 
 on:
   push:
-    branches: master
+    branches: [master]
 
   pull_request:
-    branches: master
+    branches: [master]
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     env:
       REACT_APP_API_ENDPOINT: ${{ secrets.REACT_APP_API_ENDPOINT }}
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@master
