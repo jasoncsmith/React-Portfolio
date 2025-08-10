@@ -6,6 +6,7 @@ import Fade from '../../components/Layout/Fade'
 
 import styles from './index.module.scss'
 import Icon from '../Icon'
+import SpaceShip from '../Starfield/components/SpaceShip'
 
 function AboutMe() {
   // const [user] = useLocalStorage<User>('user')
@@ -32,39 +33,48 @@ function AboutMe() {
           living in <span>Denver, CO</span>. I have been building web-applications for about 13 years.
         </p>
       </Fade> */}
-
       <Fade>
         <p>
-          This site serves as both a portfolio and a side project to foster continuous improvement. I keep it
-          updated with new skills and technologies as time permits. On the frontend, written in{' '}
-          <code>Typescript</code>, I am using <code>React</code> functional components,{' '}
-          <code>React Query</code>, <code>React Router</code>, and <code>MobX</code> for state management. On
-          the backend, I use <code>NodeJs</code>, <code>Express</code> and <code>Firebase</code> serverless
-          functions <span className={`${styles['about__icon-fire']} --flickering`}>🔥</span>. The layout uses
-          a mobile first approach and is <code>responsive</code> across all devices. Source code is available
-          on{' '}
+          Like the spaceships? <span style={{ fontStyle: 'italic' }}>Wait for it...</span>
+        </p>
+      </Fade>
+      <Fade>
+        <p>
+          This site serves as both my portfolio and a continuous improvement project. I keep it updated with
+          new skills and technologies as time permits.{' '}
+        </p>
+      </Fade>{' '}
+      <Fade animationToggle={true}>
+        <p>
+          I have built apps in start-up environments for airlines, manufacturing, insurance, education and
+          automotive sectors. I enjoy the process of crafting technical solutions to implement a product
+          vision.
+        </p>
+      </Fade>
+      <Fade>
+        <p>
+          The frontend is written in <code>Typescript</code>, using <code>React</code> (Framework),{' '}
+          <code>React Query</code> (Caching), <code>React Router</code> (SPA), and <code>MobX</code> (State).
+        </p>
+      </Fade>
+      <Fade>
+        <p>
+          On the backend, I use <code>NodeJs</code> (Runtime), <code>Express</code> (Application),{' '}
+          <code>Firebase</code>
+          <span className={`${styles['about__icon-fire']} --flickering`}>🔥</span> (Serverless functions), and{' '}
+          <code>Firestore</code>
+          (NOSQL Database).
+        </p>
+      </Fade>
+      <Fade>
+        <p>
+          The layout uses a mobile-first approach with a <code>responsive</code> design. Source code is
+          available on:{' '}
           <a href="https://github.com/jasoncsmith/React-Portfolio/" target="_blank" rel="noreferrer">
             <Icon className={styles.gitHub} iconName="FaGithub" />
             GitHub
           </a>
-          . Other technologies used on this site include: <code>Modular SASS</code>, <code>react-pdf</code>,{' '}
-          <code>react-icons</code>, and a bit of <code>Tailwind CSS</code>
-        </p>
-      </Fade>
-
-      <Fade animationToggle={true}>
-        <p>
-          I have built software in start-up environments for airlines, manufacturing, insurance, and
-          automotive sectors. Each project had its unique product vision and technical challenges. I have
-          enjoyed the process of research, collaboration, and networking to take the complex and turn it into
-          great looking user-centric product.
-        </p>
-      </Fade>
-
-      <Fade animationToggle={true}>
-        <p>
-          Would like to call out my <a href="/work">custom-built device responsive carousel</a>, written with{' '}
-          <code>React</code> and <code>MobX</code>.
+          . I had fun building the spaceships <SpaceShip type="predator" /> &nbsp;&nbsp;meteors, and stars.
         </p>
       </Fade>
     </article>
