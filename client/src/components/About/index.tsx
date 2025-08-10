@@ -35,7 +35,8 @@ function AboutMe() {
       </Fade> */}
       <Fade>
         <p>
-          Like the spaceships? <span style={{ fontStyle: 'italic' }}>Wait for it...</span>
+          Like the <strong>spaceships?</strong>{' '}
+          <span className="italic whitespace-nowrap">Wait for it...</span>
         </p>
       </Fade>
       <Fade>
@@ -74,7 +75,11 @@ function AboutMe() {
             <Icon className={styles.gitHub} iconName="FaGithub" />
             GitHub
           </a>
-          . I had fun building the spaceships <SpaceShip type="predator" /> &nbsp;&nbsp;meteors, and stars.
+          . I had fun building the spaceships
+          <span className="inline-block mx-4">
+            <SpaceShip type="predator" />
+          </span>
+          meteors, and stars.
         </p>
       </Fade>
     </article>
