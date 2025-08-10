@@ -56,5 +56,5 @@ app.use((err, _req, res, _next) => {
 
 // a named export must be provided
 // exported name will be in the url path of your local api ->
-// http://127.0.0.1:5001/portfolio-2d6cd/us-central1/{name_of_what_you_export_from_here}
+// http://127.0.0.1:5001/{{project_id}}/us-central1/{name_of_what_you_export_from_here}
 export const api = onRequest(app)
