@@ -1,5 +1,5 @@
-@use "/src/styles/colors";
-@use "/src/styles/mixins";
+@use '/src/styles/colors';
+@use '/src/styles/mixins';
 
 .about {
     max-width: 690px;
@@ -8,15 +8,11 @@
     position: relative;
     line-height: 1.5;
     font-size: 16px;
-    background-color: rgba(#000, 0.5);
     border-radius: 2px;
-    z-index: 5;
-
-    // TODO: come back to this
-    // margin-bottom: 170px;
+    z-index: 15;
 
     @include mixins.breakpointMin(715px) {
-        padding: 40px;
+        padding: 4px 24px 4px 4px;
     }
 
     p {
@@ -26,6 +22,7 @@
         line-height: 1.5;
         margin-bottom: 32px;
         text-overflow: ellipsis;
+        background: rgba(0, 0, 0, 0.2);
     }
 
     & > div:last-of-type > p {
@@ -64,4 +61,18 @@
     display: inline-block;
     margin-right: 8px;
     font-size: 24px;
+}
+
+@media (min-width: 768px) {
+    .about {
+        overflow-y: scroll;
+        scrollbar-color: #777 black;
+        scrollbar-width: thin;
+        height: 255px;
+        position: relative;
+
+        p {
+            background: none;
+        }
+    }
 }

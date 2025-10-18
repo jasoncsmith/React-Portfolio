@@ -4,6 +4,7 @@
     background-color: #fff;
     border-radius: 50%;
     box-shadow: 0 0px 10px 3px #fff;
+
     position: absolute;
     left: 100%;
     top: 0;
@@ -18,7 +19,6 @@
 @keyframes trajectory-diagonal-left {
     0% {
         top: 0;
-        left: 80%;
         transform: rotate(0);
         opacity: 0;
     }

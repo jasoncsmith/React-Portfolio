@@ -1,14 +1,14 @@
 import { onRequest } from 'firebase-functions/v2/https'
 
-import express from 'express'
+import express, { type NextFunction, type Request, type Response } from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
 
-import projectRouter from './routes/projectRouter.js'
-import userRouter from './routes/userRouter.js'
-import { ALLOWED_ORIGINS } from './config.js'
-import logger, { httpLogger } from './utils/logger.js'
-import verifyCsrfHeader from './middleware/verifyCsrfHeader.js'
+import projectRouter from './routes/projectRouter'
+import userRouter from './routes/userRouter'
+import { ALLOWED_ORIGINS } from './config'
+import logger, { httpLogger } from './utils/logger'
+import verifyCsrfHeader from './middleware/verifyCsrfHeader'
 
 const version = 'v1'
 const app = express()
@@ -41,11 +41,11 @@ app.use((req, res, _next) => {
 })
 
 // reduce "fingerprinting", custom error handler
-app.use((err, _req, res, _next) => {
+app.use((err: any | Error, _req: Request, res: Response, _next: NextFunction) => {
   if (err instanceof Error) {
-    logger.error(`Error: ${err.message}`, { stack: err.stack })
+    logger.error(`Error: ${err.stack}`)
   } else {
-    logger.error('Unknown error', err)
+    logger.error(`Unknown error: ${JSON.stringify(err)}`)
   }
 
   res.status(err.status || 500).json({

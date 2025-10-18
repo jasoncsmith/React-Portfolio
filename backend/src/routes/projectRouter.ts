@@ -1,6 +1,6 @@
 import express from 'express'
-import getProjects from '../controllers/projectController.js'
-import rateLimiter from '../middleware/rateLimiter.js'
+import getProjects from '../controllers/projectController'
+import rateLimiter from '../middleware/rateLimiter'
 
 const router = express.Router()
 

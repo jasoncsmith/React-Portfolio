@@ -1,7 +1,7 @@
 import fs from 'fs'
 import pino from 'pino'
 import pinoHttp from 'pino-http'
-import { dirname } from './utils.js'
+import { dirname } from './utils'
 
 // const prettyFileTransport = pino.transport({
 //   target: 'pino/pino-pretty',

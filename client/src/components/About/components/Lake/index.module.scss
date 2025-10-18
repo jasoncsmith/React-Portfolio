@@ -1,15 +1,32 @@
 .lake {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
+    position: fixed;
+    left: 0;
+    top: 405px;
     width: 100%;
-    height: 330px;
-    transform: translateX(-50%);
-    background: no-repeat url(../../../../assets/bg/bg-home-lake.jpg) 50% 0;
-    z-index: 1;
-    height: 100px;
-    background-position-y: -40px;
+    height: 500px;
+    // transform: translateX(-50%);
+    background: no-repeat url(/src/assets/bg/bg-home-lake.jpg) 50% -30px;
+    z-index: 10;
+    &::after {
+        content: "";
+        background: url(/src/assets/bg/bg-dock-v2.png) 0 0;
+        width: 492px;
+        height: 431px;
+        position: absolute;
+        right: -70px;
+        bottom: 0px;
+        scale: 0.8;
+        z-index: 5;
+    }
+    // background-position-y: -40px;
 
-    // TODO: come back to this
-    display: none;
+    // // TODO: come back to this
+    // display: none;
+}
+
+@media (min-width: 768px) {
+    .lake::after {
+        right: 20%;
+        bottom: -70px;
+    }
 }

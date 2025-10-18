@@ -85,4 +85,4 @@ Then select options:
 
 ### hosting.rewrites:
 
-- Point /api requests to the exported api (app) in `backend/src/index.js`
+- Point /api requests to the exported api (app) from `backend/src/index.ts`

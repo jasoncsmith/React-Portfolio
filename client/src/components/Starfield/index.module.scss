@@ -1,35 +1,26 @@
 .starField {
     position: fixed;
     width: 100%;
+    max-width: 1024px;
     padding: 4px;
-    height: 320px;
+    height: 350px;
     top: 55px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     pointer-events: none;
-    z-index: 5;
-    // background: url(/src/assets/bg/bg-smoke2.jpg) no-repeat 60% -55px;
-    // border: 1px solid #fff;
-    // // TODO: come back to this
+    z-index: 4;
+    background: black url(../../assets/bg/bg-sky-raw.jpg) no-repeat 50% 0 fixed;
+    background-position: 50% -65px;
 
-    // &::after {
-    //     width: 100%;
-    //     height: 359px;
-    //     position: absolute;
-    //     bottom: -140px;
-    //     content: "";
-    //     background: url(/src/assets/bg/bg-mountain-sillouette.png) no-repeat 45% 15px;
-    //     z-index: 5;
-    // }
+    &::after {
+        width: 100%;
+        height: 400px;
+        position: absolute;
+        bottom: -180px;
+        content: '';
+        background: url(../../assets/bg/bg_home_mountains.gif) no-repeat 60px -40px;
+        background-position: calc(50% - 75px) 0;
 
-    @media (min-width: 768px) {
-        width: 800px;
-        left: 50%;
-        transform: translateX(-50%);
-
-        // &::after {
-        //     width: 1000px;
-        //     left: 50%;
-        //     transform: translateX(-50%);
-        // }
+        z-index: 1;
     }
 }

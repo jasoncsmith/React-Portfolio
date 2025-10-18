@@ -1,8 +1,12 @@
 .footer {
     width: 100%;
     padding: 30px;
-    background-color: rgb(17, 17, 17);
-    border-top: 2px solid #111;
+
+    background-color: #00000080;
+    border-top: 2px solid #282828;
+    position: relative;
+    z-index: 20;
+    margin-top: 220px;
 
     &__author {
         height: auto;
@@ -19,6 +23,8 @@
         height: 50px;
         margin: 0 0 10px 0;
         padding: 10px 0 0 0;
+        position: relative;
+        z-index: 10;
     }
 
     &__link {
@@ -69,8 +75,24 @@
         color: #555;
     }
 
+    p {
+        position: relative;
+        z-index: 10;
+    }
+
     &__container {
         max-width: 1000px;
         margin: 0 auto;
+        position: relative;
+        &::after {
+            content: "";
+            // background: url(/src/assets/bg/bg-dock-v2.png) 0 0;
+            width: 492px;
+            height: 431px;
+            position: absolute;
+            right: 0;
+            bottom: -70px;
+            scale: 0.8;
+        }
     }
 }

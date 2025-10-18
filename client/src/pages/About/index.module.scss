@@ -1,21 +1,18 @@
-@use "/src/styles/colors";
-@use "/src/styles/mixins";
+@use '/src/styles/colors';
+@use '/src/styles/mixins';
 
 @font-face {
-    font-family: "Lobster13Regular";
+    font-family: 'Lobster13Regular';
     src:
         local(Lobster13Regular),
-        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.woff2") format("woff2"),
-        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.woff") format("woff"),
-        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.ttf") format("truetype"),
-        url("../../assets/fonts/Lobster/Lobster_1.3-webfont.svg#Lobster13Regular") format("svg");
+        url('../../assets/fonts/Lobster/Lobster_1.3-webfont.woff2') format('woff2'),
+        url('../../assets/fonts/Lobster/Lobster_1.3-webfont.woff') format('woff'),
+        url('../../assets/fonts/Lobster/Lobster_1.3-webfont.ttf') format('truetype'),
+        url('../../assets/fonts/Lobster/Lobster_1.3-webfont.svg#Lobster13Regular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 $titleBreak: 485px;
-.page {
-    background: black url(../../assets/bg/bg-home-sky-lake.jpg) no-repeat 54.9% 7px fixed;
-}
 
 .page__header {
     @media (min-width: $titleBreak) {
@@ -28,23 +25,18 @@ $titleBreak: 485px;
     color: #fff;
     position: relative;
     z-index: 5;
-    // background: url(../../assets/bg/bg-la.jpg) 0 0 / cover no-repeat;
-    // background-clip: text;
-    // -webkit-background-clip: text;
-    // -webkit-text-fill-color: transparent;
-
     &__of {
         font-size: 15px;
         font-weight: normal;
         font-style: italic;
         color: #eabb00;
-        font-family: "Lobster13Regular", Arial, Helvetica;
+        font-family: 'Lobster13Regular', Arial, Helvetica;
         text-shadow: -5px 4px 3px #000;
     }
 
     &__name {
         display: inline-block;
-        font-family: "BebasNeueRegular", Arial, sans-serif;
+        font-family: 'BebasNeueRegular', Arial, sans-serif;
         font-size: 120px;
     }
 

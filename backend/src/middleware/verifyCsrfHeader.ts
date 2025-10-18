@@ -1,7 +1,7 @@
-// import type { Request, Response, NextFunction } from 'express'
-import logger from '../utils/logger.js'
+import logger from '../utils/logger'
+import { type Request, type Response, type NextFunction } from 'express'
 
-const verifyCsrfHeader = (req, res, next) => {
+const verifyCsrfHeader = (req: Request, res: Response, next: NextFunction) => {
   //cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#employing-custom-request-headers-for-ajaxapi
   // csrf mitigation as csurf is depreccated
   // when used in conjunction with cors allowed origins

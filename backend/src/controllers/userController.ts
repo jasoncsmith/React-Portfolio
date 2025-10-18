@@ -1,11 +1,22 @@
-import { validationResult } from 'express-validator'
-// import { error as logError } from 'firebase-functions/logger'
-import db from '../db.js'
-import logger from '../utils/logger.js'
+import { ExpressValidator } from 'express-validator'
+import { type Request, type Response } from 'express'
 
-const createUser = async (req, res) => {
+// import { error as logError } from 'firebase-functions/logger'
+import db from '../db'
+import logger from '../utils/logger'
+
+const { query: Request, validationResult } = new ExpressValidator(
+  {},
+  {},
+  {
+    errorFormatter: error => error.msg,
+  }
+)
+
+const createUser = async (req: Request, res: Response) => {
   const { firstName, lastName, email, comments, company, confirmEmail } = req.body
-  const validationErrors = validationResult(req)
+
+  const validationErrors = validationResult({ firstName: '', ...req })
 
   if (!!confirmEmail) {
     // if this field is filled out a bot did it and we want to
@@ -18,7 +29,7 @@ const createUser = async (req, res) => {
     logger.error('Client side validation did not catch field errors')
 
     return res.status(400).json({
-      error: validationErrors.errors.map(err => err.msg),
+      error: validationErrors.array(),
     })
   }
 
@@ -63,8 +74,8 @@ const createUser = async (req, res) => {
 
     logger.info('New user created')
     res.status(201).json({ firstName, lastName, email, company, fullName, id })
-  } catch (error) {
-    logger.error('error saving user to database: ' + error.message)
+  } catch (error: any | Error) {
+    logger.error('error saving user to database: ' + error?.stack)
     return res.status(500).json({ message: 'Something went wrong.' })
   }
 }
