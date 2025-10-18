@@ -13,6 +13,11 @@ const DeathStar = ({ launch = false, launchDelay }: { launch?: boolean; launchDe
       className={`${styles['spaceship--deathstar']} ${
         launch ? `${styles['spaceship--deathstar--launch']}` : ''
       }`}
+      onAnimationEnd={e => {
+        if (launch) {
+          e.currentTarget.classList.remove(styles['spaceship--deathstar--launch'])
+        }
+      }}
     >
       <span className={styles.orb}></span>
       <span className={styles.orb}></span>
@@ -34,6 +39,11 @@ const Predator = ({ launch = false, launchDelay }: { launch?: boolean; launchDel
       className={`${styles['spaceship--predator']} ${
         launch ? `${styles['spaceship--predator--launch']}` : ''
       }`}
+      onAnimationEnd={e => {
+        if (launch) {
+          e.currentTarget.classList.remove(styles['spaceship--predator--launch'])
+        }
+      }}
     >
       <span className={styles.orb}></span>
       <span className={styles.orb}></span>
