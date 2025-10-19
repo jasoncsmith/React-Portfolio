@@ -4,7 +4,7 @@ $orb-size-deathstar: 8px;
 $orb-size-predator: 3px;
 
 :root {
-    --spaceship-position: 49%;
+    --spaceship-position: 54%;
     --launch-delay-deathstar: 0s;
     --launch-delay-predator: 0s;
 
@@ -24,8 +24,6 @@ $orb-size-predator: 3px;
 
     &--launch {
         animation: launch 5s 1s linear;
-        animation-delay: '11s';
-        // launch delay overrides set in component
     }
 
     &::before {
@@ -188,7 +186,7 @@ $orb-size-predator: 3px;
     }
 }
 @keyframes rotate {
-    from {
+    0% {
         transform: rotate(0deg);
     }
     to {
