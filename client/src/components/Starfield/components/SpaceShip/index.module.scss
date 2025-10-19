@@ -1,4 +1,4 @@
-@use "/src/styles/colors";
+@use '/src/styles/colors';
 
 $orb-size-deathstar: 8px;
 $orb-size-predator: 3px;
@@ -14,19 +14,17 @@ $orb-size-predator: 3px;
 }
 
 .spaceship--deathstar {
-    display: inline-block;
-    position: relative;
+    position: absolute;
+    bottom: 0%;
+    left: 45%;
+    opacity: 0;
     width: calc($orb-size-deathstar * 3);
     height: $orb-size-deathstar;
     border-radius: calc($orb-size-deathstar / 2);
 
     &--launch {
-        position: absolute;
-        left: 45%;
-        bottom: 12%;
-        opacity: 0;
         animation: launch 5s 1s linear;
-        animation-delay: "11s";
+        animation-delay: '11s';
         // launch delay overrides set in component
     }
 
@@ -34,7 +32,7 @@ $orb-size-predator: 3px;
         position: absolute;
         top: 2px;
         left: calc($orb-size-deathstar + 4px);
-        content: "";
+        content: '';
         background: red;
         width: 2px;
         height: 2px;
@@ -79,27 +77,23 @@ $orb-size-predator: 3px;
 }
 
 .spaceship--predator {
-    display: inline-block;
+    position: absolute;
+    bottom: 0%;
+    left: 45%;
     width: calc($orb-size-predator * 6);
     height: calc($orb-size-predator * 6);
+    background-color: rgba(red, 0.2);
+    border-radius: 50%;
+    box-shadow: 0 0 19px 3px rgba(red, 0.8);
     animation:
         rotate 2s linear infinite 3s,
         pulse-glow 2s ease-in-out infinite;
-    border-radius: 50%;
-    box-shadow: 0 0 19px 3px rgba(red, 0.8);
-    background-color: rgba(red, 0.2);
-    position: relative;
 
     &--launch {
-        opacity: 0;
-        position: absolute;
-        bottom: 12%;
-        left: 45%;
         animation:
             launch 5s 1s linear,
             rotate 2s linear infinite,
             pulse-glow 2s ease-in-out infinite;
-        // launch delay overrides set in component
     }
 
     .orb {
