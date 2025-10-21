@@ -11,8 +11,7 @@ function AboutMe() {
       <article className={styles.about}>
         <Fade animationToggle={true}>
           <p>
-            <strong>Spaceships?</strong> What??{' '}
-            <span className="italic whitespace-nowrap">Wait for it...</span>
+            <strong>Spaceships?</strong> <span className="italic whitespace-nowrap">Wait for it...</span>
           </p>
         </Fade>
         <Fade animationToggle={true}>
@@ -53,12 +52,12 @@ function AboutMe() {
               GitHub
             </a>
             . I had fun building the spaceships
-            <span className="inline-block mx-4">
-              <SpaceShip type="predator" />
-            </span>
+            <SpaceShip type="predator" inline />
             meteors, and stars.
           </p>
         </Fade>
+        <br />
+        {/* The <br /> stops it from hopping when you scroll to fast */}
       </article>
     </div>
   )
