@@ -1,5 +1,5 @@
-@use "/src/styles/mixins";
-@use "/src/styles/colors";
+@use '/src/styles/mixins';
+@use '/src/styles/colors';
 
 .slider__nav {
     display: flex;
@@ -12,6 +12,7 @@
     height: 56px;
     margin-top: -28px;
     z-index: 1;
+    cursor: pointer;
     @include mixins.disable-user-select();
 
     &__btn {
