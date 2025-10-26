@@ -12,7 +12,6 @@
     height: 56px;
     margin-top: -28px;
     z-index: 1;
-    cursor: pointer;
     @include mixins.disable-user-select();
 
     &__btn {
@@ -21,6 +20,7 @@
         height: 56px;
         text-indent: -9999px;
         background: none;
+        cursor: pointer;
 
         @include mixins.breakpointMin(715px) {
             display: block;
