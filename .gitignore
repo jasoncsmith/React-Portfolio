@@ -25,7 +25,6 @@ client/src/assets/docs/vite-after.jpg
 client/src/assets/docs/vite-before-build.jpg
 
 pnpm-lock.yaml
-client/package-lock.json
 **/app.log.*
 **/app.log
 client/src/pages/Scene/index.module.scss
