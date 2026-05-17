@@ -1,6 +1,4 @@
-# builds the react app copies build dir to gh-pages branch
-# do not need the gh-pages npm pkg, this script achieves that purpose
-name: folio to GH Pages deploy
+name: Deploy to GH Pages
 
 on:
   push:
