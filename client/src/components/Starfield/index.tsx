@@ -34,21 +34,22 @@ const StarField = function () {
     function () {
       stopAnimation()
 
-      timer.current = setTimeout(setFireMeteors, 15, true)
-      timer1.current = setTimeout(setLiftOffDeathstar, 3500, true)
-      timer2.current = setTimeout(setLiftOff, 7500, true)
+      timer.current = window.setTimeout(setFireMeteors, 15, true)
+      timer1.current = window.setTimeout(setLiftOffDeathstar, 3500, true)
+      timer2.current = window.setTimeout(setLiftOff, 7500, true)
     },
     [setLiftOff, setLiftOffDeathstar, setFireMeteors]
   )
+
   const stopAnimation = useCallback(
     function () {
       setLiftOff(false)
       setLiftOffDeathstar(false)
       setFireMeteors(false)
 
-      timer.current !== null && clearTimeout(timer.current)
-      timer1.current !== null && clearTimeout(timer1.current)
-      timer2.current !== null && clearTimeout(timer2.current)
+      timer.current !== null && window.clearTimeout(timer.current)
+      timer1.current !== null && window.clearTimeout(timer1.current)
+      timer2.current !== null && window.clearTimeout(timer2.current)
     },
     [setLiftOff, setLiftOffDeathstar, setFireMeteors]
   )
