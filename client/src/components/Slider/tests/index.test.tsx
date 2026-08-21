@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 import { SLIDE_INTERVAL } from '../constants'
 import { getProjects } from '../../../api/projects'
-import SliderStore from '../contexts'
+import SliderStore from '../contexts/ui'
 import Slider from '..'
 
 describe('Test Slider Component', () => {

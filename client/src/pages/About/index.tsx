@@ -4,8 +4,15 @@ import StarField from '../../components/Starfield'
 
 import styles from './index.module.scss'
 import Lake from '../../components/About/components/Lake'
+import { useEffect } from 'react'
+import { useSpace } from '../../components/Starfield/spaceshipAnimation'
 
 function About() {
+  const { play } = useSpace()
+  useEffect(() => {
+    play()
+  }, [])
+
   return (
     <Page className={styles.page}>
       <Page.Header

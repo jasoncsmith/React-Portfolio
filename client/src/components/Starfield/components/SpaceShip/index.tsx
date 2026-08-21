@@ -1,25 +1,22 @@
 import classNames from 'classnames'
 import styles from './index.module.scss'
+import { useSpace } from '../../spaceshipAnimation'
 
 interface SpaceShipProps {
   type?: 'predator' | 'deathstar'
-  launch?: boolean
-  launchDelay?: number
+  launchMode?: boolean
   inline?: boolean
 }
 
-const DeathStar = ({ launch = false, launchDelay }: SpaceShipProps) => {
+const DeathStar = ({ launchMode = false }: SpaceShipProps) => {
   return (
     <span
-      style={{ animationDelay: launchDelay ? `${launchDelay}s` : undefined }}
       className={classNames({
         [styles['spaceship--deathstar']]: true,
-        [styles['spaceship--deathstar--launch']]: launch,
+        [styles['spaceship--deathstar--launch']]: launchMode,
       })}
       onAnimationEnd={e => {
-        if (launch) {
-          e.currentTarget.classList.remove(styles['spaceship--deathstar--launch'])
-        }
+        e.currentTarget.classList.remove(styles['spaceship--deathstar--launch'])
       }}
     >
       <span className={styles.orb}></span>
@@ -29,26 +26,24 @@ const DeathStar = ({ launch = false, launchDelay }: SpaceShipProps) => {
   )
 }
 
-const Predator = ({ launch = false, launchDelay, inline }: SpaceShipProps) => {
-  const rotationEffectDelay = launchDelay ? launchDelay + 2 : undefined
-  const pulseEffectDelay = 0
+const Predator = ({ launchMode = false, inline }: SpaceShipProps) => {
+  // Hacky: {pause} but this is the last ship to launchMode so need to know when done
+  // so can replay animation
+
+  const { pause } = useSpace()
   return (
     <span
       style={{
-        animationDelay: launchDelay
-          ? `${launchDelay}s, ${rotationEffectDelay}s, ${pulseEffectDelay}s`
-          : undefined,
         position: inline ? 'relative' : 'absolute',
       }}
       className={classNames({
         [styles['spaceship--predator']]: true,
-        [styles['spaceship--predator--launch']]: launch,
+        [styles['spaceship--predator--launch']]: launchMode,
         [styles['spaceship--inline']]: inline,
       })}
       onAnimationEnd={e => {
-        if (launch) {
-          e.currentTarget.classList.remove(styles['spaceship--predator--launch'])
-        }
+        e.currentTarget.classList.remove(styles['spaceship--predator--launch'])
+        pause()
       }}
     >
       <span className={styles.orb}></span>
@@ -58,11 +53,11 @@ const Predator = ({ launch = false, launchDelay, inline }: SpaceShipProps) => {
   )
 }
 
-const SpaceShip = ({ type = 'deathstar', launch = false, launchDelay, inline }: SpaceShipProps) => {
+const SpaceShip = ({ type = 'deathstar', launchMode = false, inline }: SpaceShipProps) => {
   return type === 'deathstar' ? (
-    <DeathStar launch={launch} launchDelay={launchDelay} inline={inline} />
+    <DeathStar launchMode={launchMode} />
   ) : type === 'predator' ? (
-    <Predator launch={launch} launchDelay={launchDelay} inline={inline} />
+    <Predator launchMode={launchMode} inline={inline} />
   ) : null
 }
 

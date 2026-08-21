@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 
 import MenuItem from '../MenuItem'
 
-import { Project, useSliderStoreContext } from '../../contexts'
+import { Project, useSliderStoreContext } from '../../contexts/ui'
 
 import styles from './index.module.scss'
 

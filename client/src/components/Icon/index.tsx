@@ -14,7 +14,7 @@ import {
   IoLayersOutline,
 } from 'react-icons/io5'
 import { IoMdClose } from 'react-icons/io'
-import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaPlay, FaPause } from 'react-icons/fa'
 import { BsDownload } from 'react-icons/bs'
 
 const IconSet = {
@@ -29,6 +29,8 @@ const IconSet = {
   IoChevronForward,
   FaGithub,
   FaLinkedin,
+  FaPlay,
+  FaPause,
   BsDownload,
 }
 

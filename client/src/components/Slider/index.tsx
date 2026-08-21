@@ -9,7 +9,7 @@ import ViewPort from './components/ViewPort'
 import Caption from './components/Caption'
 import Controls from './components/Controls'
 import Nav from './components/Nav'
-import SliderStore, { SliderStoreContext } from './contexts'
+import SliderStore, { SliderStoreContext } from './contexts/ui'
 import Loader from '../Loader'
 import Fade from '../Layout/Fade'
 

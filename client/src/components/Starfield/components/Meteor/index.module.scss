@@ -9,11 +9,10 @@
     left: 100%;
     top: 0;
     opacity: 0;
-    animation: trajectory-diagonal-left 10s 1s linear;
-}
 
-.--up {
-    animation: up 4s infinite;
+    &--launch {
+        animation: trajectory-diagonal-left 10s linear;
+    }
 }
 
 @keyframes trajectory-diagonal-left {

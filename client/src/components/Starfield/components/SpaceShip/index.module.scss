@@ -24,7 +24,7 @@ $orb-size-predator: 3px;
     border-radius: calc($orb-size-deathstar / 2);
 
     &--launch {
-        animation: launch 5s 1s linear;
+        animation: launch 5s linear;
     }
 
     &::before {
@@ -91,7 +91,7 @@ $orb-size-predator: 3px;
 
     &--launch {
         animation:
-            launch 5s 1s linear,
+            launch 5s linear,
             rotate 2s linear infinite,
             pulse-glow 2s ease-in-out infinite;
     }

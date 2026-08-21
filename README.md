@@ -86,3 +86,11 @@ Then select options:
 ### hosting.rewrites:
 
 - Point /api requests to the exported api (app) from `backend/src/index.ts`
+
+### FIREBASE GOTCHAS!!!!
+
+If you ever get:
+`UNKNOWN: Getting metadata from plugin failed with error: invalid_grant firebase`
+
+You must reauthenticate:
+`firebase login --reauth`
