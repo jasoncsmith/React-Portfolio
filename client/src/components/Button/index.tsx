@@ -26,6 +26,9 @@ interface ComponentProps extends HTMLAttributes<HTMLButtonElement | HTMLAnchorEl
   className?: string
   isLoading?: boolean
   disabled?: boolean
+  inline?: boolean
+  visible?: boolean
+  size?: 'small' | 'medium' | 'large'
 }
 
 const Button = ({
@@ -33,7 +36,10 @@ const Button = ({
   className = '',
   buttonType = 'button',
   variant = 'primary',
+  size = 'medium',
   isLoading = false,
+  visible = true,
+  inline = false,
   iconName,
   ...props
 }: ComponentProps & (ButtonProps | LinkProps)) => {
@@ -44,6 +50,11 @@ const Button = ({
         [styles.button]: true,
         [styles['button--is-loading']]: isLoading,
         [styles[`button--${variant}`]]: variant,
+        [styles[`button--inline`]]: inline,
+        [styles[`button--is-hidden`]]: !visible,
+        [styles['button--sm']]: size === 'small',
+        [styles['button--md']]: size === 'medium',
+        [styles['button--lg']]: size === 'large',
         [className]: !!className,
       })}
       {...props}

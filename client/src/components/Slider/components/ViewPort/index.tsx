@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react'
 import classNames from 'classnames'
 
-import { useSliderStoreContext } from '../../contexts'
+import { useSliderStoreContext } from '../../contexts/ui'
 import SlideImage from '../Image'
 
 import styles from './index.module.scss'

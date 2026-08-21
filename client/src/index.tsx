@@ -3,6 +3,7 @@ import { StrictMode, Suspense, lazy } from 'react'
 import { Navigate, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+import { SpaceProvider } from './components/Starfield/spaceshipAnimation'
 import LoaderFullPage from './components/LoaderFullPage'
 
 import './index.scss'
@@ -55,8 +56,10 @@ root.render(
   <StrictMode>
     <Suspense fallback={<LoaderFullPage />}>
       <QueryClientProvider client={new QueryClient({})}>
-        <ReactQueryDevtools initialIsOpen={false} />
-        <RouterProvider router={router} />
+        <SpaceProvider>
+          <ReactQueryDevtools initialIsOpen={false} />
+          <RouterProvider router={router} />
+        </SpaceProvider>
       </QueryClientProvider>
     </Suspense>
   </StrictMode>
