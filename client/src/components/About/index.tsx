@@ -7,13 +7,12 @@ import styles from './index.module.scss'
 
 function AboutMe() {
   // const [user] = useLocalStorage<User>('user')
-  let littleClass = 'italic whitespace-nowrap ml-4'
-  let text = 'Play again:'
   const { play, pause, playing } = useSpace()
+  let littleClass = 'italic whitespace-nowrap ml-4'
+  let text = playing === true ? 'Spaceships flying...' : 'Play again:'
 
   if (playing === true) {
     littleClass += ' ' + styles['--effect-throb']
-    text = 'Spaceships flying...'
   }
   return (
     <div className={styles['about--wrap']}>
