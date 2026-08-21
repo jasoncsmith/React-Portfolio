@@ -9,7 +9,7 @@ function AboutMe() {
   // const [user] = useLocalStorage<User>('user')
   const { play, playing, pause } = useSpace()
   let littleClass = 'italic whitespace-nowrap ml-4'
-  if (playing) {
+  if (playing === true) {
     littleClass += ' ' + styles['--effect-throb']
   }
   return (
