@@ -1,33 +1,33 @@
+import { useSpace } from '../Starfield/spaceshipAnimation'
 import Fade from '../../components/Layout/Fade'
 import Button from '../Button'
 import Icon from '../Icon'
 import SpaceShip from '../Starfield/components/SpaceShip'
-import { useSpace } from '../Starfield/spaceshipAnimation'
+
 import styles from './index.module.scss'
 
 function AboutMe() {
   // const [user] = useLocalStorage<User>('user')
   const { play, pause, playing } = useSpace()
-  let littleClass = 'italic whitespace-nowrap ml-4'
-  let text = playing === true ? 'Spaceships flying...' : 'Play again:'
 
-  if (playing === true) {
-    littleClass += ' ' + styles['--effect-throb']
-  }
   return (
     <div className={styles['about--wrap']}>
       <article className={styles.about}>
         <Fade animationToggle={true}>
           <p className="flex items-center">
             <strong>Spaceships?</strong>
-            <span className={littleClass}>{text}</span>
+            <span
+              className={`italic whitespace-nowrap ml-4 ${playing === true ? styles['--effect-throb'] : ''}`}
+            >
+              {playing === true ? 'Spaceships flying...' : 'Play again:'}
+            </span>
             <Button
               buttonType="button"
               type="button"
               onClick={playing ? pause : play}
+              iconName={playing ? 'FaPause' : 'FaPlay'}
               variant="ghost"
               size="medium"
-              iconName={playing ? 'FaPause' : 'FaPlay'}
               inline={true}
             ></Button>
           </p>
