@@ -33,7 +33,7 @@ jobs:
       - name: Install and Build
         run: |
           cd client
-          pnpm ci
+          pnpm i
           pnpm run build
 
       - name: Deploy to GH Pages 🚀
