@@ -29,8 +29,7 @@ jobs:
       - name: Install and Build
         run: |
           cd client
-          pnpm i
-          pnpm approve-builds
+          pnpm install --dangerously-allow-all-builds
           pnpm run build
 
       - name: Deploy to firebase
