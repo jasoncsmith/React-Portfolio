@@ -32,8 +32,8 @@ jobs:
       - name: Install and Build
         run: |
           cd client
-          npm ci
-          npm run build
+          pnpm ci
+          pnpm run build
 
       - name: Deploy to GH Pages 🚀
         if: ${{ github.event_name != 'pull_request' }}
