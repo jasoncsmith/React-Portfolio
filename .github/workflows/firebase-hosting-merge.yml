@@ -30,6 +30,7 @@ jobs:
         run: |
           cd client
           pnpm i
+          pnpm approve-builds
           pnpm run build
 
       - name: Deploy to firebase
